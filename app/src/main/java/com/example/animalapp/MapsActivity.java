@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -35,6 +36,7 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
 
 
 
+
         return v;
 
     }
@@ -51,10 +53,18 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        double latitude = 51.481583;
+        double longitude = -3.179090;
+
 
         // Add a marker in Sydney and move the camera
-        LatLng cardiff = new LatLng(51.481583, -3.179090);
+        LatLng cardiff = new LatLng(latitude, longitude);
+        mMap.getUiSettings().setZoomControlsEnabled(true);
         mMap.addMarker(new MarkerOptions().position(cardiff).title("Marker in Cardiff"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(cardiff));
+        LatLng coordinate = new LatLng(latitude, longitude);
+        CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 16);
+        mMap.animateCamera(yourLocation);
+
     }
 }
