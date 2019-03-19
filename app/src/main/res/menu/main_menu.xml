@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_placeholder_icon"
+        app:showAsAction="ifRoom"
+        android:title="@string/home">
+    </item>
+    <item
+        android:id="@+id/action_animals"
+        android:icon="@drawable/ic_placeholder_icon"
+        app:showAsAction="ifRoom"
+        android:title="@string/animals">
+    </item>
+    <item
+        android:id="@+id/action_map"
+        android:icon="@drawable/ic_placeholder_icon"
+        app:showAsAction="ifRoom"
+        android:title="@string/map">
+    </item>
+    <item
+        android:id="@+id/action_reserves"
+        android:icon="@drawable/ic_placeholder_icon"
+        app:showAsAction="ifRoom"
+        android:title="@string/nature_reserves">
+    </item>
+    <item
+        android:id="@+id/action_links"
+        android:icon="@drawable/ic_placeholder_icon"
+        app:showAsAction="ifRoom"
+        android:title="@string/links">
+    </item>
+
+</menu>

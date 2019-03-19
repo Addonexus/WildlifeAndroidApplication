@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AnimalApp</string>
+
+    <string name="home_string">THIS IS THE HOME PAGE</string>
+    <string name="home">Home</string>
+    <string name="animals">Animals</string>
+    <string name="map">Map</string>
+    <string name="nature_reserves">Nature Reserves</string>
+    <string name="links">Links</string>
 </resources>
