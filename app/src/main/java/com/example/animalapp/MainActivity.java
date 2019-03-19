@@ -5,12 +5,16 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.content.pm.PackageManager;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Toast;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "MapFragment", Toast.LENGTH_SHORT).show();
 
                         manager.beginTransaction().replace(R.id.fragment_container,
-                                new MapFragment()).commit();
+                                new MapsActivity()).commit();
                         break;
                     case R.id.action_reserves:
                         Toast.makeText(MainActivity.this, "Nature Reserve", Toast.LENGTH_SHORT).show();
