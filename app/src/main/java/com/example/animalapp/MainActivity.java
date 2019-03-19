@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView bottomNavigationView =  findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.action_home);
+        bottomNavigationView.setSelectedItemId(R.id.action_animals);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "MapFragment", Toast.LENGTH_SHORT).show();
 
                         manager.beginTransaction().replace(R.id.fragment_container,
-                                new MapsActivity()).commit();
+                                new MapFragment()).commit();
                         break;
                     case R.id.action_reserves:
                         Toast.makeText(MainActivity.this, "Nature Reserve", Toast.LENGTH_SHORT).show();
