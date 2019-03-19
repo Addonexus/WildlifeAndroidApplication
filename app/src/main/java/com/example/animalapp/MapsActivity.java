@@ -1,12 +1,17 @@
 package com.example.animalapp;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +23,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.Objects;
 
 public class MapsActivity extends Fragment implements OnMapReadyCallback {
 
@@ -33,8 +40,6 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         transaction.add(R.id.map, fragment);
         transaction.commit();
         fragment.getMapAsync(this);
-
-
 
 
         return v;
@@ -56,6 +61,12 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         double latitude = 51.481583;
         double longitude = -3.179090;
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if(ContextCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                mMap.setMyLocationEnabled(true);
+            }
+        }
+
 
         // Add a marker in Sydney and move the camera
         LatLng cardiff = new LatLng(latitude, longitude);
@@ -65,6 +76,8 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         LatLng coordinate = new LatLng(latitude, longitude);
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 16);
         mMap.animateCamera(yourLocation);
+
+
 
     }
 }
