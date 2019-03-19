@@ -21,10 +21,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.Objects;
@@ -32,21 +29,6 @@ import java.util.Objects;
 public class MapsActivity extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private static final LatLng FORESTFARM = new LatLng(51.516780,-3.243370);
-    private static final LatLng HAMADRYADPARK = new LatLng(51.46067865, -3.1755209);
-    private static final LatLng BUTEPARK = new LatLng(51.48849155, -3.18938255);
-    private static final LatLng CATHAYSCEMETERY = new LatLng(51.50072866, -3.18105698);
-    private static final LatLng LLANISHEN = new LatLng(51.52559354, -3.17539215);
-    private static final LatLng ROATHPARK= new LatLng(51.50492273, -3.17530632);
-
-    private Marker mForestFarm;
-    private Marker mHamadryadPark;
-    private Marker mButePark;
-    private Marker mCathaysCemetery;
-    private Marker mLlanishen;
-    private Marker mRoathPark;
-
-
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -89,37 +71,13 @@ public class MapsActivity extends Fragment implements OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         LatLng cardiff = new LatLng(latitude, longitude);
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        mMap.addMarker(new MarkerOptions().position(cardiff).title("Marker in Cardiff").draggable(true));
+        mMap.addMarker(new MarkerOptions().position(cardiff).title("Marker in Cardiff"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(cardiff));
         LatLng coordinate = new LatLng(latitude, longitude);
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 16);
         mMap.animateCamera(yourLocation);
 
-//        Adding Markers to Green Locations
-        mForestFarm = mMap.addMarker(new MarkerOptions()
-                .position(FORESTFARM)
-                .title("Forest Farm").snippet("Birds, dragonflies and fishes like the Kingfisher.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mButePark = mMap.addMarker(new MarkerOptions()
-                .position(BUTEPARK)
-                .title("Bute Park").snippet("Bats and squirrels ")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mCathaysCemetery = mMap.addMarker(new MarkerOptions()
-                .position(CATHAYSCEMETERY)
-                .title("Cathays Cemetery").snippet("Area with lots of wildlife.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mHamadryadPark = mMap.addMarker(new MarkerOptions()
-                .position(HAMADRYADPARK)
-                .title("Cardiff Bay Wetlands Reserve and Hamadryad Park ").snippet("Whitethroats, Reed Warblers and Sedge Warblers.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mLlanishen = mMap.addMarker(new MarkerOptions()
-                .position(LLANISHEN)
-                .title("Lisvane and Llanishen Reservoirs ").snippet("Grass Snakes,Buzzards and Jackdaws.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mRoathPark = mMap.addMarker(new MarkerOptions()
-                .position(ROATHPARK)
-                .title("Roath Park").snippet("Ducks and Geese .")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
 
     }
 }
