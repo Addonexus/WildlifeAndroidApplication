@@ -100,22 +100,22 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
             GeoJsonLayer mRoathPark = new GeoJsonLayer(mMap,R.raw.roathpark, getContext());
             GeoJsonPointStyle mRoathParkPointStyle = mCathaysCemetery.getDefaultPointStyle();
-            mRoathParkPointStyle.setTitle("Cathays Cemetery");
-            mRoathParkPointStyle.setSnippet("Area with lots of wildlife.");
+            mRoathParkPointStyle.setTitle("Roath Park");
+            mRoathParkPointStyle.setSnippet("Ducks and Geese.");
             mRoathParkPointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
             mRoathPark.addFeature(new GeoJsonFeature(new GeoJsonPoint(ROATHPARK), null, null, null));
 
             GeoJsonLayer mButePark = new GeoJsonLayer(mMap,R.raw.butepark, getContext());
             GeoJsonPointStyle mButeParkPointStyle = mCathaysCemetery.getDefaultPointStyle();
-            mButeParkPointStyle.setTitle("Cathays Cemetery");
-            mButeParkPointStyle.setSnippet("Area with lots of wildlife.");
+            mButeParkPointStyle.setTitle("Bute Park");
+            mButeParkPointStyle.setSnippet("Bats and squirrels.");
             mButeParkPointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
             mButePark.addFeature(new GeoJsonFeature(new GeoJsonPoint(BUTEPARK), null, null, null));
 
             GeoJsonLayer mLlanishen = new GeoJsonLayer(mMap,R.raw.llanishenresevoir, getContext());
             GeoJsonPointStyle mLlanishenPointStyle = mCathaysCemetery.getDefaultPointStyle();
-            mLlanishenPointStyle.setTitle("Cathays Cemetery");
-            mLlanishenPointStyle.setSnippet("Area with lots of wildlife.");
+            mLlanishenPointStyle.setTitle("Lisvane and Llanishen Reservoirs");
+            mLlanishenPointStyle.setSnippet("Grass Snakes,Buzzards and Jackdaws.");
             mLlanishenPointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
             mLlanishen.addFeature(new GeoJsonFeature(new GeoJsonPoint(LLANISHEN), null, null, null));
 
@@ -151,27 +151,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 .position(FORESTFARM)
                 .title("Forest Farm").snippet("Birds, dragonflies and fishes like the Kingfisher.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mButePark = mMap.addMarker(new MarkerOptions()
-                .position(BUTEPARK)
-                .title("Bute Park").snippet("Bats and squirrels ")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-//        mCathaysCemetery = mMap.addMarker(new MarkerOptions()
-//                .position(CATHAYSCEMETERY)
-//                .title("Cathays Cemetery").snippet("Area with lots of wildlife.")
-//                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         mHamadryadPark = mMap.addMarker(new MarkerOptions()
                 .position(HAMADRYADPARK)
                 .title("Cardiff Bay Wetlands Reserve and Hamadryad Park ").snippet("Whitethroats, Reed Warblers and Sedge Warblers.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mLlanishen = mMap.addMarker(new MarkerOptions()
-                .position(LLANISHEN)
-                .title("Lisvane and Llanishen Reservoirs ").snippet("Grass Snakes,Buzzards and Jackdaws.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mRoathPark = mMap.addMarker(new MarkerOptions()
-                .position(ROATHPARK)
-                .title("Roath Park").snippet("Ducks and Geese .")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-
     }
 
 
