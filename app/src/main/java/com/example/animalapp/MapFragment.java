@@ -105,8 +105,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             mRoathParkPointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
             mRoathPark.addFeature(new GeoJsonFeature(new GeoJsonPoint(ROATHPARK), null, null, null));
 
+            GeoJsonLayer mButePark = new GeoJsonLayer(mMap,R.raw.butepark, getContext());
+            GeoJsonPointStyle mButeParkPointStyle = mCathaysCemetery.getDefaultPointStyle();
+            mButeParkPointStyle.setTitle("Cathays Cemetery");
+            mButeParkPointStyle.setSnippet("Area with lots of wildlife.");
+            mButeParkPointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            mButePark.addFeature(new GeoJsonFeature(new GeoJsonPoint(BUTEPARK), null, null, null));
+
+
             mCathaysCemetery.addLayerToMap();
             mRoathPark.addLayerToMap();
+            mButePark.addLayerToMap();
 
 
         } catch (IOException e) {
