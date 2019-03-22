@@ -91,14 +91,22 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         }
         try {
-            GeoJsonLayer layer = new GeoJsonLayer(mMap,R.raw.cathayscemetery, getContext());
-            GeoJsonPointStyle pointStyle = layer.getDefaultPointStyle();
-            pointStyle.setTitle("Cathays Cemetery");
-            pointStyle.setSnippet("Area with lots of wildlife.");
-            pointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-            layer.addLayerToMap();
-            GeoJsonPoint point = new GeoJsonPoint(CATHAYSCEMETERY);
-            layer.addFeature(new GeoJsonFeature(point, null, null, null));
+            GeoJsonLayer mCathaysCemetery = new GeoJsonLayer(mMap,R.raw.cathayscemetery, getContext());
+            GeoJsonPointStyle mCathaysCemeteryPointStyle = mCathaysCemetery.getDefaultPointStyle();
+            mCathaysCemeteryPointStyle.setTitle("Cathays Cemetery");
+            mCathaysCemeteryPointStyle.setSnippet("Area with lots of wildlife.");
+            mCathaysCemeteryPointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            mCathaysCemetery.addFeature(new GeoJsonFeature(new GeoJsonPoint(CATHAYSCEMETERY), null, null, null));
+
+            GeoJsonLayer mRoathPark = new GeoJsonLayer(mMap,R.raw.roathpark, getContext());
+            GeoJsonPointStyle mRoathParkPointStyle = mCathaysCemetery.getDefaultPointStyle();
+            mRoathParkPointStyle.setTitle("Cathays Cemetery");
+            mRoathParkPointStyle.setSnippet("Area with lots of wildlife.");
+            mRoathParkPointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            mRoathPark.addFeature(new GeoJsonFeature(new GeoJsonPoint(ROATHPARK), null, null, null));
+
+            mCathaysCemetery.addLayerToMap();
+            mRoathPark.addLayerToMap();
 
 
         } catch (IOException e) {
@@ -106,6 +114,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+
+
 
 
         // Add a marker in Sydney and move the camera
