@@ -5,9 +5,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -25,7 +23,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.maps.android.data.geojson.GeoJsonFeature;
+import com.google.maps.android.data.geojson.GeoJsonLayer;
+import com.google.maps.android.data.geojson.GeoJsonPoint;
+import com.google.maps.android.data.geojson.GeoJsonPointStyle;
 
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.Objects;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
@@ -85,6 +90,22 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 mMap.setMyLocationEnabled(true);
             }
         }
+        try {
+            GeoJsonLayer layer = new GeoJsonLayer(mMap,R.raw.cathayscemetery, getContext());
+            GeoJsonPointStyle pointStyle = layer.getDefaultPointStyle();
+            pointStyle.setTitle("Cathays Cemetery");
+            pointStyle.setSnippet("Area with lots of wildlife.");
+            pointStyle.setIcon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+            layer.addLayerToMap();
+            GeoJsonPoint point = new GeoJsonPoint(CATHAYSCEMETERY);
+            layer.addFeature(new GeoJsonFeature(point, null, null, null));
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
         // Add a marker in Sydney and move the camera
@@ -106,10 +127,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 .position(BUTEPARK)
                 .title("Bute Park").snippet("Bats and squirrels ")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-        mCathaysCemetery = mMap.addMarker(new MarkerOptions()
-                .position(CATHAYSCEMETERY)
-                .title("Cathays Cemetery").snippet("Area with lots of wildlife.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+//        mCathaysCemetery = mMap.addMarker(new MarkerOptions()
+//                .position(CATHAYSCEMETERY)
+//                .title("Cathays Cemetery").snippet("Area with lots of wildlife.")
+//                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
         mHamadryadPark = mMap.addMarker(new MarkerOptions()
                 .position(HAMADRYADPARK)
                 .title("Cardiff Bay Wetlands Reserve and Hamadryad Park ").snippet("Whitethroats, Reed Warblers and Sedge Warblers.")
