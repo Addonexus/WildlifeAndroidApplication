@@ -9,6 +9,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/this_page_directs_to_external_links_relating_to_wildlife" />
+        android:text="linkFragment"
+        android:gravity="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
 </FrameLayout>

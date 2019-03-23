@@ -1,17 +1,3 @@
 <resources>
-    <string name="app_name">AnimalApp</string>
-
-    <string name="home_string">THIS IS THE HOME PAGE</string>
-    <string name="home">Home</string>
-    <string name="animals">Animals</string>
-    <string name="map">Map</string>
-    <string name="nature_reserves">Nature Reserves</string>
-    <string name="links">Links</string>
-
-    <!-- DONE: Remove or change this placeholder text -->
-    <!--<string name="hello_blank_fragment">Hello blank fragment</string>-->
-    <string name="this_page_directs_to_external_links_relating_to_wildlife">THIS PAGE DIRECTS TO EXTERNAL LINKS RELATING TO WILDLIFE</string>
-    <string name="map_fragment_string">MAP FRAGMENT GOES HERE</string>
-    <string name="animal_dictionary_string">THIS GIVES MORE INFORMATION ABOUT EACH ANIMAL</string>
-    <string name="nature_reserve_string">THIS GIVES ALL THE NATURE RESERVES AND WALKS YOU CAN TAKE</string>
+    <string name="app_name">animalapp</string>
 </resources>
