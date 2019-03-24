@@ -3,14 +3,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:background="@drawable/pidgeons">
+    >
 
-    <!-- DONE: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="homeFragment"
-        android:gravity="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="110dp"
+        android:textColor="#000000"
+
+        android:textSize="40dp"
+        android:text="TextView"
+        tools:text="Caerdydd" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="130dp"
+        android:textColor="#000000"
+        android:textSize="40dp"
+        android:text="TextView"
+        tools:text="Wildlife" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginLeft="110dp"
+        android:background="#EA0000"
+        android:textColor="#000000"
+        android:hint="@string/Login" />
+
+    <Button
+        android:id="@+id/button_register"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="580dp"
+        android:layout_marginLeft="110dp"
+        android:background="#EA0000"
+        android:textColor="#000000"
+        android:hint="@string/register" />
 
 </FrameLayout>
