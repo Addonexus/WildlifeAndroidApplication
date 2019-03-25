@@ -14,15 +14,6 @@
         android:padding="20dp"
         android:text="Choose the Species you want to search for" />
 
-    <TextView
-        android:id="@+id/filter_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="30dp"
-        android:paddingBottom="20dp"
-        android:text="Filter: " />
-
-
 
     <Button
         android:id="@+id/species_bird_button"

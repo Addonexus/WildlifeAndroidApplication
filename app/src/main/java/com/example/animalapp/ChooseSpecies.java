@@ -47,13 +47,13 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         ArrayList<ArrayList<String>> filter = new ArrayList<>();
-        ArrayList<String> filterItem = new ArrayList<>();
+        ArrayList<String> filterItems = new ArrayList<>();
         Bundle bundle = new Bundle();
         int i = v.getId();
         if (i == R.id.species_bird_button) {
-            filterItem.add("Type" + ":" + "Bird");
+            filterItems.add("Type" + ":" + "Bird");
 
-            bundle.putStringArrayList("filter", filterItem);
+            bundle.putStringArrayList("filter", filterItems);
             Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeightFragment,bundle);
 
         }
