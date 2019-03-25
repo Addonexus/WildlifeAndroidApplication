@@ -164,4 +164,23 @@ public class Animal {
     public void setFoodSource(String foodSource) {
         this.foodSource = foodSource;
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id=" + id +
+                ", type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", scientificName='" + scientificName + '\'' +
+                ", minBodyLengthCm=" + minBodyLengthCm +
+                ", maxBodyLengthCm=" + maxBodyLengthCm +
+                ", minWingspanCm=" + minWingspanCm +
+                ", maxWingspanCm=" + maxWingspanCm +
+                ", description='" + description + '\'' +
+                ", habitat='" + habitat + '\'' +
+                ", bestTime='" + bestTime + '\'' +
+                ", bestWalk='" + bestWalk + '\'' +
+                ", foodSource='" + foodSource + '\'' +
+                '}';
+    }
 }
