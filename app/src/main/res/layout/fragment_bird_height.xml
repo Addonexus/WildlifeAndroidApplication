@@ -25,19 +25,19 @@
         android:text="Filter: " />
 
     <Button
-        android:id="@+id/height_option_1"
+        android:id="@+id/bird_height_option_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Smaller than 15cm" />
 
     <Button
-        android:id="@+id/height_option_2"
+        android:id="@+id/bird_height_option_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Larger than 15cm but smaller than 30cm" />
 
     <Button
-        android:id="@+id/height_option_3"
+        android:id="@+id/bird_height_option_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Larger than 30cm" />
