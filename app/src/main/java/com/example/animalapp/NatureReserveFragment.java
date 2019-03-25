@@ -26,6 +26,7 @@ public class NatureReserveFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        getActivity().setTitle("Nature Reserves");
         return inflater.inflate(R.layout.fragment_nature_reserves, container, false);
     }
 
