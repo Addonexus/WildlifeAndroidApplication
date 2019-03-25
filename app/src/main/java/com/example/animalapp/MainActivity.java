@@ -18,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigationView = findViewById(R.id.bottom_nav);
 
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+
+        fragmentTransaction.add(R.id.frame, new LoginFragment());
+        fragmentTransaction.commit();
+
         final HomeFragment homeFragment = new HomeFragment();
         final AnimalFragment animalFragment = new AnimalFragment();
         final MapFragment mapFragment = new MapFragment();
@@ -51,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setSelectedItemId(R.id.navHome);
     }
 
-    private void setFragment(Fragment fragment) {
+    public void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
     }
+
 }
