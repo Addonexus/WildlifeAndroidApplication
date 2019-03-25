@@ -9,10 +9,18 @@
         android:id="@+id/birdHeightFragment"
         android:name="com.example.animalapp.BirdHeightFragment"
         android:label="fragment_bird_height"
-        tools:layout="@layout/fragment_bird_height" />
+        tools:layout="@layout/fragment_bird_height" >
+        <action
+            android:id="@+id/action_birdHeightFragment_to_chooseSpecies"
+            app:destination="@id/chooseSpecies" />
+    </fragment>
     <fragment
         android:id="@+id/chooseSpecies"
         android:name="com.example.animalapp.ChooseSpecies"
         android:label="fragment_choose_species"
-        tools:layout="@layout/fragment_choose_species" />
+        tools:layout="@layout/fragment_choose_species" >
+        <action
+            android:id="@+id/action_chooseSpecies_to_birdHeightFragment"
+            app:destination="@id/birdHeightFragment" />
+    </fragment>
 </navigation>
