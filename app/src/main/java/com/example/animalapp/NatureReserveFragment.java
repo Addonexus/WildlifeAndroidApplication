@@ -17,6 +17,7 @@ import com.example.animalapp.R;
 public class NatureReserveFragment extends Fragment {
 
 
+
     public NatureReserveFragment() {
         // Required empty public constructor
     }

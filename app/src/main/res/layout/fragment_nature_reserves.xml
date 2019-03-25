@@ -15,14 +15,7 @@
         android:paddingRight="10dp" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="natureReserveFragment"
-        android:gravity="center"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
-
-    <TextView
-        android:id="@+id/name"
+        android:id="@+id/reserves"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -30,6 +23,25 @@
         android:paddingBottom="10dp"
         android:text="txt"
         android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/shortDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reserves"
+        android:layout_below="@+id/reserves"
+        android:text="txt"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/reserveType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/reserves"
+        android:layout_alignBottom="@+id/reserves"
+        android:layout_alignParentRight="true"
+        android:text="txt"
+        android:textSize="16sp" />
 
 
 </RelativeLayout>
