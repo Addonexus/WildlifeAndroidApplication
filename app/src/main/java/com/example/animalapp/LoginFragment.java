@@ -18,7 +18,7 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends  Fragment /*AppCompatActivity*/{
+public class LoginFragment extends Fragment {
 
 
     public LoginFragment() {
@@ -35,12 +35,12 @@ public class LoginFragment extends  Fragment /*AppCompatActivity*/{
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
         db = new DatabaseHelper(this);
-        mTextUsername = (EditText) findViewById(R.id.edittext_username);
-        mTextPassword = (EditText) findViewById(R.id.edittext_password);
-        mButtonLogin = (Button) findViewById(R.id.button_login);
-        mTextViewRegister = (TextView) findViewById(R.id.textview_register);
+        mTextUsername = (EditText) view.findViewById(R.id.edittext_username);
+        mTextPassword = (EditText) view.findViewById(R.id.edittext_password);
+        mButtonLogin = (Button) view.findViewById(R.id.button_login);
+        mTextViewRegister = (TextView) view.findViewById(R.id.textview_register);
         mTextViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,12 +55,9 @@ public class LoginFragment extends  Fragment /*AppCompatActivity*/{
                 String user = mTextUsername.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
                 Boolean res = db.checkUser(user, pwd);
-                if(res == true)
-                {
-                    Toast.makeText(LoginFragment.this,"Successfully Logged In", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                if (res == true) {
+                    Toast.makeText(LoginFragment.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
+                } else {
                     Toast.makeText(LoginFragment.this, "Loggin Error", Toast.LENGTH_SHORT).show();
 
                 }

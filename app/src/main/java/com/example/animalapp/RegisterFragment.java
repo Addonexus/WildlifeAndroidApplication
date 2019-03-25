@@ -17,7 +17,7 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RegisterFragment extends Fragment /*AppCompatActivity*/ {
+public class RegisterFragment extends Fragment  {
 
 
     public RegisterFragment() {
@@ -36,14 +36,14 @@ public class RegisterFragment extends Fragment /*AppCompatActivity*/ {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false);
+        View view = inflater.inflate(R.layout.fragment_register, container, false);
 
         db = new DatabaseHelper(this);
-        mTextUsername = (EditText) findViewById(R.id.edittext_username);
-        mTextPassword = (EditText) findViewById(R.id.edittext_password);
-        mTextCnfPassword = (EditText) findViewById(R.id.edittext_cnf_password);
-        mButtonRegister = (Button) findViewById(R.id.button_register);
-        mTextViewLogin = (TextView) findViewById(R.id.textview_login);
+        mTextUsername = (EditText) view.findViewById(R.id.edittext_username);
+        mTextPassword = (EditText) view.findViewById(R.id.edittext_password);
+        mTextCnfPassword = (EditText) view.findViewById(R.id.edittext_cnf_password);
+        mButtonRegister = (Button) view.findViewById(R.id.button_register);
+        mTextViewLogin = (TextView) view.findViewById(R.id.textview_login);
         mTextViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,5 +77,6 @@ public class RegisterFragment extends Fragment /*AppCompatActivity*/ {
 
             }
         });
+        return view;
     }
 }
