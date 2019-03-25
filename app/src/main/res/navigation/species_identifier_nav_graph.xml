@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_birdHeightFragment_to_chooseSpecies"
             app:destination="@id/chooseSpecies" />
+        <action
+            android:id="@+id/action_birdHeightFragment_to_speciesIdentifierResult"
+            app:destination="@id/speciesIdentifierResult" />
     </fragment>
     <fragment
         android:id="@+id/chooseSpecies"
@@ -35,4 +38,16 @@
     <fragment android:id="@+id/mammalMock" />
     <fragment android:id="@+id/invertebrateMock" />
     <fragment android:id="@+id/reptileMock" />
+    <fragment
+        android:id="@+id/speciesIdentifierResult"
+        android:name="com.example.animalapp.SpeciesIdentifierResult"
+        android:label="fragment_species_identifier_result"
+        tools:layout="@layout/fragment_species_identifier_result" >
+        <action
+            android:id="@+id/action_speciesIdentifierResult_to_birdHeightFragment"
+            app:destination="@id/birdHeightFragment" />
+        <action
+            android:id="@+id/action_speciesIdentifierResult_to_chooseSpecies"
+            app:destination="@id/chooseSpecies" />
+    </fragment>
 </navigation>

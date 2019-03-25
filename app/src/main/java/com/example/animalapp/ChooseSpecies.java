@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 import androidx.navigation.Navigation;
 
 
@@ -44,9 +46,14 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        ArrayList<ArrayList<String>> filter = new ArrayList<>();
+        ArrayList<String> filterItem = new ArrayList<>();
         Bundle bundle = new Bundle();
         int i = v.getId();
         if (i == R.id.species_bird_button) {
+            filterItem.add("Type" + ":" + "Bird");
+
+            bundle.putStringArrayList("filter", filterItem);
             Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeightFragment,bundle);
 
         }
