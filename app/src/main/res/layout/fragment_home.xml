@@ -15,7 +15,7 @@
         android:layout_marginLeft="110dp"
         android:textColor="#000000"
         android:textSize="40dp"
-        android:text="TextView"
+        android:text="Caerdydd"
         tools:text="Caerdydd" />
 
     <TextView
@@ -26,14 +26,14 @@
         android:layout_marginLeft="130dp"
         android:textColor="#000000"
         android:textSize="40dp"
-        android:text="TextView"
+        android:text="Wildlife"
         tools:text="Wildlife" />
 
     <Button
         android:id="@+id/home_button_login"
         android:layout_width="190dp"
         android:layout_height="35dp"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="580dp"
         android:layout_marginLeft="110dp"
         android:background="#EA0000"
         android:textColor="#000000"
