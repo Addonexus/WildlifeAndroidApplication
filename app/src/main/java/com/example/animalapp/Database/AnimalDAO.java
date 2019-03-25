@@ -1,4 +1,4 @@
-package com.example.animalapp;
+package com.example.animalapp.Database;
 
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;

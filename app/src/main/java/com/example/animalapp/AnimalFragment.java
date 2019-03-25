@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.animalapp.Database.Animal;
+import com.example.animalapp.Database.AnimalDatabase;
+
 import java.util.List;
 
 
