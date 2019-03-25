@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">animalapp</string>
+    <!--Nature Reserve Names
+    <string-array name="reserves">
+        <item>Reserve 1</item>
+        <item>Reserve 2</item>
+        <item>Reserve 3</item>
+        <item>Reserve 4</item>
+    </string-array>
+
+    &lt;!&ndash; Pictures &ndash;&gt;
+    <array name="pic">
+        <item>@drawable/reserve1</item>
+        <item>@drawable/reserve2</item>
+        <item>@drawable/reserve3</item>
+        <item>@drawable/reserve4</item>
+    </array>
+    &lt;!&ndash; Short Description &ndash;&gt;
+    <string-array name="shortDesc">
+        <item>Desc1</item>
+        <item>Desc2</item>
+        <item>Desc3</item>
+        <item>Desc4</item>
+    </string-array>
+    &lt;!&ndash; Reserve Type &ndash;&gt;
+    <string-array name="reserveType">
+        <item>Type1</item>
+        <item>Type2</item>
+        <item>Type3</item>
+        <item>Type4</item>
+    </string-array>-->
 </resources>
