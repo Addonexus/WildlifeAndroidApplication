@@ -233,7 +233,7 @@ public interface AnimalDAO {
     @Query("SELECT * FROM Animal WHERE type LIKE :amphibian " +
             "AND `Max Body Length Cm` >= :maxBody")
     List<Animal> getAmphibianLargeMaxBody(String amphibian, int maxBody);
-    
+
 
     @Insert
     void insertAll(Animal... animals);
