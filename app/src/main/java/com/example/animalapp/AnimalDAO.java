@@ -30,6 +30,12 @@ public interface AnimalDAO {
     List<Animal> getBirdMinMin(String bird, int minBody, int minWing);
 
     @Query("SELECT * FROM Animal WHERE type LIKE :bird " +
+            "AND `Min Body Length Cm` >= :minBody " +
+            "AND `Min Body Length Cm` <= :minBody " +
+            "AND `Min Wingspan Cm` <= :minWing")
+    List<Animal> getBirdMinMinMin(String bird, int minBody, int minWing);
+
+    @Query("SELECT * FROM Animal WHERE type LIKE :bird " +
             "AND `Min Body Length Cm` <= :minBody " +
             "AND `Max Wingspan Cm` >= :maxWing")
     List<Animal> getBirdMinMax(String bird, int minBody, int maxWing);
