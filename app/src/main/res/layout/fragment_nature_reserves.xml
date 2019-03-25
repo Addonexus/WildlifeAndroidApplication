@@ -13,4 +13,10 @@
         android:gravity="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 
+    <Button
+        android:id="@+id/change_LatLong_values"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set to a differnt value on map" />
+
 </FrameLayout>
