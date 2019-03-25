@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class RegisterFragment extends Fragment  {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 
-        db = new DatabaseHelper(this);
+        db = new DatabaseHelper(getActivity());
         mTextUsername = (EditText) view.findViewById(R.id.edittext_username);
         mTextPassword = (EditText) view.findViewById(R.id.edittext_password);
         mTextCnfPassword = (EditText) view.findViewById(R.id.edittext_cnf_password);
@@ -47,12 +48,15 @@ public class RegisterFragment extends Fragment  {
         mTextViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent LoginIntent = new Intent(RegisterFragment.this, LoginFragment.class);
-                startActivity(LoginIntent);
+
+                ((MainActivity) getActivity()).setFragment(new LoginFragment());
+
+                //Intent LoginIntent = new Intent(RegisterFragment.this, LoginFragment.class);
+                //startActivity(LoginIntent);
             }
         });
 
-        mButtonRegister.setOnClickListener(new View.OnClickListener() {
+        /*mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = mTextUsername.getText().toString().trim();
@@ -62,21 +66,32 @@ public class RegisterFragment extends Fragment  {
                 if (pwd.equals(cnf_pwd)) {
                     long val = db.addUser(user, pwd);
                     if (val > 0) {
-                        Toast.makeText(RegisterFragment.this, "You have registered", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "You have registered", Toast.LENGTH_SHORT).show();
                         Intent moveToLogin = new Intent(RegisterFragment.this, LoginFragment.class);
                         startActivity(moveToLogin);
                     } else {
                         if (val > 0) {
-                            Toast.makeText(RegisterFragment.this, "Registration Error", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Registration Error", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(RegisterFragment.this, "Password is not matching", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Password is not matching", Toast.LENGTH_SHORT).show();
 
                         }
                     }
                 }
 
             }
+        });*/
+
+        mButtonRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.fragment_container, new RegisterFragment());
+                fr.commit();
+            }
         });
+
+
         return view;
     }
 }

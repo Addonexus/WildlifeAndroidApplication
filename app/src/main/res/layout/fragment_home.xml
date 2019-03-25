@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment"
-    android:background="@drawable/pidgeons">
-    >
+    android:background="@drawable/pidgeons"
+    android:id="@+id/fragment_container">
 
 
     <TextView
@@ -14,7 +14,6 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="110dp"
         android:textColor="#000000"
-
         android:textSize="40dp"
         android:text="TextView"
         tools:text="Caerdydd" />
@@ -31,23 +30,13 @@
         tools:text="Wildlife" />
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/home_button_login"
         android:layout_width="190dp"
         android:layout_height="35dp"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="600dp"
         android:layout_marginLeft="110dp"
         android:background="#EA0000"
         android:textColor="#000000"
         android:hint="@string/Login" />
-
-    <Button
-        android:id="@+id/button_register"
-        android:layout_width="190dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="580dp"
-        android:layout_marginLeft="110dp"
-        android:background="#EA0000"
-        android:textColor="#000000"
-        android:hint="@string/register" />
 
 </FrameLayout>

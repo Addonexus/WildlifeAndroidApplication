@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,16 +37,19 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
-        db = new DatabaseHelper(this);
+        db = new DatabaseHelper(getActivity());
         mTextUsername = (EditText) view.findViewById(R.id.edittext_username);
         mTextPassword = (EditText) view.findViewById(R.id.edittext_password);
         mButtonLogin = (Button) view.findViewById(R.id.button_login);
         mTextViewRegister = (TextView) view.findViewById(R.id.textview_register);
+
         mTextViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerIntent = new Intent(LoginFragment.this, RegisterFragment.class);
-                startActivity(registerIntent);
+                ((MainActivity) getActivity()).setFragment(new RegisterFragment());
+
+                //Intent LoginIntent = new Intent(RegisterFragment.this, LoginFragment.class);
+                //startActivity(LoginIntent);
             }
         });
 
@@ -54,14 +58,20 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 String user = mTextUsername.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
+
                 Boolean res = db.checkUser(user, pwd);
                 if (res == true) {
-                    Toast.makeText(LoginFragment.this, "Successfully Logged In", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(LoginFragment.this, "Loggin Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Loggin Error", Toast.LENGTH_SHORT).show();
 
                 }
             }
         });
+
+
+
+        return view;
     }
+
 }
