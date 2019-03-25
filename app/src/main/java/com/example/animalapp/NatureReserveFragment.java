@@ -49,8 +49,8 @@ public class NatureReserveFragment extends Fragment implements View.OnClickListe
         int i = v.getId();
         if (i == R.id.change_LatLong_values) {
             Bundle bundle =  new Bundle();
-            bundle.putDouble("Longitude", 51.46067865);
-            bundle.putDouble("Latitude", -3.1755209);
+            bundle.putDouble("Latitude", 51.46067865);
+            bundle.putDouble("Longitude", -3.1755209);
             MapFragment map = new MapFragment();
             map.setArguments(bundle);
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
