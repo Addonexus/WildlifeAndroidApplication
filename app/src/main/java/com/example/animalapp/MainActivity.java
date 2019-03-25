@@ -40,8 +40,8 @@ public class MainActivity extends AppCompatActivity {
                 String[] tokens = line.split(",");
 
                 Animal animal = new Animal(tokens[0], tokens[1], tokens[2],
-                        Integer.parseInt(tokens[3]), Integer.parseInt(tokens[4]),
-                        Integer.valueOf(tokens[5]),Integer.valueOf(tokens[6]),
+                        tokens[3], tokens[4],
+                        tokens[5],tokens[6],
                         tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]);
 
                 animalList.add(animal);
