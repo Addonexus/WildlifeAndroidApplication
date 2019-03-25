@@ -53,7 +53,7 @@ public class NatureReserveFragment extends Fragment {
         data.add(reserve7);
         data.add(reserve8);
 
-        CustomAdapter adapter = new CustomAdapter(this,R.layout.fragment_nature_reserves,data);
+        CustomAdapter adapter = new CustomAdapter(getContext(),R.layout.fragment_nature_reserves,data);
         lvData.setAdapter(adapter);
 
         return view;
