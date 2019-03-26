@@ -35,7 +35,7 @@ public class NatureReserveFragment extends Fragment {
     ListView list;
     String titles[] = {"Cathays Cemetery", "Roath Park", "Bute Park", "Forest Farm Country Park", "Lisvane and Llanishen reservoirs", "Cardiff Bay Wetlands and Hamadryad Park"};
     String informations[] = {"Fairoak Rd, Cardiff CF24 4PY", "Lake Rd W, Cardiff CF23 5PA", "North Rd, Cardiff CF10 3ER", "Forest Farm Rd, Cardiff CF14 7JH", "Cardiff CF14 0RH", "Cardiff CF10 5UY"};
-    int images[] = {R.drawable.ic_launcher_background, R.drawable.ic_format_list_bulleted_black_24dp, R.drawable.ic_nature_people_black_24dp, R.drawable.ic_map_black_24dp};
+    int images[] = {R.drawable.cemetery, R.drawable.park, R.drawable.park, R.drawable.park, R.drawable.resevoir, R.drawable.reserve};
 
 
     public NatureReserveFragment() {
