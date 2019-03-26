@@ -44,7 +44,7 @@ public class NatureReserveFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_nature_reserves, container,false);
-
+        getActivity().setTitle("Walks");
         list = view.findViewById(R.id.reserves_list);
 //        ListView lvData = (ListView) view.findViewById(R.id.list);
 //
