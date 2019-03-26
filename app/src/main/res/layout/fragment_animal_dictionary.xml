@@ -8,11 +8,7 @@
     tools:context=".AnimalFragment">
 
     <!-- DONE: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="animal_dictionary"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
 
     <Button
         android:id="@+id/species_identifier_button"
