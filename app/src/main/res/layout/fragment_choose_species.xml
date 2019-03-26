@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    tools:context=".ChooseSpecies">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="Choose the Species you want to search for" />
+
+
+    <Button
+        android:id="@+id/species_bird_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bird" />
+
+    <Button
+        android:id="@+id/species_mammal_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mammal" />
+
+    <Button
+        android:id="@+id/species_invertebrate_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Invertebrate" />
+
+    <Button
+        android:id="@+id/species_reptile_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Amphibian/Reptile" />
+
+</LinearLayout>

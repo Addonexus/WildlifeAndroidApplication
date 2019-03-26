@@ -54,6 +54,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
+        getActivity().setTitle("Map");
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             moveCurrentLat = bundle.getDouble("Latitude");
@@ -62,7 +63,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             moveCurrentLat = 51.481583;
             moveCurrentLong = -3.179090;
         }
-
 
         FragmentManager manager = getFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -102,7 +102,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         // Add a marker in Sydney and move the camera
         LatLng cardiff = new LatLng(latitude, longitude);
         mMap.getUiSettings().setZoomControlsEnabled(true);
-
+//        mMap.setPadding(0, 0, 0, 120);
         mMap.addMarker(new MarkerOptions().position(cardiff).title("Marker in Cardiff").draggable(true));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(cardiff));
         LatLng coordinate = new LatLng(moveCurrentLat, moveCurrentLong);

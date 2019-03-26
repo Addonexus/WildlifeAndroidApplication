@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical"
+    tools:context=".BirdHeightFragment">
+
+    <!-- DONE: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Choose an option for the height of Bird you saw" />
+
+    <TextView
+        android:id="@+id/filter_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:paddingBottom="20dp"
+        android:text="Filter: " />
+
+    <Button
+        android:id="@+id/bird_height_option_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Smaller than 15cm" />
+
+    <Button
+        android:id="@+id/bird_height_option_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Larger than 15cm but smaller than 30cm" />
+
+    <Button
+        android:id="@+id/bird_height_option_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Larger than 30cm" />
+
+</LinearLayout>

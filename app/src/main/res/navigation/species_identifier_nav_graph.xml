@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/species_identifier_nav_graph"
+    app:startDestination="@id/chooseSpecies">
+
+    <fragment
+        android:id="@+id/birdHeightFragment"
+        android:name="com.example.animalapp.BirdHeightFragment"
+        android:label="fragment_bird_height"
+        tools:layout="@layout/fragment_bird_height" >
+        <action
+            android:id="@+id/action_birdHeightFragment_to_chooseSpecies"
+            app:destination="@id/chooseSpecies" />
+        <action
+            android:id="@+id/action_birdHeightFragment_to_birdHeadColourFragment"
+            app:destination="@id/birdHeadColourFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/chooseSpecies"
+        android:name="com.example.animalapp.ChooseSpecies"
+        android:label="fragment_choose_species"
+        tools:layout="@layout/fragment_choose_species" >
+        <action
+            android:id="@+id/action_chooseSpecies_to_birdHeightFragment"
+            app:destination="@id/birdHeightFragment" />
+        <action
+            android:id="@+id/action_chooseSpecies_to_mammalMock"
+            app:destination="@id/mammalMock" />
+        <action
+            android:id="@+id/action_chooseSpecies_to_invertebrateMock"
+            app:destination="@id/invertebrateMock" />
+        <action
+            android:id="@+id/action_chooseSpecies_to_reptileMock"
+            app:destination="@id/reptileMock" />
+    </fragment>
+    <fragment android:id="@+id/mammalMock" />
+    <fragment android:id="@+id/invertebrateMock" />
+    <fragment android:id="@+id/reptileMock" />
+    <fragment
+        android:id="@+id/speciesIdentifierResult"
+        android:name="com.example.animalapp.SpeciesIdentifierResult"
+        android:label="fragment_species_identifier_result"
+        tools:layout="@layout/fragment_species_identifier_result" >
+        <action
+            android:id="@+id/action_speciesIdentifierResult_to_chooseSpecies"
+            app:destination="@id/chooseSpecies" />
+        <action
+            android:id="@+id/action_speciesIdentifierResult_to_birdHeadColourFragment"
+            app:destination="@id/birdHeadColourFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/birdHeadColourFragment"
+        android:name="com.example.animalapp.birdHeadColourFragment"
+        android:label="fragment_bird_head_colour"
+        tools:layout="@layout/fragment_bird_head_colour" >
+        <action
+            android:id="@+id/action_birdHeadColourFragment_to_birdHeightFragment"
+            app:destination="@id/birdHeightFragment" />
+        <action
+            android:id="@+id/action_birdHeadColourFragment_to_speciesIdentifierResult"
+            app:destination="@id/speciesIdentifierResult" />
+    </fragment>
+</navigation>
