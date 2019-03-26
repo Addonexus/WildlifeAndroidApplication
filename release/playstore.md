@@ -13,7 +13,8 @@ Wildlife is an app aimed to make identifying local wildlife easier. The app is t
 
 
 You can also:
-  - Click on the Nature Reserves within the list to redirect you to the place it is on the map
+  - Click on the Nature Reserves within the list to redirect you to the place it is on the map#
+  - Personalise the application by creating an account
   
 
 > The world is becoming increasingly urbanised and this is leading to an increased lack of interest in wildlife and a reduction in the time people spend outdoors in greenspaces.
