@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +40,6 @@ public class NatureReserveFragment extends Fragment {
 
 
     public NatureReserveFragment() {
-        // Required empty public constructor
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -70,7 +70,6 @@ public class NatureReserveFragment extends Fragment {
 //        CustomAdapter adapter = new CustomAdapter(getContext(),R.layout.fragment_nature_reserves,data);
 //        lvData.setAdapter(adapter);
 //        super.getView(position, convertView, parent)
-
         CustomAdapter adapter = new CustomAdapter(getContext(), titles, images, informations);
         list.setAdapter(adapter);
 
@@ -78,17 +77,39 @@ public class NatureReserveFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //          on click for four items of nature reserves
+                Bundle bundle = new Bundle();
                 if (position == 0) {
                     Log.i("WALKS CLICK", "First one");
-                }
+                    bundle.putDouble("Latitude", 51.50072866);
+                    bundle.putDouble("Longitude", -3.18105698);
+                    replaceFragment(setBundleToMap(bundle));
+                }else
                 if (position == 1) {
                     Log.i("WALKS CLICK", "Second one");
-                }
+                    bundle.putDouble("Latitude", 51.50492273);
+                    bundle.putDouble("Longitude", -3.17530632);
+                    replaceFragment(setBundleToMap(bundle));
+                }else
                 if (position == 2) {
-                    Log.i("WALKS CLICK", "Third one");
-                }
-                if (position == 3) {
-                    Log.i("WALKS CLICK", "Fourth one");
+                    Log.i("WALKS CLICK", "Second one");
+                    bundle.putDouble("Latitude", 51.48849155);
+                    bundle.putDouble("Longitude", -3.18938255);
+                    replaceFragment(setBundleToMap(bundle));
+                }else if (position == 3) {
+                    Log.i("WALKS CLICK", "Second one");
+                    bundle.putDouble("Latitude", 51.516780);
+                    bundle.putDouble("Longitude",-3.243370);
+                    replaceFragment(setBundleToMap(bundle));
+                }else if (position == 4) {
+                    Log.i("WALKS CLICK", "Second one");
+                    bundle.putDouble("Latitude", 51.52559354);
+                    bundle.putDouble("Longitude", -3.17539215);
+                    replaceFragment(setBundleToMap(bundle));
+                }else if (position == 5) {
+                    Log.i("WALKS CLICK", "Second one");
+                    bundle.putDouble("Latitude", 51.46067865);
+                    bundle.putDouble("Longitude", -3.1755209);
+                    replaceFragment(setBundleToMap(bundle));
                 }
             }
         });
@@ -96,6 +117,18 @@ public class NatureReserveFragment extends Fragment {
         return view;
 
 
+
+    }
+    public MapFragment setBundleToMap(Bundle bundle){
+        MapFragment map = new MapFragment();
+        map.setArguments(bundle);
+        return map;
+    }
+    public void replaceFragment(Fragment fragment){
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
 
     }
     class CustomAdapter extends ArrayAdapter<String> {
