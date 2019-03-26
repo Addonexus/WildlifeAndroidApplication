@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="110dp"
+        android:gravity="center_horizontal"
         android:textColor="#000000"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:text="Caerdydd"
         tools:text="Caerdydd" />
 
@@ -23,9 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="130dp"
+        android:gravity="center_horizontal"
         android:textColor="#000000"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:text="Wildlife"
         tools:text="Wildlife" />
 
@@ -34,7 +34,7 @@
         android:layout_width="190dp"
         android:layout_height="35dp"
         android:layout_marginTop="580dp"
-        android:layout_marginLeft="110dp"
+        android:layout_gravity="center_horizontal"
         android:background="#EA0000"
         android:textColor="#000000"
         android:hint="@string/Login" />
