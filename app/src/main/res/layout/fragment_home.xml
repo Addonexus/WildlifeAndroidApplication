@@ -3,12 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:background="@drawable/pidgeons"
+    android:id="@+id/fragment_container">
 
-    <!-- DONE: Update blank fragment layout -->
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/home_string" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:text="Caerdydd"
+        tools:text="Caerdydd" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:gravity="center_horizontal"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        android:text="Wildlife"
+        tools:text="Wildlife" />
+
+    <Button
+        android:id="@+id/home_button_login"
+        android:layout_width="190dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="500dp"
+        android:layout_gravity="center_horizontal"
+        android:background="#EA0000"
+        android:textColor="#000000"
+        android:hint="@string/Login" />
 
 </FrameLayout>
