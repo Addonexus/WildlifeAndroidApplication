@@ -56,7 +56,7 @@ public class RegisterFragment extends Fragment  {
             }
         });
 
-        /*mButtonRegister.setOnClickListener(new View.OnClickListener() {
+        mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String user = mTextUsername.getText().toString().trim();
@@ -67,7 +67,7 @@ public class RegisterFragment extends Fragment  {
                     long val = db.addUser(user, pwd);
                     if (val > 0) {
                         Toast.makeText(getActivity(), "You have registered", Toast.LENGTH_SHORT).show();
-                        Intent moveToLogin = new Intent(RegisterFragment.this, LoginFragment.class);
+                        Intent moveToLogin = new Intent(getContext(), LoginFragment.class);
                         startActivity(moveToLogin);
                     } else {
                         if (val > 0) {
@@ -80,7 +80,7 @@ public class RegisterFragment extends Fragment  {
                 }
 
             }
-        });*/
+        });
 
         mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
