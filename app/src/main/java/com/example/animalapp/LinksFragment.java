@@ -30,11 +30,10 @@ public class LinksFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_links, container, false);
     }
 
-    private void goToUrl (View view) {
+    /*private void goToUrl (View view) {
         String url = "http://www.google.com";
         Uri uriUrl = Uri.parse(url);
         Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
         startActivity(launchBrowser);
-    }
-
+    }*/
 }

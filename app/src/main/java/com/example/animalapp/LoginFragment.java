@@ -59,12 +59,15 @@ public class LoginFragment extends Fragment {
                 String user = mTextUsername.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
 
-                Boolean res = db.checkUser(user, pwd);
-                if (res == true) {
+                boolean res = db.checkUser(user, pwd);
+                if (res) {
                     Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getActivity(), "Loggin Error", Toast.LENGTH_SHORT).show();
+                    ((MainActivity) getActivity()).setFragment(new HomeFragment());
+                    //mButtonLogin.setVisibility(View.INVISIBLE);
 
+                } else {
+                    Toast.makeText(getActivity(), "Login Error", Toast.LENGTH_SHORT).show();
+                    //mButtonLogin.setVisibility(View.VISIBLE);
                 }
             }
         });

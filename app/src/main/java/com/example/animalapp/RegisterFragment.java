@@ -67,8 +67,10 @@ public class RegisterFragment extends Fragment  {
                     long val = db.addUser(user, pwd);
                     if (val > 0) {
                         Toast.makeText(getActivity(), "You have registered", Toast.LENGTH_SHORT).show();
-                        Intent moveToLogin = new Intent(getContext(), LoginFragment.class);
-                        startActivity(moveToLogin);
+                        /*Intent moveToLogin = new Intent(getContext(), LoginFragment.class);
+                        startActivity(moveToLogin);*/
+
+                        ((MainActivity) getActivity()).setFragment(new LoginFragment());
                     } else {
                         if (val > 0) {
                             Toast.makeText(getActivity(), "Registration Error", Toast.LENGTH_SHORT).show();
@@ -79,17 +81,19 @@ public class RegisterFragment extends Fragment  {
                     }
                 }
 
+
+
             }
         });
 
-        mButtonRegister.setOnClickListener(new View.OnClickListener() {
+        /*mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.fragment_container, new RegisterFragment());
-                fr.commit();
+
+                ((MainActivity) getActivity()).setFragment(new RegisterFragment());
+
             }
-        });
+        });*/
 
 
         return view;

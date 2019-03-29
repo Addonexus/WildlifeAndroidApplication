@@ -1,5 +1,7 @@
 package com.example.animalapp;
 
+import android.content.Intent;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -8,8 +10,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 ;
 import android.support.v4.app.FragmentTransaction;
+import android.view.View;
+import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +60,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
         navigationView.setSelectedItemId(R.id.navHome);
+
+        /*ImageView img1 = (ImageView) findViewById(R.id.Image1);
+        img1.setOnClickListener(onClick){
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+        };*/
+
+        /*ImageView img2 = (ImageView) findViewById(R.id.Image2);
+        img2.setOnClickListener(v){
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+        };
+
+        ImageView img3 = (ImageView) findViewById(R.id.Image3);
+        img3.setOnClickListener(v){
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+        };
+
+        ImageView img4 = (ImageView) findViewById(R.id.Image4);
+        img4.setOnClickListener(v){
+            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(intent);
+        };*/
     }
 
     public void setFragment(Fragment fragment) {
