@@ -41,6 +41,7 @@ public class HomeFragment extends Fragment {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.frame, new LoginFragment());
                 fr.commit();
+
             }
         });
         return view;
