@@ -32,11 +32,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         db = AnimalDatabase.getDatabase(getApplicationContext());
-
+        db.animalDAO().clearAnimal();
         addData();
 
         AppCompatButton initialiseButton = this.findViewById(R.id.initialise);
         initialiseButton.setOnClickListener(this);
+        AppCompatButton animalButton = this.findViewById(R.id.animal);
+        animalButton.setOnClickListener(this);
 
     }
 
@@ -55,9 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 db.animalDAO().insertAll(list);
 
-                final List<Animal> allAnimals = db.animalDAO().getAllAnimals();
+//                final List<Animal> allAnimals = db.animalDAO().getAllAnimals();
 
-                Log.d("List All Animals: ", "AllAnimals: " + allAnimals);
+//                Log.d("List All Animals: ", "AllAnimals: " + allAnimals);
             }
         });
     }
@@ -89,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         int viewId = v.getId();
+        final List<Animal> allAnimals = db.animalDAO().getAllAnimals();
 
         switch (viewId){
 
@@ -97,12 +100,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
 
-                        final List<Animal> allAnimals = db.animalDAO().getAllAnimals();
+
 //                        Log.d("initialised","animals" + allanimals);
 
                         for (Animal list : allAnimals){
                             if (list.getName().equalsIgnoreCase("pintail")){
-                                Log.d("Id 2","Animal 2" +list);
+                                Log.d("Id 2","Animal 2" + list);
                             }
                         }
 
@@ -110,6 +113,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
 
                 break;
+
+            case R.id.animal:
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        for (Animal list : allAnimals){
+                            if(list.getMinBodyLengthCm().equals("44")){
+                                Log.d("ID ANIMAL","ANIMAL WING 45" + list);
+                            }
+                        }
+                    }
+                });
 
         }
 
