@@ -1,115 +1,118 @@
 package com.example.animalapp;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
+import android.view.View;
 
 import com.example.animalapp.Animal.Amphibian;
 import com.example.animalapp.Animal.Bird;
 import com.example.animalapp.Animal.Mammal;
 import com.example.animalapp.Animal.Reptile;
 import com.example.animalapp.Database.Animal;
+import com.example.animalapp.Database.AnimalDatabase;
+import com.opencsv.CSVReader;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener
+{
+
+    AnimalDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        readAnimalListFile();
+        db = AnimalDatabase.getDatabase(getApplicationContext());
+
+        addData();
+
+        AppCompatButton initialiseButton = this.findViewById(R.id.initialise);
+        initialiseButton.setOnClickListener(this);
 
     }
 
-    private List<Animal> animalList = new ArrayList<>();
+    private void addData() {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                db.animalDAO().clearAnimal();
 
-    private void readAnimalListFile() {
+                List<Animal> list = null;
+                try {
+                    list = readAnimalListFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                db.animalDAO().insertAll(list);
+
+                final List<Animal> allAnimals = db.animalDAO().getAllAnimals();
+
+                Log.d("List All Animals: ", "AllAnimals: " + allAnimals);
+            }
+        });
+    }
+
+    private List<Animal> readAnimalListFile() throws IOException {
+
+        List<Animal> animalList = new ArrayList<>();
 
         InputStream is = getResources().openRawResource(R.raw.animal_list);
-        BufferedReader br = new BufferedReader(
-                new InputStreamReader(is, Charset.forName("UTF-8"))
-        );
+        InputStreamReader csvStreamReader = new InputStreamReader(is);
 
-        String line = "";
-        try {
-            while ((line = br.readLine()) != null) {
-                String[] tokens = line.split(",");
+        CSVReader reader = new CSVReader(csvStreamReader);
+        reader.skip(1);
 
-                switch (tokens[0]){
-                    case "Bird":
-                        animalList.add(new Bird(tokens[0], tokens[1], tokens[2],
-                                tokens[3], tokens[4], tokens[5], tokens[6],
-                                tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]));
-                        break;
-                    case "Mammal":
-                        animalList.add(new Mammal(tokens[0], tokens[1], tokens[2],
-                                tokens[3], tokens[4], tokens[5], tokens[6],
-                                tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]));
-                        break;
-                    case "Reptile":
-                        animalList.add(new Reptile(tokens[0], tokens[1], tokens[2],
-                                tokens[3], tokens[4], tokens[5], tokens[6],
-                                tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]));
-                        break;
-                    case "Amphibian":
-                        animalList.add(new Amphibian(tokens[0], tokens[1], tokens[2],
-                                tokens[3], tokens[4], tokens[5], tokens[6],
-                                tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]));
-                        break;
-                    default:
-                        break;
-                }
-                Animal animal = new Animal(tokens[0], tokens[1], tokens[2],
-                        tokens[3], tokens[4], tokens[5], tokens[6],
-                        tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]);
+        String [] record = null;
 
-                Log.d("Activity: ", "Animal List: " + animal);
+            while ((record = reader.readNext()) != null) {
+                Animal animal = new Animal(record[0], record[1], record[2],
+                        record[3], record[4], record[5], record[6],
+                        record[7], record[8], record[9], record[10],record[11]);
+
+                animalList.add(animal);
+//                Log.d("Read file: ", "Animal List: " + animal);
 
             }
-        } catch (IOException e) {
-            Log.wtf("Opening File", "Error reading file." + line, e);
-            e.printStackTrace();
+            return animalList;
+        }
+
+    @Override
+    public void onClick(View v) {
+        int viewId = v.getId();
+
+        switch (viewId){
+
+            case R.id.initialise:
+                AsyncTask.execute(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        final List<Animal> allAnimals = db.animalDAO().getAllAnimals();
+//                        Log.d("initialised","animals" + allanimals);
+
+                        for (Animal list : allAnimals){
+                            if (list.getName().equalsIgnoreCase("pintail")){
+                                Log.d("Id 2","Animal 2" +list);
+                            }
+                        }
+
+                    }
+                });
+
+                break;
+
         }
 
     }
-
 }
 
-/*
-*   Read CSV Resource File
-*   Taken from Youtube by Brian Fraser 26/02/17
-*   Accessed 25/03/2019
-*   https://www.youtube.com/watch?v=i-TqNzUryn8
-*   InputStream is = getResources().openRawResource(R.raw.animal_list);
-        BufferedReader br = new BufferedReader(
-                new InputStreamReader(is, Charset.forName("UTF-8"))
-        );
-
-        String line = "";
-        try {
-            while ((line = br.readLine()) != null) {
-                String[] tokens = line.split(",");
-
-                Animal animal = new Animal(tokens[0], tokens[1], tokens[2],
-                        tokens[3], tokens[4], tokens[5], tokens[6],
-                        tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]);
-
-                animalList.add(animal);
-
-                Log.d("Activity: ", "Animal List: " + animal);
-
-            }
-        } catch (IOException e) {
-            Log.wtf("Opening File", "Error reading file." + line, e);
-            e.printStackTrace();
-        }
-*
-*/
