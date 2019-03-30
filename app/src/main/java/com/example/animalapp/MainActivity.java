@@ -2,6 +2,7 @@ package com.example.animalapp;
 
 import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -84,6 +85,31 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, MainActivity.class);
             startActivity(intent);
         };*/
+    }
+
+    public void browser1(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.cardiffconservation.org.uk/"));
+        startActivity(browserIntent);
+    }
+
+    public void browser2(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://ww2.rspb.org.uk/groups/cardiff/"));
+        startActivity(browserIntent);
+    }
+
+    public void browser3(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.rspb.org.uk/"));
+        startActivity(browserIntent);
+    }
+
+    public void browser4(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.welshwildlife.org/my-wild-cardiff//"));
+        startActivity(browserIntent);
+    }
+
+    public void browser5(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.cardiff.ac.uk/software-academy/"));
+        startActivity(browserIntent);
     }
 
     public void setFragment(Fragment fragment) {
