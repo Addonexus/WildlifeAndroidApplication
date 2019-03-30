@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.example.animalapp.Animal.Amphibian;
+import com.example.animalapp.Animal.Bird;
+import com.example.animalapp.Animal.Mammal;
+import com.example.animalapp.Animal.Reptile;
 import com.example.animalapp.Database.Animal;
 
 import java.io.BufferedReader;
@@ -39,12 +43,33 @@ public class MainActivity extends AppCompatActivity {
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split(",");
 
+                switch (tokens[0]){
+                    case "Bird":
+                        animalList.add(new Bird(tokens[0], tokens[1], tokens[2],
+                                tokens[3], tokens[4], tokens[5], tokens[6],
+                                tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]));
+                        break;
+                    case "Mammal":
+                        animalList.add(new Mammal(tokens[0], tokens[1], tokens[2],
+                                tokens[3], tokens[4], tokens[5], tokens[6],
+                                tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]));
+                        break;
+                    case "Reptile":
+                        animalList.add(new Reptile(tokens[0], tokens[1], tokens[2],
+                                tokens[3], tokens[4], tokens[5], tokens[6],
+                                tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]));
+                        break;
+                    case "Amphibian":
+                        animalList.add(new Amphibian(tokens[0], tokens[1], tokens[2],
+                                tokens[3], tokens[4], tokens[5], tokens[6],
+                                tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]));
+                        break;
+                    default:
+                        break;
+                }
                 Animal animal = new Animal(tokens[0], tokens[1], tokens[2],
-                        tokens[3], tokens[4],
-                        tokens[5],tokens[6],
+                        tokens[3], tokens[4], tokens[5], tokens[6],
                         tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]);
-
-                animalList.add(animal);
 
                 Log.d("Activity: ", "Animal List: " + animal);
 
@@ -53,7 +78,6 @@ public class MainActivity extends AppCompatActivity {
             Log.wtf("Opening File", "Error reading file." + line, e);
             e.printStackTrace();
         }
-
 
     }
 
@@ -75,8 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 String[] tokens = line.split(",");
 
                 Animal animal = new Animal(tokens[0], tokens[1], tokens[2],
-                        Integer.parseInt(tokens[3]), Integer.parseInt(tokens[4]),
-                        Integer.valueOf(tokens[5]),Integer.valueOf(tokens[6]),
+                        tokens[3], tokens[4], tokens[5], tokens[6],
                         tokens[7], tokens[8], tokens[9], tokens[10],tokens[11]);
 
                 animalList.add(animal);
