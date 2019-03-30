@@ -7,10 +7,6 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
 
-import com.example.animalapp.Animal.Amphibian;
-import com.example.animalapp.Animal.Bird;
-import com.example.animalapp.Animal.Mammal;
-import com.example.animalapp.Animal.Reptile;
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
 import com.opencsv.CSVReader;
@@ -120,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void run() {
                         for (Animal list : allAnimals){
                             if(list.getMinBodyLengthCm().equals("44")){
-                                Log.d("ID ANIMAL","ANIMAL WING 45" + list);
+                                Log.d("ID ANIMAL","ANIMAL WING 44" + list);
                             }
                         }
                     }

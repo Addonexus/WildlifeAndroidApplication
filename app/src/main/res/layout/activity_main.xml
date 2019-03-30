@@ -18,10 +18,12 @@
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/animal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:text="@string/Animal"
         style="@style/Widget.AppCompat.Button.Colored"
-        tools:ignore="MissingConstraints" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Animal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="173dp" />
 
 </android.support.constraint.ConstraintLayout>
