@@ -11,4 +11,8 @@
         android:id="@+id/language_cy"
         android:title="Welsh"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/loggoit"
+        android:title="Log Out"
+        app:showAsAction="never"/>
 </menu>
