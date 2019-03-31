@@ -1,6 +1,8 @@
 package com.example.animalapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.media.Image;
 import android.net.Uri;
 import android.support.annotation.NonNull;
@@ -8,14 +10,25 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 ;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView textView;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(LocalHelper.onAttach(newBase,"en"));
+
+    }
 
 
     @Override
@@ -85,6 +98,46 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, MainActivity.class);
             startActivity(intent);
         };*/
+
+        textView = (TextView) findViewById(R.id.text_view);
+
+        //Init paper first;
+        Paper.init(this);
+
+        //Default language is english
+        String language = Paper.book().read("language");
+        if (language == null)
+            Paper.book().write("language", "en");
+
+        updateView((String) Paper.book().read("language"));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_top, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.language_en)
+        {
+            Paper.book().write("language", "en");
+            updateView((String)Paper.book().read("language"));
+        }
+        else if (item.getItemId() == R.id.language_cy)
+        {
+            Paper.book().write("language", "cy");
+            updateView((String)Paper.book().read("language"));
+        }
+        return true;
+    }
+
+    private void updateView(String lang) {
+        Context context = LocalHelper.setLocale(this, lang);
+        Resources resources = context.getResources();
+
+
     }
 
     public void browser1(View view){

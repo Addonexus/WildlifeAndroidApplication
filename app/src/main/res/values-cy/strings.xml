@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ap anifeiliaid</string>
+    <string name="username">Enw defnyddiwr</string>
+    <string name="password">Cyfrinair</string>
+    <string name="Login">Mewngofnodi</string>
+    <string name="not_registered">Heb ei gofrestru</string>
+    <string name="register">COFRESTRU</string>
+    <string name="cofirm_password">Cadarnhewch y Cyfrinair</string>
+    <string name="already_registerd">Wedi cofrestru eisoes?</string>
+</resources>
