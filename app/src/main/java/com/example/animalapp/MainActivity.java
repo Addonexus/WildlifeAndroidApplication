@@ -1,5 +1,6 @@
 package com.example.animalapp;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -22,6 +23,7 @@ import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
+    //TextView item;
     TextView textView;
 
     @Override
@@ -75,31 +77,20 @@ public class MainActivity extends AppCompatActivity {
 
         navigationView.setSelectedItemId(R.id.navHome);
 
-        /*ImageView img1 = (ImageView) findViewById(R.id.Image1);
-        img1.setOnClickListener(onClick){
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-        };*/
-
-        /*ImageView img2 = (ImageView) findViewById(R.id.Image2);
-        img2.setOnClickListener(v){
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-        };
-
-        ImageView img3 = (ImageView) findViewById(R.id.Image3);
-        img3.setOnClickListener(v){
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-        };
-
-        ImageView img4 = (ImageView) findViewById(R.id.Image4);
-        img4.setOnClickListener(v){
-            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-            startActivity(intent);
-        };*/
-
         textView = (TextView) findViewById(R.id.text_view);
+        textView = (TextView) findViewById(R.id.textview_login);
+        textView = (TextView) findViewById(R.id.textview_reg);
+        textView = (TextView) findViewById(R.id.textview_no_reg);
+        textView = (TextView) findViewById(R.id.textview_cardiff);
+        textView = (TextView) findViewById(R.id.textView_wild);
+        //item = (TextView) findViewById(R.id.navHome);
+        //item = (TextView) findViewById(R.id.navList);
+        //item = (TextView) findViewById(R.id.navMap);
+        //item = (TextView) findViewById(R.id.navList);
+        //item = (TextView) findViewById(R.id.navLinks);
+
+
+
 
         //Init paper first;
         Paper.init(this);

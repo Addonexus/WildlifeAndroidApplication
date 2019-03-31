@@ -8,4 +8,12 @@
     <string name="register">COFRESTRU</string>
     <string name="cofirm_password">Cadarnhewch y Cyfrinair</string>
     <string name="already_registerd">Wedi cofrestru eisoes?</string>
+    <string name="cardiff">Caerdydd</string>
+    <string name="wildlife">Bywyd Gwyllt</string>
+    <string name="home">Hafan</string>
+    <string name="animals">Anifeiliaid</string>
+    <string name="maps">Mapiau</string>
+    <string name="walks">Cerdded</string>
+    <string name="links">Cysylltiadau</string>
+
 </resources>

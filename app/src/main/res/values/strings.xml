@@ -7,4 +7,11 @@
     <string name="register">REGISTER</string>
     <string name="cofirm_password">Cofirm Password</string>
     <string name="already_registerd">Already Registerd?</string>
+    <string name="cardiff">Cardiff</string>
+    <string name="wildlife">Wildlife</string>
+    <string name="links">Links</string>
+    <string name="walks">Walks</string>
+    <string name="maps">Maps</string>
+    <string name="animals">Animals</string>
+    <string name="home">Home</string>
 </resources>
