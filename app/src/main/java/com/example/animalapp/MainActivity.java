@@ -152,3 +152,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 }
 
+/*  Handling Null Attribute
+    Taken from Stack Overflow post by Juvanis 12/07/12
+    Accessed 01/04/2019
+    https://stackoverflow.com/questions/9595968/cast-a-null-string-into-integer/9596015
+    String str = "...";
+    // suppose str becomes null after some operation(s).
+    int number = 0;
+    try
+    {
+        if(str != null)
+          number = Integer.parseInt(str);
+    }
+    catch (NumberFormatException e)
+    {
+        number = 0;
+    }
+*/
