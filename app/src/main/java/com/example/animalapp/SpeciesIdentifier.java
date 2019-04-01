@@ -42,7 +42,7 @@ public class SpeciesIdentifier extends Fragment {
 
         Log.d("THINGS IN SPECIES FRAG", view.toString());
         db = AnimalDatabase.getDatabase(getContext());
-        db.animalDAO().clearAnimal();
+
         addData();
 
         return view;
