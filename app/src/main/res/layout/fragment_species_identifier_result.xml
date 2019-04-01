@@ -16,22 +16,12 @@
         android:layout_height="wrap_content"
         android:padding="20dp"
         android:text="Result:" />
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/initialise"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Initialise" />
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/animal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Animal" />
 
     <ListView
         android:id="@+id/result_list_view"
         android:layout_width="match_parent"
-        android:layout_height="466dp"
+        android:layout_height="562dp"
         android:layout_weight="0.1" />
 
     <LinearLayout

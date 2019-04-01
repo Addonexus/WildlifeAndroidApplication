@@ -1,8 +1,10 @@
 package com.example.animalapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -48,10 +50,6 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
         species_invertebrate_btn.setOnClickListener(this);
 
 
-        Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
-        species_back_btn.setOnClickListener(this);
-
-
 
 
         return view;
@@ -60,6 +58,7 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
     public void working(){
         Log.d("WOACH", "THIS METHOD WAS ACCESSED");
     }
+
 
     @Override
     public void onClick(View v) {
@@ -70,14 +69,16 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
             Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeightFragment,bundle);
 
         }
-        if (i == R.id.species_back_button) {
-            replaceFragment(new SpeciesIdentifier());
-        }
+
 
     }
+
     public void replaceFragment(Fragment someFragment) {
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame, someFragment);
+        fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
+//        getChildFragmentManager().beginTransaction().remove(getTargetFragment()).commit();
+//        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 }

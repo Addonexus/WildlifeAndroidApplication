@@ -60,10 +60,6 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         Bundle bundle = this.getArguments();
         TextView passed_detail = view.findViewById(R.id.species_identifier_result_text);
 
-        AppCompatButton initialiseButton = view.findViewById(R.id.initialise);
-        initialiseButton.setOnClickListener(this);
-        AppCompatButton animalButton = view.findViewById(R.id.animal);
-        animalButton.setOnClickListener(this);
 
         Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
         species_back_btn.setOnClickListener(this);
@@ -235,19 +231,6 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 
         final ArrayList<Animal> resultList = new ArrayList<>(allAnimals);
         switch (viewId) {
-
-            case R.id.animal:
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-                        for (Animal list : resultList) {
-                            if (list.getMinBodyLengthCm().equals("44")) {
-                                Log.d("ID ANIMAL", "ANIMAL WING 44" + list);
-                            }
-                        }
-                    }
-                });
-                break;
             case R.id.species_back_button:
                 Navigation.findNavController(v).navigate(R.id.action_speciesIdentifierResult_to_birdBellyColourFragment, this.getArguments());
 
