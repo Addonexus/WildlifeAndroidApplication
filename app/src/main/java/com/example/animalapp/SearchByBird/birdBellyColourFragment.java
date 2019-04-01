@@ -50,8 +50,14 @@ public class birdBellyColourFragment extends Fragment implements View.OnClickLis
                     Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
                     filter.append("Height").append(": >").append(passedHeight.get(0)).append(", <").append(passedHeight.get(1)).append(". ");
                 } else {
-                    Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)));
-                    filter.append("Bird Height").append(": ").append(passedHeight.get(0)).append(". ");}
+                    if (passedHeight.get(1).equals(0)) {
+                        Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)));
+                        filter.append("Bird Height").append(": >").append(passedHeight.get(0)).append(". ");
+                    } else {
+                        Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)));
+                        filter.append("Bird Height").append(": <").append(passedHeight.get(0)).append(". ");
+                    }
+                }
             }if (bundle.containsKey("BirdHeadColour")) {
                 String passedColour = bundle.getString("BirdHeadColour");
                 Log.d("BIRD HEAD COLOUR", passedColour);

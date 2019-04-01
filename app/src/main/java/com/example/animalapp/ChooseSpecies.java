@@ -49,9 +49,8 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
 
 
         Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
-        Button species_skip_btn = (Button) view.findViewById(R.id.species_skip_button);
         species_back_btn.setOnClickListener(this);
-        species_skip_btn.setOnClickListener(this);
+
 
 
 
@@ -74,10 +73,7 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
         if (i == R.id.species_back_button) {
             replaceFragment(new SpeciesIdentifier());
         }
-        if (i == R.id.species_skip_button) {
-            bundle.remove("SpeciesType");
-            Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeightFragment,bundle);
-        }
+
     }
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
