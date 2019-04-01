@@ -20,16 +20,16 @@ public class Animal {
     private String scientificName;
 
     @ColumnInfo(name = "Min Body Length Cm")
-    private String minBodyLengthCm;
+    private Integer minBodyLengthCm;
 
     @ColumnInfo(name = "Max Body Length Cm")
-    private String maxBodyLengthCm;
+    private Integer maxBodyLengthCm;
 
     @ColumnInfo(name = "Min Wingspan Cm")
-    private String minWingspanCm;
+    private Integer minWingspanCm;
 
     @ColumnInfo(name = "Max Wingspan Cm")
-    private String maxWingspanCm;
+    private Integer maxWingspanCm;
 
     @ColumnInfo(name = "Description")
     private String description;
@@ -78,35 +78,35 @@ public class Animal {
         this.scientificName = scientificName;
     }
 
-    public String getMinBodyLengthCm() {
+    public Integer getMinBodyLengthCm() {
         return minBodyLengthCm;
     }
 
-    public void setMinBodyLengthCm(String minBodyLengthCm) {
+    public void setMinBodyLengthCm(Integer minBodyLengthCm) {
         this.minBodyLengthCm = minBodyLengthCm;
     }
 
-    public String getMaxBodyLengthCm() {
+    public Integer getMaxBodyLengthCm() {
         return maxBodyLengthCm;
     }
 
-    public void setMaxBodyLengthCm(String maxBodyLengthCm) {
+    public void setMaxBodyLengthCm(Integer maxBodyLengthCm) {
         this.maxBodyLengthCm = maxBodyLengthCm;
     }
 
-    public String getMinWingspanCm() {
+    public Integer getMinWingspanCm() {
         return minWingspanCm;
     }
 
-    public void setMinWingspanCm(String minWingspanCm) {
+    public void setMinWingspanCm(Integer minWingspanCm) {
         this.minWingspanCm = minWingspanCm;
     }
 
-    public String getMaxWingspanCm() {
+    public Integer getMaxWingspanCm() {
         return maxWingspanCm;
     }
 
-    public void setMaxWingspanCm(String maxWingspanCm) {
+    public void setMaxWingspanCm(Integer maxWingspanCm) {
         this.maxWingspanCm = maxWingspanCm;
     }
 

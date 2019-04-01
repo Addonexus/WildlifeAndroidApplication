@@ -71,16 +71,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         reader.skip(1);
 
         String [] record = null;
+        int num = 0;
 
             while ((record = reader.readNext()) != null) {
                 Animal animal = new Animal();
                 animal.setType(record[0]);
                 animal.setName(record[1]);
                 animal.setScientificName(record[2]);
-                animal.setMinBodyLengthCm(record[3]);
-                animal.setMaxBodyLengthCm(record[4]);
-                animal.setMinWingspanCm(record[5]);
-                animal.setMaxWingspanCm(record[6]);
+                animal.setMinBodyLengthCm(Integer.parseInt(record[3]));
+                animal.setMaxBodyLengthCm(Integer.parseInt(record[4]));
+
+                try{
+                    if (record[5] != null && record[6] != null) {
+                        animal.setMinWingspanCm(Integer.parseInt(record[5]));
+                        animal.setMaxWingspanCm(Integer.parseInt(record[6]));
+                    } else {
+                        animal.setMinWingspanCm(num);
+                        animal.setMaxWingspanCm(num);
+                    }
+                }catch (NumberFormatException e) {
+                    num = 0;
+                }
+
+//                animal.setMinWingspanCm(Integer.parseInt(record[5]));
+//                animal.setMaxWingspanCm(Integer.parseInt(record[6]));
+
                 animal.setDescription(record[7]);
                 animal.setHabitat(record[8]);
                 animal.setBestTime(record[9]);
@@ -110,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                        Log.d("initialised","animals" + allanimals);
 
                         for (Animal list : allAnimals){
-                            if (list.getName().equalsIgnoreCase("pintail")){
+                            if (list.getName().equalsIgnoreCase("common toad")){
                                 Log.d("Id 2 - ","Animal 2: " + list);
                             }
                         }
@@ -125,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         for (Animal list : allAnimals){
-                            if(list.getMinBodyLengthCm().equals("44")){
-                                Log.d("ID ANIMAL - ","ANIMAL Body 44: " + list);
+                            if(list.getName().equalsIgnoreCase("common newt")){
+                                Log.d("ID ANIMAL - ","null attribute: " + list);
                             }
                         }
                     }
