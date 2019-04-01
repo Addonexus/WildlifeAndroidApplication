@@ -1,8 +1,11 @@
 package com.example.animalapp.SearchByBird;
 
 
+import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatButton;
@@ -10,12 +13,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
+
 import com.example.animalapp.R;
 import com.example.animalapp.SpeciesIdentifier;
 
@@ -35,6 +42,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     Bundle bundle = this.getArguments();
     int numberOfFilters = 0;
     ArrayList<String> filters = new ArrayList<>();
+    ListView list;
 
 
 
@@ -48,6 +56,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_species_identifier_result, container, false);
+        list = view.findViewById(R.id.result_list_view);
         Bundle bundle = this.getArguments();
         TextView passed_detail = view.findViewById(R.id.species_identifier_result_text);
 
@@ -95,7 +104,18 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //            }
             passed_detail.setText("Filter: " + filter);
         }
-        searchUsingFilters();
+        ArrayList<Animal> resultAnimals = new ArrayList<>(searchUsingFilters());
+        List<String> resultAnimalNames = new ArrayList<>();
+        List<String> resultAnimalTypes = new ArrayList<>();
+        List<String> resultAnimalScientificNouns = new ArrayList<>();
+        for (Animal animal :
+                resultAnimals) {
+            resultAnimalNames.add(animal.getName());
+            resultAnimalTypes.add(animal.getType());
+            resultAnimalScientificNouns.add(animal.getScientificName());
+        }
+        CustomAdapter adapter = new CustomAdapter(getContext(), resultAnimalNames, resultAnimalTypes, resultAnimalScientificNouns);
+        list.setAdapter(adapter);
         return view;
     }
     public void replaceFragment(Fragment fragment){
@@ -153,7 +173,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         return resultList;
 
     }
-    public void searchUsingFilters(){
+    public ArrayList<Animal> searchUsingFilters(){
         NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
         Fragment parent = (Fragment) navHostFragment.getParentFragment();
         parent.getView().findViewById(R.id.species_identifier_nav_graph);
@@ -179,6 +199,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         for (Animal animal: resultList){
             Log.d("FINAL ANIMAL RESULT", animal.toString());
         }
+        return resultList;
 
     }
 
@@ -220,6 +241,42 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 
         }
 
+    }
+
+    class CustomAdapter extends ArrayAdapter<String> {
+        Context context;
+        List<String> names = new ArrayList<String>();
+        List<String> types = new ArrayList<String>();
+        List<String> scientificNouns = new ArrayList<String>();
+//        int[] imgs;
+
+
+        public CustomAdapter(Context context, List<String> names, List<String> types, List<String> scientificNouns) {
+            super(context, R.layout.animal_lists_item, R.id.animal_name, names);
+
+            this.context = context;
+//            this.imgs = imgs;
+            this.names = names;
+            this.types = types;
+            this.scientificNouns = scientificNouns;
+        }
+
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View animal_item = inflater.inflate(R.layout.animal_lists_item, parent, false);
+//            ImageView images = reserve_item.findViewById(R.id.reserve_logo);
+            TextView name = animal_item.findViewById(R.id.animal_name);
+            TextView type = animal_item.findViewById(R.id.animal_type);
+            TextView scientificNoun = animal_item.findViewById(R.id.animal_scientific_name);
+
+//            images.setImageResource(imgs[position]);
+            name.setText(names.get(position));
+            type.setText(types.get(position));
+            scientificNoun.setText(scientificNouns.get(position));
+
+            return animal_item;
+        }
     }
 }
 
