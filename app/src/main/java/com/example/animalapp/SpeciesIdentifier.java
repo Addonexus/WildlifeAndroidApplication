@@ -82,11 +82,43 @@ public class SpeciesIdentifier extends Fragment {
         reader.skip(1);
 
         String[] record = null;
+        int num = 0;
+
 
         while ((record = reader.readNext()) != null) {
-            Animal animal = new Animal(record[0], record[1], record[2],
-                    record[3], record[4], record[5], record[6],
-                    record[7], record[8], record[9], record[10], record[11]);
+//            Animal animal = new Animal(record[0], record[1], record[2],
+//                    record[3], record[4], record[5], record[6],
+//                    record[7], record[8], record[9], record[10], record[11]);
+            Animal animal = new Animal();
+            animal.setType(record[0]);
+            animal.setName(record[1]);
+            animal.setScientificName(record[2]);
+//            animal.setMinBodyLengthCm(record[3]);
+//            animal.setMaxBodyLengthCm(record[4]);
+//            animal.setMinWingspanCm(record[5]);
+//            animal.setMaxWingspanCm(record[6]);
+            animal.setMinBodyLengthCm(Integer.parseInt(record[3]));
+            animal.setMaxBodyLengthCm(Integer.parseInt(record[4]));
+
+            try{
+                if (record[5] != null && record[6] != null) {
+                    animal.setMinWingspanCm(Integer.parseInt(record[5]));
+                    animal.setMaxWingspanCm(Integer.parseInt(record[6]));
+                } else {
+                    animal.setMinWingspanCm(num);
+                    animal.setMaxWingspanCm(num);
+                }
+            }catch (NumberFormatException e) {
+                Log.getStackTraceString(e);
+            }
+
+//                animal.setMinWingspanCm(Integer.parseInt(record[5]));
+//                animal.setMaxWingspanCm(Integer.parseInt(record[6]));
+            animal.setDescription(record[7]);
+            animal.setHabitat(record[8]);
+            animal.setBestTime(record[9]);
+            animal.setBestWalk(record[10]);
+            animal.setFoodSource(record[11]);
 
             animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);

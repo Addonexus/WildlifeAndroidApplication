@@ -161,19 +161,19 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         for (Animal animal :
                 animalList) {
             if (sizesList.size() > 2){
-                if((sizesList.get(0) > Integer.parseInt(animal.getMinBodyLengthCm())) && (sizesList.get(1) < Integer.parseInt(animal.getMaxBodyLengthCm())) && (animal.getType().equalsIgnoreCase("Bird"))) {
+                if((sizesList.get(0) > animal.getMinBodyLengthCm()) && (sizesList.get(1) < animal.getMaxBodyLengthCm()) && (animal.getType().equalsIgnoreCase("Bird"))) {
                     resultList.add(animal);
                 }
                 Log.d("MID", "THIS PROCESS HAS WORKED");
 
             } else{
                 if(sizesList.get(1).equals(0)){
-                    if((sizesList.get(0) > Integer.parseInt(animal.getMinBodyLengthCm()))&& (animal.getType().equalsIgnoreCase("Bird"))){
+                    if((sizesList.get(0) > animal.getMinBodyLengthCm())&& (animal.getType().equalsIgnoreCase("Bird"))){
                         resultList.add(animal);
                     }
                 }
                 if(sizesList.get(1).equals(1)){
-                    if((sizesList.get(0) < Integer.parseInt(animal.getMaxBodyLengthCm())) && (animal.getType().equalsIgnoreCase("Bird"))){
+                    if((sizesList.get(0) < animal.getMaxBodyLengthCm()) && (animal.getType().equalsIgnoreCase("Bird"))){
                         resultList.add(animal);
                     }
                 }
