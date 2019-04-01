@@ -57,6 +57,11 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
         bird_colour_option_white.setOnClickListener(this);
         bird_colour_option_yellow.setOnClickListener(this);
         bird_colour_option_grey.setOnClickListener(this);
+
+        Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
+        Button species_skip_btn = (Button) view.findViewById(R.id.species_skip_button);
+        species_back_btn.setOnClickListener(this);
+        species_skip_btn.setOnClickListener(this);
         return view;
     }
 
@@ -84,6 +89,14 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
             bundle.putStringArrayList("filter", filterItems);
             Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_speciesIdentifierResult,bundle);
 
+        }
+        if (i == R.id.species_back_button) {
+            bundle.remove("BirdHeadColour");
+            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdHeightFragment,bundle);
+        }
+        if (i == R.id.species_skip_button) {
+            bundle.remove("BirdHeadColour");
+            Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_speciesIdentifierResult,bundle);
         }
 
     }
