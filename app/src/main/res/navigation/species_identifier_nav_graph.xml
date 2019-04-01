@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_birdHeightFragment_to_birdHeadColourFragment"
             app:destination="@id/birdHeadColourFragment" />
+        <action
+            android:id="@+id/action_birdHeightFragment_to_speciesIdentifierResult"
+            app:destination="@id/speciesIdentifierResult" />
     </fragment>
     <fragment
         android:id="@+id/chooseSpecies"
@@ -34,6 +37,9 @@
         <action
             android:id="@+id/action_chooseSpecies_to_reptileMock"
             app:destination="@id/reptileMock" />
+        <action
+            android:id="@+id/action_chooseSpecies_to_birdHeadColourFragment"
+            app:destination="@id/birdHeadColourFragment" />
     </fragment>
     <fragment android:id="@+id/mammalMock" />
     <fragment android:id="@+id/invertebrateMock" />
