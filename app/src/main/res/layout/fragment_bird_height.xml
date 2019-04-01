@@ -9,37 +9,38 @@
 
     <!-- DONE: Update blank fragment layout -->
     <TextView
+        android:id="@+id/choose_height"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="Choose an option for the height of Bird you saw" />
+        android:text="@string/choose_an_option_for_the_height_of_bird_you_saw" />
 
     <TextView
-        android:id="@+id/filter_view"
+        android:id="@+id/filter_views"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="30dp"
         android:paddingBottom="20dp"
-        android:text="Filter: " />
+        android:text="@string/filter2" />
 
     <Button
         android:id="@+id/bird_height_option_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Smaller than 15cm" />
+        android:text="@string/smaller_than_15cm" />
 
     <Button
         android:id="@+id/bird_height_option_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Larger than 15cm but smaller than 30cm" />
+        android:text="@string/larger_than_15cm_but_smaller_than_30cm" />
 
     <Button
         android:id="@+id/bird_height_option_3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Larger than 30cm" />
+        android:text="@string/larger_than_30cm" />
 
 </LinearLayout>

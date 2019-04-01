@@ -16,8 +16,7 @@
         android:gravity="center_horizontal"
         android:textColor="#000000"
         android:textSize="40sp"
-        android:text="Cardiff"
-        tools:text="@string/cardiff" />
+        android:text="@string/cardiff" />
 
     <TextView
         android:id="@+id/textView_wild"
@@ -27,8 +26,7 @@
         android:gravity="center_horizontal"
         android:textColor="#000000"
         android:textSize="40sp"
-        android:text="Wildlife"
-        tools:text="@string/wildlife" />
+        android:text="@string/wildlife" />
 
     <Button
         android:id="@+id/home_button_login"

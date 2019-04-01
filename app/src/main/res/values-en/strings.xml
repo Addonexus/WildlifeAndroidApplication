@@ -6,8 +6,8 @@
     <string name="Login">Login</string>
     <string name="not_registered">Not Registered</string>
     <string name="register">REGISTER</string>
-    <string name="cofirm_password">Cofirm Password</string>
-    <string name="already_registerd">Already Registerd?</string>
+    <string name="cofirm_password">Confirm Password</string>
+    <string name="already_registerd">Already Registered?</string>
     <string name="cardiff">Cardiff</string>
     <string name="wildlife">Wildlife</string>
     <string name="home">Home</string>
@@ -15,4 +15,35 @@
     <string name="maps">Maps</string>
     <string name="walks">Walks</string>
     <string name="links">Links</string>
+    <string name="species_identifier">Species Identifier</string>
+    <string name="show_all_animals">Show All Animals</string>
+    <string name="choose_the_species_you_want_to_search_for">Choose the Species you want to search for</string>
+    <string name="bird">Bird</string>
+    <string name="mammal">Mammal</string>
+    <string name="invertebrate">Invertebrate</string>
+    <string name="amphibian_reptile">Amphibian/Reptile</string>
+    <string name="name">name</string>
+    <string name="scientific_name">Scientific Name</string>
+    <string name="type">Type</string>
+    <string name="filter">Filter:</string>
+    <string name="choose_an_head_colour_of_the_bird_you_saw">Choose an head colour of the bird you saw</string>
+    <string name="white">White</string>
+    <string name="blue">Blue</string>
+    <string name="black">Black</string>
+    <string name="red">Red</string>
+    <string name="grey">Grey</string>
+    <string name="yellow">Yellow</string>
+    <string name="filter2">Filter:</string>
+    <string name="smaller_than_15cm">Smaller than 15cm</string>
+    <string name="larger_than_15cm_but_smaller_than_30cm">Larger than 15cm but smaller than 30cm</string>
+    <string name="larger_than_30cm">Larger than 30cm</string>
+    <string name="result">Result:</string>
+    <string name="choose_an_option_for_the_height_of_bird_you_saw">Choose an option for the height of Bird you saw</string>
+    <string name="title_external_links">External Links</string>
+    <string name="title_animal_menu">Animals Menu</string>
+    <string name="title_home">Home</string>
+    <string name="title_map">Map</string>
+    <string name="title_walks">Walks</string>
+    <string name="title_species_identifier">Species Identifier</string>
+
 </resources>

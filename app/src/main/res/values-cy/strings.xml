@@ -15,5 +15,35 @@
     <string name="maps">Mapiau</string>
     <string name="walks">Cerdded</string>
     <string name="links">Cysylltiadau</string>
+    <string name="species_identifier">Dynodydd Rhywogaethau</string>
+    <string name="show_all_animals">Dangoswch Pob Anifeiliaid</string>
+    <string name="choose_the_species_you_want_to_search_for">Dewiswch y Rhywogaethau rydych chi eisiau chwilio amdanynt</string>
+    <string name="bird">Adar</string>
+    <string name="mammal">Mamaliaid</string>
+    <string name="invertebrate">Anifeiliaid di-asgwrn-cefn</string>
+    <string name="amphibian_reptile">Amffibiaid/Ymlusgiad</string>
+    <string name="name">Enw</string>
+    <string name="scientific_name">Enw gwyddonol</string>
+    <string name="type">Math</string>
+    <string name="filter">Hidlo:</string>
+    <string name="choose_an_head_colour_of_the_bird_you_saw">Dewiswch liw pen o\'r aderyn a welsoch</string>
+    <string name="white">Gwyn</string>
+    <string name="blue">Glas</string>
+    <string name="black">Duach</string>
+    <string name="red">Coch</string>
+    <string name="grey">Grey</string>
+    <string name="yellow">Melyn</string>
+    <string name="filter2">Hidlo:</string>
+    <string name="smaller_than_15cm">Llai na 15cm</string>
+    <string name="larger_than_15cm_but_smaller_than_30cm">Yn fwy na 15cm ond yn llai na 30cm</string>
+    <string name="larger_than_30cm">Mwy na 30cm</string>
+    <string name="result">Canlyniad:</string>
+    <string name="choose_an_option_for_the_height_of_bird_you_saw">Dewiswch opsiwn ar gyfer uchder yr Adar a welsoch</string>
+    <string name="title_external_links">Cysylltiadau Allanol</string>
+    <string name="title_animal_menu">Bwydlen Anifeiliaid</string>
+    <string name="title_home">Hafan</string>
+    <string name="title_map">Mapiau</string>
+    <string name="title_walks">Teithiau cerdded</string>
+    <string name="title_species_identifier">Dynodydd Rhywogaethau</string>
 
 </resources>

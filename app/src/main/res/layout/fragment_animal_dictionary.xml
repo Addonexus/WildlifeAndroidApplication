@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:text="Species Identifier" />
+        android:text="@string/species_identifier" />
 
     <Button
         android:id="@+id/species_show_all"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:text="Show All Animals" />
+        android:text="@string/show_all_animals" />
 
 
 </LinearLayout>

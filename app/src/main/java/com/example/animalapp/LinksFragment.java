@@ -26,7 +26,7 @@ public class LinksFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        getActivity().setTitle("External Links");
+        getActivity().setTitle(R.string.title_external_links);
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_links, container, false);
     }

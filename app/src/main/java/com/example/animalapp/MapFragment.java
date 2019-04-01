@@ -54,7 +54,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, container, false);
-        getActivity().setTitle("Map");
+        getActivity().setTitle(R.string.title_map);
         Bundle bundle = this.getArguments();
         if (bundle != null) {
             moveCurrentLat = bundle.getDouble("Latitude");
