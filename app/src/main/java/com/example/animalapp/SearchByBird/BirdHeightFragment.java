@@ -47,7 +47,7 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
             }
             if (bundle.containsKey("BirdHeight")){
                 ArrayList<Integer> passedHeight = bundle.getIntegerArrayList("BirdHeight");
-                if (passedHeight.size() > 1){
+                if (passedHeight.size() > 2){
                     Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
                     filter.append("Height").append(": >").append(passedHeight.get(0)).append(", <").append(passedHeight.get(1)).append(". ");
                 } else {
@@ -95,17 +95,17 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
 
         if (i == R.id.bird_height_option_1) {
             ArrayList<Integer> values = new ArrayList<>();
-            values.add(15);
+            values.addAll(Arrays.asList(15,0));
             setBirdHeight(values, bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
         }else if (i == R.id.bird_height_option_2) {
             ArrayList<Integer> values = new ArrayList<>();
-            values.addAll(Arrays.asList(15,30));
+            values.addAll(Arrays.asList(15,30,0));
             setBirdHeight(values, bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
         }else if (i == R.id.bird_height_option_3) {
             ArrayList<Integer> values = new ArrayList<>();
-            values.add(30);
+            values.addAll(Arrays.asList(30,1));
             setBirdHeight(values, bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
         }

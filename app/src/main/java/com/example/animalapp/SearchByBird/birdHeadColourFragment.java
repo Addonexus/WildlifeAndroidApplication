@@ -47,7 +47,7 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
             }
             if (bundle.containsKey("BirdHeight")){
                 ArrayList<Integer> passedHeight = bundle.getIntegerArrayList("BirdHeight");
-                if (passedHeight.size() > 1){
+                if (passedHeight.size() > 2){
                     Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
                     filter.append("Height").append(": >").append(passedHeight.get(0)).append(", <").append(passedHeight.get(1)).append(". ");
                 } else {

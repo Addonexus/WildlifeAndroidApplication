@@ -72,7 +72,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             if (bundle.containsKey("BirdHeight")){
                 filters.add("BirdHeight");
                 ArrayList<Integer> passedHeight = bundle.getIntegerArrayList("BirdHeight");
-                if (passedHeight.size() > 1){
+                if (passedHeight.size() > 2){
                     Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
                     filter.append("Height").append(": >").append(passedHeight.get(0)).append(", <").append(passedHeight.get(1)).append(". ");
                 } else {
@@ -126,16 +126,24 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         ArrayList<Animal> resultList = new ArrayList<>();
         for (Animal animal :
                 animalList) {
-            if (sizesList.size() > 1){
+            if (sizesList.size() > 2){
                 if((sizesList.get(0) > Integer.parseInt(animal.getMinBodyLengthCm())) && (sizesList.get(1) < Integer.parseInt(animal.getMaxBodyLengthCm())) && (animal.getType().equalsIgnoreCase("Bird"))) {
                     resultList.add(animal);
                 }
                 Log.d("MID", "THIS PROCESS HAS WORKED");
 
             } else{
-                if(((sizesList.get(0) > Integer.parseInt(animal.getMinBodyLengthCm())) || (sizesList.get(0) < Integer.parseInt(animal.getMaxBodyLengthCm()))) && (animal.getType().equalsIgnoreCase("Bird"))){
-                    resultList.add(animal);
+                if(sizesList.get(1).equals(0)){
+                    if((sizesList.get(0) > Integer.parseInt(animal.getMinBodyLengthCm()))&& (animal.getType().equalsIgnoreCase("Bird"))){
+                        resultList.add(animal);
+                    }
                 }
+                if(sizesList.get(1).equals(1)){
+                    if((sizesList.get(0) < Integer.parseInt(animal.getMaxBodyLengthCm())) && (animal.getType().equalsIgnoreCase("Bird"))){
+                        resultList.add(animal);
+                    }
+                }
+
                 Log.d("MID", "THIS PROCESS HAS WORKED");
             }
         }
