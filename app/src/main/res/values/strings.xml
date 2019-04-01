@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">animalapp</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="Login">Login</string>
