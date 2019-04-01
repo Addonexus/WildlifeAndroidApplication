@@ -22,11 +22,11 @@ import androidx.navigation.Navigation;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class birdHeadColourFragment extends Fragment implements View.OnClickListener{
+public class birdWingColourFragment extends Fragment implements View.OnClickListener{
     ArrayList<String> filterItems = new ArrayList<>();
 
 
-    public birdHeadColourFragment() {
+    public birdWingColourFragment() {
         // Required empty public constructor
     }
 
@@ -35,7 +35,7 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bird_head_colour, container, false);
+        View view = inflater.inflate(R.layout.fragment_bird_wing_colour, container, false);
         Bundle bundle = this.getArguments();
         TextView passed_detail = view.findViewById(R.id.filter_view);
         if (bundle != null) {
@@ -62,6 +62,7 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
                 Log.d("BIRD WING COLOUR", passedColour);
                 filter.append("Wing").append(": ").append(passedColour).append(". ");
             }
+
             passed_detail.setText("Filter: " + filter);
         }
 
@@ -86,8 +87,8 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
         species_skip_btn.setOnClickListener(this);
         return view;
     }
-    public Bundle setHeadColour(String value, Bundle bundle){
-        bundle.putString("BirdHeadColour", value);
+    public Bundle setWingColour(String value, Bundle bundle){
+        bundle.putString("BirdWingColour", value);
         return bundle;
 
     }
@@ -102,42 +103,42 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
 
         int i = v.getId();
         if (i == R.id.bird_colour_option_white) {
-            setHeadColour("White", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
+            setWingColour("White", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_yellow) {
 
-            setHeadColour("Yellow", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
+            setWingColour("Yellow", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_grey) {
 
-            setHeadColour("Grey", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
+            setWingColour("Grey", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_red) {
 
-            setHeadColour("Red", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
+            setWingColour("Red", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_blue) {
 
-            setHeadColour("Blue", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
+            setWingColour("Blue", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_black) {
 
-            setHeadColour("Black", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
+            setWingColour("Black", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_speciesIdentifierResult,bundle);
 
         }
         if (i == R.id.species_back_button) {
 //            bundle.remove("BirdHeadColour");
-            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdHeightFragment,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdHeadColourFragment,bundle);
         }
         if (i == R.id.species_skip_button) {
-            bundle.remove("BirdHeadColour");
-            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
+            bundle.remove("BirdWingColour");
+            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_speciesIdentifierResult,bundle);
         }
 
     }

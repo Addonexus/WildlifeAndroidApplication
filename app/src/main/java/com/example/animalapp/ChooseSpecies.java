@@ -4,6 +4,7 @@ package com.example.animalapp;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +56,10 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
 
 
         return view;
+    }
+
+    public void working(){
+        Log.d("WOACH", "THIS METHOD WAS ACCESSED");
     }
 
     @Override
