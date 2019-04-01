@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
@@ -120,16 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
-
-
-//                        Log.d("initialised","animals" + allanimals);
-
-                        for (Animal list : allAnimals){
-                            if (list.getName().equalsIgnoreCase("common toad")){
-                                Log.d("Id 2 - ","Animal 2: " + list);
-                            }
-                        }
-
+                        Log.d("Show All Animals - "," " + allAnimals);
                     }
                 });
 
@@ -141,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void run() {
                         for (Animal list : allAnimals){
                             if(list.getName().equalsIgnoreCase("common newt")){
-                                Log.d("ID ANIMAL - ","null attribute: " + list);
+                                Log.d("Name of Animal - ","null attribute: " + list);
                             }
                         }
                     }
