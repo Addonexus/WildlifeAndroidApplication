@@ -7,4 +7,10 @@
     <string name="register">REGISTER</string>
     <string name="cofirm_password">Cofirm Password</string>
     <string name="already_registerd">Already Registerd?</string>
+    <string name="app_name">AnimalApp</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Initialise">Initialise</string>
+    <string name="Animal">Animal</string>
 </resources>

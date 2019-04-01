@@ -16,6 +16,26 @@
        app:itemTextColor="@color/bottom_nav_color"/>
 
 
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/initialise"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Initialise"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/animal"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Animal"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="173dp" />
+
    <FrameLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
