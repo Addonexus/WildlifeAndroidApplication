@@ -73,9 +73,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String [] record = null;
 
             while ((record = reader.readNext()) != null) {
-                Animal animal = new Animal(record[0], record[1], record[2],
-                        record[3], record[4], record[5], record[6],
-                        record[7], record[8], record[9], record[10],record[11]);
+                Animal animal = new Animal();
+                animal.setType(record[0]);
+                animal.setName(record[1]);
+                animal.setScientificName(record[2]);
+                animal.setMinBodyLengthCm(record[3]);
+                animal.setMaxBodyLengthCm(record[4]);
+                animal.setMinWingspanCm(record[5]);
+                animal.setMaxWingspanCm(record[6]);
+                animal.setDescription(record[7]);
+                animal.setHabitat(record[8]);
+                animal.setBestTime(record[9]);
+                animal.setBestWalk(record[10]);
+                animal.setFoodSource(record[11]);
 
                 animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);
