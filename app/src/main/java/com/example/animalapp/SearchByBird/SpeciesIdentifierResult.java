@@ -96,6 +96,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 String passedColour = bundle.getString("BirdWingColour");
                 Log.d("BIRD WING COLOUR", passedColour);
                 filter.append("Wing").append(": ").append(passedColour).append(". ");
+            }if (bundle.containsKey("BirdBellyColour")) {
+                String passedColour = bundle.getString("BirdBellyColour");
+                Log.d("BIRD BELLY COLOUR", passedColour);
+                filter.append("Belly").append(": ").append(passedColour).append(". ");
             }
 //            filterItems = bundle.getStringArrayList("filter");
 //
@@ -239,7 +243,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 });
                 break;
             case R.id.species_back_button:
-                Navigation.findNavController(v).navigate(R.id.action_speciesIdentifierResult_to_birdWingColourFragment, this.getArguments());
+                Navigation.findNavController(v).navigate(R.id.action_speciesIdentifierResult_to_birdBellyColourFragment, this.getArguments());
 
                 break;
 

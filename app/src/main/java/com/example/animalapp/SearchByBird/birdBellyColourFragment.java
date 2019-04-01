@@ -22,11 +22,11 @@ import androidx.navigation.Navigation;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class birdWingColourFragment extends Fragment implements View.OnClickListener{
+public class birdBellyColourFragment extends Fragment implements View.OnClickListener{
     ArrayList<String> filterItems = new ArrayList<>();
 
 
-    public birdWingColourFragment() {
+    public birdBellyColourFragment() {
         // Required empty public constructor
     }
 
@@ -35,7 +35,7 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bird_wing_colour, container, false);
+        View view = inflater.inflate(R.layout.fragment_bird_belly_colour, container, false);
         Bundle bundle = this.getArguments();
         TextView passed_detail = view.findViewById(R.id.filter_view);
         if (bundle != null) {
@@ -44,8 +44,7 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
                 String type = bundle.getString("SpeciesType");
                 Log.d("TYPE", type);
                 filter.append("Type").append(": ").append(type).append(". ");
-            }
-            if (bundle.containsKey("BirdHeight")){
+            }if (bundle.containsKey("BirdHeight")){
                 ArrayList<Integer> passedHeight = bundle.getIntegerArrayList("BirdHeight");
                 if (passedHeight.size() > 2){
                     Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
@@ -91,8 +90,8 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
         species_skip_btn.setOnClickListener(this);
         return view;
     }
-    public Bundle setWingColour(String value, Bundle bundle){
-        bundle.putString("BirdWingColour", value);
+    public Bundle setBellyColour(String value, Bundle bundle){
+        bundle.putString("BirdBellyColour", value);
         return bundle;
 
     }
@@ -107,42 +106,42 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
 
         int i = v.getId();
         if (i == R.id.bird_colour_option_white) {
-            setWingColour("White", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
+            setBellyColour("White", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_yellow) {
 
-            setWingColour("Yellow", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
+            setBellyColour("Yellow", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_grey) {
 
-            setWingColour("Grey", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
+            setBellyColour("Grey", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_red) {
 
-            setWingColour("Red", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
+            setBellyColour("Red", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_blue) {
 
-            setWingColour("Blue", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
+            setBellyColour("Blue", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
 
         } if (i == R.id.bird_colour_option_black) {
 
-            setWingColour("Black", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
+            setBellyColour("Black", bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
 
         }
         if (i == R.id.species_back_button) {
 //            bundle.remove("BirdHeadColour");
-            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdHeadColourFragment,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_birdWingColourFragment,bundle);
         }
         if (i == R.id.species_skip_button) {
-            bundle.remove("BirdWingColour");
-            Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
+            bundle.remove("BirdBellyColour");
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
         }
 
     }

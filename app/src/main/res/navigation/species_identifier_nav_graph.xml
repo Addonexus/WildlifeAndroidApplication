@@ -47,8 +47,8 @@
             android:id="@+id/action_speciesIdentifierResult_to_chooseSpecies"
             app:destination="@id/chooseSpecies" />
         <action
-            android:id="@+id/action_speciesIdentifierResult_to_birdWingColourFragment"
-            app:destination="@+id/birdWingColourFragment" />
+            android:id="@+id/action_speciesIdentifierResult_to_birdBellyColourFragment"
+            app:destination="@+id/birdBellyColourFragment" />
     </fragment>
     <fragment
         android:id="@+id/birdHeadColourFragment"
@@ -71,7 +71,19 @@
             android:id="@+id/action_birdWingColourFragment_to_birdHeadColourFragment"
             app:destination="@id/birdHeadColourFragment" />
         <action
-            android:id="@+id/action_birdWingColourFragment_to_speciesIdentifierResult"
+            android:id="@+id/action_birdWingColourFragment_to_birdBellyColourFragment"
+            app:destination="@+id/birdBellyColourFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/birdBellyColourFragment"
+        android:name="com.example.animalapp.SearchByBird.birdBellyColourFragment"
+        android:label="fragment_bird_belly_colour"
+        tools:layout="@layout/fragment_bird_belly_colour" >
+        <action
+            android:id="@+id/action_birdBellyColourFragment_to_speciesIdentifierResult"
             app:destination="@id/speciesIdentifierResult" />
+        <action
+            android:id="@+id/action_birdBellyColourFragment_to_birdWingColourFragment"
+            app:destination="@id/birdWingColourFragment" />
     </fragment>
 </navigation>
