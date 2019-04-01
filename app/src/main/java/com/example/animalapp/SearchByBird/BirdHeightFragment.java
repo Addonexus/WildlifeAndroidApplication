@@ -39,6 +39,7 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
         Bundle bundle = this.getArguments();
         TextView passed_detail = view.findViewById(R.id.filter_view);
         if (bundle != null) {
+            Log.d("SECESIOS TYPE", bundle.getString("SpeciesType"));
             filterItems = bundle.getStringArrayList("filter");
             StringBuilder filter = new StringBuilder();
             for (String filterItem :
@@ -58,6 +59,11 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
         bird_height_option_one.setOnClickListener(this);
         bird_height_option_two.setOnClickListener(this);
         bird_height_option_three.setOnClickListener(this);
+
+        Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
+        Button species_skip_btn = (Button) view.findViewById(R.id.species_skip_button);
+        species_back_btn.setOnClickListener(this);
+        species_skip_btn.setOnClickListener(this);
 
 
         return view;
@@ -89,6 +95,15 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
             Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
 
         }
+        if (i == R.id.species_back_button) {
+            bundle.remove("BirdHeight");
+            Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_chooseSpecies,bundle);
+        }
+        if (i == R.id.species_skip_button) {
+            bundle.remove("BirdHeight");
+            Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_speciesIdentifierResult,bundle);
+        }
+
 
     }
 }
