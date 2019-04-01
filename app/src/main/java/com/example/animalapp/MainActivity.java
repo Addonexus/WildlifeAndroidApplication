@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 animal.setBestTime(record[9]);
                 animal.setBestWalk(record[10]);
                 animal.setFoodSource(record[11]);
+                animal.setImage(record[12]);
 
                 animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);

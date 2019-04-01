@@ -46,6 +46,9 @@ public class Animal {
     @ColumnInfo(name = "Food Source")
     private String foodSource;
 
+    @ColumnInfo(name = "Image")
+    private String image;
+
     public int getId() {
         return id;
     }
@@ -150,6 +153,14 @@ public class Animal {
         this.foodSource = foodSource;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "Animal{" +
@@ -166,6 +177,7 @@ public class Animal {
                 ", bestTime='" + bestTime + '\'' +
                 ", bestWalk='" + bestWalk + '\'' +
                 ", foodSource='" + foodSource + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 }
