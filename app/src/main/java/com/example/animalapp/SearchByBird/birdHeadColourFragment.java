@@ -1,4 +1,4 @@
-package com.example.animalapp;
+package com.example.animalapp.SearchByBird;
 
 
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.animalapp.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -20,11 +22,11 @@ import androidx.navigation.Navigation;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BirdHeightFragment extends Fragment implements View.OnClickListener {
+public class birdHeadColourFragment extends Fragment implements View.OnClickListener{
     ArrayList<String> filterItems = new ArrayList<>();
 
 
-    public BirdHeightFragment() {
+    public birdHeadColourFragment() {
         // Required empty public constructor
     }
 
@@ -33,7 +35,7 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bird_height, container, false);
+        View view = inflater.inflate(R.layout.fragment_bird_head_colour, container, false);
         Bundle bundle = this.getArguments();
         TextView passed_detail = view.findViewById(R.id.filter_view);
         if (bundle != null) {
@@ -48,22 +50,18 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
             passed_detail.setText("Filter: " + filter);
         }
 
+        Button bird_colour_option_white = (Button) view.findViewById(R.id.bird_colour_option_white);
+        Button bird_colour_option_yellow = (Button) view.findViewById(R.id.bird_colour_option_yellow);
+        Button bird_colour_option_grey = (Button) view.findViewById(R.id.bird_colour_option_grey);
 
-        Button bird_height_option_one = (Button) view.findViewById(R.id.bird_height_option_1);
-        Button bird_height_option_two = (Button) view.findViewById(R.id.bird_height_option_2);
-        Button bird_height_option_three = (Button) view.findViewById(R.id.bird_height_option_3);
-
-        bird_height_option_one.setOnClickListener(this);
-        bird_height_option_two.setOnClickListener(this);
-        bird_height_option_three.setOnClickListener(this);
-
-
+        bird_colour_option_white.setOnClickListener(this);
+        bird_colour_option_yellow.setOnClickListener(this);
+        bird_colour_option_grey.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
-
         Bundle bundle = this.getArguments();
         if (bundle == null) {
             Log.i("NULL BUNDLE", "NOT WORKED");
@@ -71,22 +69,24 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
         }
 
         int i = v.getId();
-        if (i == R.id.bird_height_option_1) {
-            filterItems.add("Height" + ":" + "<15cm");
+        if (i == R.id.bird_colour_option_white) {
+            filterItems.add("Colour" + ":" + "White");
             bundle.putStringArrayList("filter", filterItems);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_speciesIdentifierResult,bundle);
 
-        }else if (i == R.id.bird_height_option_2) {
-            filterItems.add("Height" + ":" + ">15cm" +","+"<30cm");
+        }else if (i == R.id.bird_colour_option_yellow) {
+            filterItems.add("Colour" + ":" + "Yellow");
             bundle.putStringArrayList("filter", filterItems);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_speciesIdentifierResult,bundle);
 
-        }else if (i == R.id.bird_height_option_3) {
-            filterItems.add("Height" + ":" + ">30cm");
+        }else if (i == R.id.bird_colour_option_grey) {
+            filterItems.add("Colour" + ":" + "Grey");
             bundle.putStringArrayList("filter", filterItems);
-            Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_speciesIdentifierResult,bundle);
 
         }
 
     }
+
 }
+

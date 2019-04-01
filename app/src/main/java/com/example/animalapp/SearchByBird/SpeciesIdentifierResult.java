@@ -1,4 +1,4 @@
-package com.example.animalapp;
+package com.example.animalapp.SearchByBird;
 
 
 import android.os.AsyncTask;
@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
+import com.example.animalapp.R;
+import com.example.animalapp.SpeciesIdentifier;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,17 +67,15 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     @Override
     public void onClick(View v) {
         int viewId = v.getId();
-        Fragment parentFragment = getParentFragment();
-        Log.d("THINGS", parentFragment.toString());
-        Log.d("CHECKING", Boolean.toString(parentFragment instanceof ChooseSpecies));
-        Log.d("WHAT", getActivity().toString());
+//        Fragment parentFragment = getParentFragment();
+//        Log.d("THINGS", parentFragment.toString());
+//        Log.d("CHECKING", Boolean.toString(parentFragment instanceof ChooseSpecies));
+//        Log.d("WHAT", getActivity().toString());
         NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
         Fragment parent = (Fragment) navHostFragment.getParentFragment();
         parent.getView().findViewById(R.id.species_identifier_nav_graph);
-        Log.d("THINFY", parent.toString());
-        Log.d("WHO", navHostFragment.toString());
-
-
+//        Log.d("THINFY", parent.toString());
+//        Log.d("WHO", navHostFragment.toString());
 
         AnimalDatabase db= ((SpeciesIdentifier)(parent)).getDb();
         List<Animal> allAnimals = db.animalDAO().getAllAnimals();

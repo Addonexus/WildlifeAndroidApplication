@@ -6,7 +6,7 @@
     android:layout_margin="16dp"
     android:orientation="vertical"
     android:paddingTop="20dp"
-    tools:context=".SpeciesIdentifierResult"
+    tools:context=".SearchByBird.SpeciesIdentifierResult"
     android:id="@+id/species_identifier_result">
 
     <!-- TODO: Update blank fragment layout -->

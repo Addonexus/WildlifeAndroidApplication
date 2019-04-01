@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/birdHeightFragment"
-        android:name="com.example.animalapp.BirdHeightFragment"
+        android:name="com.example.animalapp.SearchByBird.BirdHeightFragment"
         android:label="fragment_bird_height"
         tools:layout="@layout/fragment_bird_height" >
         <action
@@ -40,7 +40,7 @@
     <fragment android:id="@+id/reptileMock" />
     <fragment
         android:id="@+id/speciesIdentifierResult"
-        android:name="com.example.animalapp.SpeciesIdentifierResult"
+        android:name="com.example.animalapp.SearchByBird.SpeciesIdentifierResult"
         android:label="fragment_species_identifier_result"
         tools:layout="@layout/fragment_species_identifier_result" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/birdHeadColourFragment"
-        android:name="com.example.animalapp.birdHeadColourFragment"
+        android:name="com.example.animalapp.SearchByBird.birdHeadColourFragment"
         android:label="fragment_bird_head_colour"
         tools:layout="@layout/fragment_bird_head_colour" >
         <action
