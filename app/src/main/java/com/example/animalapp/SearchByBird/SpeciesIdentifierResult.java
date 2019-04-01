@@ -19,6 +19,7 @@ import com.example.animalapp.Database.AnimalDatabase;
 import com.example.animalapp.R;
 import com.example.animalapp.SpeciesIdentifier;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -31,6 +32,9 @@ import androidx.navigation.fragment.NavHostFragment;
  * A simple {@link Fragment} subclass.
  */
 public class SpeciesIdentifierResult extends Fragment implements View.OnClickListener {
+    Bundle bundle = this.getArguments();
+    int numberOfFilters = 0;
+    ArrayList<String> filters = new ArrayList<>();
 
 
 
@@ -59,11 +63,14 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         if (bundle != null) {
             StringBuilder filter = new StringBuilder();
             if (bundle.containsKey("SpeciesType")) {
+                numberOfFilters =+ 1;
+                filters.add("SpeciesType");
                 String type = bundle.getString("SpeciesType");
                 Log.d("TYPE", type);
                 filter.append("Type").append(": ").append(type).append(". ");
             }
             if (bundle.containsKey("BirdHeight")){
+                filters.add("BirdHeight");
                 ArrayList<Integer> passedHeight = bundle.getIntegerArrayList("BirdHeight");
                 if (passedHeight.size() > 1){
                     Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
@@ -72,6 +79,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                     Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)));
                     filter.append("Bird Height").append(": ").append(passedHeight.get(0)).append(". ");}
             }if (bundle.containsKey("BirdHeadColour")) {
+                filters.add("BirdHeadColour");
                 String passedColour = bundle.getString("BirdHeadColour");
                 Log.d("BIRD HEAD COLOUR", passedColour);
                 filter.append("Head").append(": ").append(passedColour).append(". ");
@@ -87,6 +95,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //            }
             passed_detail.setText("Filter: " + filter);
         }
+        searchUsingFilters();
         return view;
     }
     public void replaceFragment(Fragment fragment){
@@ -94,6 +103,74 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         transaction.replace(R.id.frame, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+
+    }
+    public ArrayList<Animal> searchByType(ArrayList<Animal> animalList, String type){
+        Log.d("STARTING", "THIS PROCESS SEARCH BY TYPE HAS STARTED "+ type);
+        ArrayList<Animal> resultList = new ArrayList<>();
+        for (Animal animal :
+                animalList) {
+            if (animal.getType().equalsIgnoreCase(type)){
+                resultList.add(animal);
+                Log.d("MID", "THIS PROCESS HAS WORKED");
+            }
+        }
+//        for (Animal animal: resultList){
+//            Log.d("RSEULT ANIMAL", animal.toString());
+//        }
+        return resultList;
+    }
+    public ArrayList<Animal> searchBySize(ArrayList<Animal> animalList, List<Integer> sizesList){
+        Log.d("STARTING", "THIS SEARCH BY SIZE HAS STARTED "+ sizesList);
+
+        ArrayList<Animal> resultList = new ArrayList<>();
+        for (Animal animal :
+                animalList) {
+            if (sizesList.size() > 1){
+                if((sizesList.get(0) > Integer.parseInt(animal.getMinBodyLengthCm())) && (sizesList.get(1) < Integer.parseInt(animal.getMaxBodyLengthCm())) && (animal.getType().equalsIgnoreCase("Bird"))) {
+                    resultList.add(animal);
+                }
+                Log.d("MID", "THIS PROCESS HAS WORKED");
+
+            } else{
+                if(((sizesList.get(0) > Integer.parseInt(animal.getMinBodyLengthCm())) || (sizesList.get(0) < Integer.parseInt(animal.getMaxBodyLengthCm()))) && (animal.getType().equalsIgnoreCase("Bird"))){
+                    resultList.add(animal);
+                }
+                Log.d("MID", "THIS PROCESS HAS WORKED");
+            }
+        }
+//        for (Animal animal: resultList){
+//            Log.d("RSEULT ANIMAL", animal.toString());
+//        }
+        return resultList;
+
+    }
+    public void searchUsingFilters(){
+        NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
+        Fragment parent = (Fragment) navHostFragment.getParentFragment();
+        parent.getView().findViewById(R.id.species_identifier_nav_graph);
+//        Log.d("THINFY", parent.toString());
+//        Log.d("WHO", navHostFragment.toString());
+
+        AnimalDatabase db= ((SpeciesIdentifier)(parent)).getDb();
+
+        ArrayList<Animal> allAnimals = new ArrayList<>(db.animalDAO().getAllAnimals());
+        ArrayList<Animal> resultList = allAnimals;
+
+        for (String filter: filters) {
+            if (filter.equalsIgnoreCase("SpeciesType")){
+                resultList = searchByType(resultList, getArguments().getString("SpeciesType"));
+                Log.d("AFTER BY TYPE", resultList.size() + "");
+            }
+            if (filter.equalsIgnoreCase("BirdHeight")){
+                resultList = searchBySize(resultList, getArguments().getIntegerArrayList("BirdHeight"));
+                Log.d("AFTER BY SIZE", resultList.size() + "");
+            }
+
+        }
+        for (Animal animal: resultList){
+            Log.d("FINAL ANIMAL RESULT", animal.toString());
+        }
 
     }
 
@@ -112,22 +189,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 
         AnimalDatabase db= ((SpeciesIdentifier)(parent)).getDb();
         List<Animal> allAnimals = db.animalDAO().getAllAnimals();
+
         final ArrayList<Animal> resultList = new ArrayList<>(allAnimals);
         switch (viewId) {
 
-            case R.id.initialise:
-                AsyncTask.execute(new Runnable() {
-                    @Override
-                    public void run() {
-//                        Log.d("initialised","animals" + allanimals);
-                        for (Animal list : resultList) {
-                            if (list.getName().equalsIgnoreCase("pintail")) {
-                                Log.d("Id 2", "Animal 2" + list);
-                            }
-                        }
-                    }
-                });
-                break;
             case R.id.animal:
                 AsyncTask.execute(new Runnable() {
                     @Override
