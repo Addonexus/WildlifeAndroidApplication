@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         db = AnimalDatabase.getDatabase(getApplicationContext());
-        db.animalDAO().clearAnimal();
+
         addData();
 
         AppCompatButton initialiseButton = this.findViewById(R.id.initialise);
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             while ((record = reader.readNext()) != null) {
                 Animal animal = new Animal(record[0], record[1], record[2],
                         record[3], record[4], record[5], record[6],
-                        record[7], record[8], record[9], record[10],record[11],record[12]);
+                        record[7], record[8], record[9], record[10],record[11]);
 
                 animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     public void run() {
                         for (Animal list : allAnimals){
                             if(list.getMinBodyLengthCm().equals("44")){
-                                Log.d("ID ANIMAL - ","ANIMAL WING 44: " + list);
+                                Log.d("ID ANIMAL - ","ANIMAL Body 44: " + list);
                             }
                         }
                     }

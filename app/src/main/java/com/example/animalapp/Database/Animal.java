@@ -46,10 +46,7 @@ public class Animal {
     @ColumnInfo(name = "Food Source")
     private String foodSource;
 
-    @ColumnInfo(name = "Image")
-    private String image;
-
-    public Animal(String type, String name, String scientificName, String minBodyLengthCm, String maxBodyLengthCm, String minWingspanCm, String maxWingspanCm, String description, String habitat, String bestTime, String bestWalk, String foodSource, String image) {
+    public Animal(String type, String name, String scientificName, String minBodyLengthCm, String maxBodyLengthCm, String minWingspanCm, String maxWingspanCm, String description, String habitat, String bestTime, String bestWalk, String foodSource) {
         this.type = type;
         this.name = name;
         this.scientificName = scientificName;
@@ -62,7 +59,6 @@ public class Animal {
         this.bestTime = bestTime;
         this.bestWalk = bestWalk;
         this.foodSource = foodSource;
-        this.image = image;
     }
 
     public int getId() {
@@ -169,14 +165,6 @@ public class Animal {
         this.foodSource = foodSource;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     @Override
     public String toString() {
         return "Animal{" +
@@ -193,7 +181,6 @@ public class Animal {
                 ", bestTime='" + bestTime + '\'' +
                 ", bestWalk='" + bestWalk + '\'' +
                 ", foodSource='" + foodSource + '\'' +
-                ", image='" + image + '\'' +
                 '}';
     }
 }
