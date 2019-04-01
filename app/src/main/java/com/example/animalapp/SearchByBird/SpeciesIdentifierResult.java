@@ -4,11 +4,13 @@ package com.example.animalapp.SearchByBird;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
 
@@ -21,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 
@@ -28,7 +31,7 @@ import androidx.navigation.fragment.NavHostFragment;
  * A simple {@link Fragment} subclass.
  */
 public class SpeciesIdentifierResult extends Fragment implements View.OnClickListener {
-    ArrayList<String> filterItems = new ArrayList<>();
+
 
 
     public SpeciesIdentifierResult() {
@@ -49,19 +52,49 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         AppCompatButton animalButton = view.findViewById(R.id.animal);
         animalButton.setOnClickListener(this);
 
-        if (bundle != null) {
-            filterItems = bundle.getStringArrayList("filter");
+        Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
+        species_back_btn.setOnClickListener(this);
 
+
+        if (bundle != null) {
             StringBuilder filter = new StringBuilder();
-            for (String filterItem :
-                    filterItems) {
-                Log.i("PASSED VALUES: ", filterItem);
-                List<String> splitFilterItem = Arrays.asList(filterItem.split(":"));
-                filter.append(splitFilterItem.get(0)).append(":").append(splitFilterItem.get(1)).append(" ");
+            if (bundle.containsKey("SpeciesType")) {
+                String type = bundle.getString("SpeciesType");
+                Log.d("TYPE", type);
+                filter.append("Type").append(": ").append(type).append(". ");
             }
+            if (bundle.containsKey("BirdHeight")){
+                ArrayList<Integer> passedHeight = bundle.getIntegerArrayList("BirdHeight");
+                if (passedHeight.size() > 1){
+                    Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
+                    filter.append("Height").append(": >").append(passedHeight.get(0)).append(", <").append(passedHeight.get(1)).append(". ");
+                } else {
+                    Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)));
+                    filter.append("Bird Height").append(": ").append(passedHeight.get(0)).append(". ");}
+            }if (bundle.containsKey("BirdHeadColour")) {
+                String passedColour = bundle.getString("BirdHeadColour");
+                Log.d("BIRD HEAD COLOUR", passedColour);
+                filter.append("Head").append(": ").append(passedColour).append(". ");
+            }
+//            filterItems = bundle.getStringArrayList("filter");
+//
+//
+//            for (String filterItem :
+//                    filterItems) {
+//                Log.i("PASSED VALUES: ", filterItem);
+//                List<String> splitFilterItem = Arrays.asList(filterItem.split(":"));
+//                filter.append(splitFilterItem.get(0)).append(":").append(splitFilterItem.get(1)).append(" ");
+//            }
             passed_detail.setText("Filter: " + filter);
         }
         return view;
+    }
+    public void replaceFragment(Fragment fragment){
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+
     }
 
     @Override
@@ -86,21 +119,15 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 AsyncTask.execute(new Runnable() {
                     @Override
                     public void run() {
-
-
 //                        Log.d("initialised","animals" + allanimals);
-
                         for (Animal list : resultList) {
                             if (list.getName().equalsIgnoreCase("pintail")) {
                                 Log.d("Id 2", "Animal 2" + list);
                             }
                         }
-
                     }
                 });
-
                 break;
-
             case R.id.animal:
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -112,12 +139,15 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                         }
                     }
                 });
+                break;
+            case R.id.species_back_button:
+                Navigation.findNavController(v).navigate(R.id.action_speciesIdentifierResult_to_birdHeadColourFragment, this.getArguments());
+
+                break;
 
         }
+
     }
-
-
-
 }
 
 

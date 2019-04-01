@@ -23,7 +23,7 @@ import androidx.navigation.Navigation;
  * A simple {@link Fragment} subclass.
  */
 public class BirdHeightFragment extends Fragment implements View.OnClickListener {
-    ArrayList<String> filterItems = new ArrayList<>();
+
 
 
     public BirdHeightFragment() {
@@ -39,14 +39,24 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
         Bundle bundle = this.getArguments();
         TextView passed_detail = view.findViewById(R.id.filter_view);
         if (bundle != null) {
-            Log.d("SECESIOS TYPE", bundle.getString("SpeciesType"));
-            filterItems = bundle.getStringArrayList("filter");
             StringBuilder filter = new StringBuilder();
-            for (String filterItem :
-                    filterItems) {
-                Log.i("PASSED VALUES: ", filterItem);
-                List<String> splitFilterItem = Arrays.asList(filterItem.split(":"));
-                filter.append(splitFilterItem.get(0)).append(":").append(splitFilterItem.get(1));
+            if (bundle.containsKey("SpeciesType")) {
+                String type = bundle.getString("SpeciesType");
+                Log.d("TYPE", type);
+                filter.append("Type").append(": ").append(type).append(". ");
+            }
+            if (bundle.containsKey("BirdHeight")){
+                ArrayList<Integer> passedHeight = bundle.getIntegerArrayList("BirdHeight");
+                if (passedHeight.size() > 1){
+                    Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
+                    filter.append("Height").append(": >").append(passedHeight.get(0)).append(", <").append(passedHeight.get(1)).append(". ");
+                } else {
+                    Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)));
+                    filter.append("Bird Height").append(": ").append(passedHeight.get(0)).append(". ");}
+            }if (bundle.containsKey("BirdHeadColour")) {
+                String passedColour = bundle.getString("BirdHeadColour");
+                Log.d("BIRD HEAD COLOUR", passedColour);
+                filter.append("Head").append(": ").append(passedColour).append(". ");
             }
             passed_detail.setText("Filter: " + filter);
         }
@@ -68,6 +78,10 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
 
         return view;
     }
+    public Bundle setBirdHeight(ArrayList<Integer> values, Bundle bundle){
+        bundle.putIntegerArrayList("BirdHeight", values);
+        return bundle;
+    }
 
     @Override
     public void onClick(View v) {
@@ -77,31 +91,31 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
             Log.i("NULL BUNDLE", "NOT WORKED");
             bundle = new Bundle();
         }
-
         int i = v.getId();
+
         if (i == R.id.bird_height_option_1) {
-            filterItems.add("Height" + ":" + "<15cm");
-            bundle.putStringArrayList("filter", filterItems);
+            ArrayList<Integer> values = new ArrayList<>();
+            values.add(15);
+            setBirdHeight(values, bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
-
         }else if (i == R.id.bird_height_option_2) {
-            filterItems.add("Height" + ":" + ">15cm" +","+"<30cm");
-            bundle.putStringArrayList("filter", filterItems);
+            ArrayList<Integer> values = new ArrayList<>();
+            values.addAll(Arrays.asList(15,30));
+            setBirdHeight(values, bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
-
         }else if (i == R.id.bird_height_option_3) {
-            filterItems.add("Height" + ":" + ">30cm");
-            bundle.putStringArrayList("filter", filterItems);
+            ArrayList<Integer> values = new ArrayList<>();
+            values.add(30);
+            setBirdHeight(values, bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
-
         }
         if (i == R.id.species_back_button) {
-            bundle.remove("BirdHeight");
+//            bundle.remove("BirdHeight");
             Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_chooseSpecies,bundle);
         }
         if (i == R.id.species_skip_button) {
             bundle.remove("BirdHeight");
-            Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_speciesIdentifierResult,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdHeightFragment_to_birdHeadColourFragment,bundle);
         }
 
 

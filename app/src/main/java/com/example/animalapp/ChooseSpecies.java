@@ -59,25 +59,19 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        ArrayList<ArrayList<String>> filter = new ArrayList<>();
-        ArrayList<String> filterItems = new ArrayList<>();
         Bundle bundle = new Bundle();
         int i = v.getId();
         if (i == R.id.species_bird_button) {
-            filterItems.add("Type" + ":" + "Bird");
-
-            bundle.putStringArrayList("filter", filterItems);
             bundle.putString("SpeciesType", "Bird");
             Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeightFragment,bundle);
 
         }
         if (i == R.id.species_back_button) {
-            SpeciesIdentifier fragment = new SpeciesIdentifier();
             replaceFragment(new SpeciesIdentifier());
         }
         if (i == R.id.species_skip_button) {
             bundle.remove("SpeciesType");
-            Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeadColourFragment,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeightFragment,bundle);
         }
     }
     public void replaceFragment(Fragment someFragment) {
