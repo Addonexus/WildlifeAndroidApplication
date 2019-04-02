@@ -28,7 +28,7 @@ public class AnimalFragment extends Fragment implements View.OnClickListener{
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        getActivity().setTitle("Animals Menu");
+        getActivity().setTitle(R.string.title_animal_menu);
         View view = inflater.inflate(R.layout.fragment_animal_dictionary, container, false);
         Button species_identifier_btn = (Button) view.findViewById(R.id.species_identifier_button);
         species_identifier_btn.setOnClickListener(this);

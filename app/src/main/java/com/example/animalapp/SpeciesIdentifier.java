@@ -37,7 +37,7 @@ public class SpeciesIdentifier extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        getActivity().setTitle("Species Identifier");
+        getActivity().setTitle(R.string.title_species_identifier);
         View view = inflater.inflate(R.layout.fragment_species_identifier, container, false);
 
         Log.d("THINGS IN SPECIES FRAG", view.toString());

@@ -9,12 +9,13 @@
 
     <!-- DONE: Update blank fragment layout -->
     <TextView
+        android:id="@+id/choose_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="Choose an head colour of the bird you saw" />
+        android:text="@string/choose_an_head_colour_of_the_bird_you_saw" />
 
     <TextView
         android:id="@+id/filter_view"
@@ -22,8 +23,7 @@
         android:layout_height="wrap_content"
         android:padding="30dp"
         android:paddingBottom="20dp"
-
-        android:text="Filter: " />
+        android:text="@string/filter" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,17 +31,23 @@
         android:orientation="horizontal"
         android:paddingTop="5dp"
         android:paddingBottom="5dp">
+        android:text="@string/white" />
 
-        <Button
-            android:id="@+id/bird_colour_option_blue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="30dp"
-            android:textColor="@color/blue"
+    <Button
+        android:id="@+id/bird_colour_option_blue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/blue" />
             android:shadowColor="@color/black"
+            android:textColor="@color/blue"
+            android:padding="30dp"
+            android:layout_weight="1"
 
-            android:text="Blue" />
+    <Button
+        android:id="@+id/bird_colour_option_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/black" />
 
         <Button
             android:id="@+id/bird_colour_option_red"
@@ -49,23 +55,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:padding="30dp"
-            android:textColor="@color/red"
-            android:text="Red" />
+            android:textColor="@color/red"/>
 
-        <Button
-            android:id="@+id/bird_colour_option_black"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:padding="30dp"
-            android:textColor="@color/black"
-            android:text="Black" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="@string/red" />
         android:orientation="horizontal"
         android:paddingTop="5dp"
         android:paddingBottom="5dp">
@@ -96,14 +94,11 @@
             android:padding="30dp"
             android:textColor="@color/yellow"
             android:text="Yellow" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:text="@string/grey" />
 
         <Button
             android:id="@+id/bird_colour_option_brown"
@@ -131,13 +126,11 @@
             android:padding="30dp"
             android:textColor="@color/green"
             android:text="Green" />
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="bottom"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:text="@string/yellow" />
 
 
         <Button
@@ -155,6 +148,5 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Skip" />
-    </LinearLayout>
 
 </LinearLayout>

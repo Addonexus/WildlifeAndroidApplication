@@ -7,9 +7,10 @@
 
     <!-- DONE: Update blank fragment layout -->
     <TextView
+        android:id="@+id/maps"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="mapFragment"
+        android:text="@string/maps"
         android:gravity="center"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
 

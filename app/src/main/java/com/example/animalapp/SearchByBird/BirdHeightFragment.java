@@ -40,7 +40,7 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_bird_height, container, false);
         Bundle bundle = this.getArguments();
-        TextView passed_detail = view.findViewById(R.id.filter_view);
+        TextView passed_detail = view.findViewById(R.id.filter_views);
         if (bundle != null) {
             StringBuilder filter = new StringBuilder();
             if (bundle.containsKey("SpeciesType")) {

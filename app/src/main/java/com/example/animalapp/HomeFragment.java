@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        getActivity().setTitle("Home");
+        getActivity().setTitle(R.string.title_home);
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         Button home_button_login = (Button)view.findViewById(R.id.home_button_login);
