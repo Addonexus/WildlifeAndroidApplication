@@ -122,17 +122,25 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             passed_detail.setText("Filter: " + filter);
         }
         ArrayList<Animal> resultAnimals = new ArrayList<>(searchUsingFilters());
-        List<String> resultAnimalNames = new ArrayList<>();
-        List<String> resultAnimalTypes = new ArrayList<>();
-        List<String> resultAnimalScientificNouns = new ArrayList<>();
-        for (Animal animal :
-                resultAnimals) {
-            resultAnimalNames.add(animal.getName());
-            resultAnimalTypes.add(animal.getType());
-            resultAnimalScientificNouns.add(animal.getScientificName());
+        if (!resultAnimals.isEmpty()) {
+            TextView error_result = (TextView) view.findViewById(R.id.result_message);
+            error_result.setText("Possible Animals Found From Filter(s)");
+            List<String> resultAnimalNames = new ArrayList<>();
+            List<String> resultAnimalTypes = new ArrayList<>();
+            List<String> resultAnimalScientificNouns = new ArrayList<>();
+            for (Animal animal :
+                    resultAnimals) {
+                resultAnimalNames.add(animal.getName());
+                resultAnimalTypes.add(animal.getType());
+                resultAnimalScientificNouns.add(animal.getScientificName());
+            }
+            CustomAdapter adapter = new CustomAdapter(getContext(), resultAnimalNames, resultAnimalTypes, resultAnimalScientificNouns);
+            list.setAdapter(adapter);
+        }else {
+            TextView error_result = (TextView) view.findViewById(R.id.result_message);
+            error_result.setText("No Animals Of the Specified Filter(s) Could be Found");
         }
-        CustomAdapter adapter = new CustomAdapter(getContext(), resultAnimalNames, resultAnimalTypes, resultAnimalScientificNouns);
-        list.setAdapter(adapter);
+
         return view;
     }
     public void replaceFragment(Fragment fragment){
