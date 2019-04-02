@@ -1,9 +1,12 @@
 package com.example.animalapp;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +33,13 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_choose_species, container, false);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            bundle.remove("BirdHeight");
+            bundle.remove("BirdColour");
+            bundle.remove("SpeciesType");
+
+        }
         Button species_bird_btn = (Button) view.findViewById(R.id.species_bird_button);
         Button species_mammal_btn = (Button) view.findViewById(R.id.species_mammal_button);
         Button species_reptile_btn = (Button) view.findViewById(R.id.species_reptile_button);
@@ -41,27 +51,34 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
 
 
 
+
         return view;
     }
 
+    public void working(){
+        Log.d("WOACH", "THIS METHOD WAS ACCESSED");
+    }
+
+
     @Override
     public void onClick(View v) {
-        ArrayList<ArrayList<String>> filter = new ArrayList<>();
-        ArrayList<String> filterItems = new ArrayList<>();
         Bundle bundle = new Bundle();
         int i = v.getId();
         if (i == R.id.species_bird_button) {
-            filterItems.add("Type" + ":" + "Bird");
-
-            bundle.putStringArrayList("filter", filterItems);
+            bundle.putString("SpeciesType", "Bird");
             Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeightFragment,bundle);
 
         }
+
+
     }
+
     public void replaceFragment(Fragment someFragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, someFragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame, someFragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+//        getChildFragmentManager().beginTransaction().remove(getTargetFragment()).commit();
+//        getFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
     }
 }

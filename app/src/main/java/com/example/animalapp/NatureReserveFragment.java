@@ -156,7 +156,7 @@ public class NatureReserveFragment extends Fragment {
             TextView description = reserve_item.findViewById(R.id.reserve_information);
 
             images.setImageResource(imgs[position]);
-            title.setText(titles[position]);
+            title.setText(myTitles[position]);
             description.setText(myDescriptions[position]);
 
             return reserve_item;
