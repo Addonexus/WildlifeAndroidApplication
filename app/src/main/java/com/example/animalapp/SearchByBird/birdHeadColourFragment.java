@@ -67,9 +67,9 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
                 Log.d("BIRD HEAD COLOUR", passedColour.toString());
                 filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("BirdWingColour")) {
-                String passedColour = bundle.getString("BirdWingColour");
-                Log.d("BIRD WING COLOUR", passedColour);
-                filter.append("Wing").append(": ").append(passedColour).append(". ");
+                ArrayList<String>  passedColour = bundle.getStringArrayList("BirdWingColour");
+                Log.d("BIRD WING COLOUR", passedColour.toString());
+                filter.append("Wing").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("BirdBellyColour")) {
                 ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
                 Log.d("BIRD BELLY COLOUR", passedColour.toString());

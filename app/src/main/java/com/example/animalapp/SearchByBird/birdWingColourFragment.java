@@ -67,9 +67,9 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
                 Log.d("BIRD HEAD COLOUR", passedColour.toString());
                 filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("BirdWingColour")) {
-                String passedColour = bundle.getString("BirdWingColour");
-                Log.d("BIRD WING COLOUR", passedColour);
-                filter.append("Wing").append(": ").append(passedColour).append(". ");
+                ArrayList<String>  passedColour = bundle.getStringArrayList("BirdWingColour");
+                Log.d("BIRD WING COLOUR", passedColour.toString());
+                filter.append("Wing").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("BirdBellyColour")) {
                 ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
                 Log.d("BIRD BELLY COLOUR", passedColour.toString());
@@ -100,8 +100,8 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
         species_skip_btn.setOnClickListener(this);
         return view;
     }
-    public Bundle setWingColour(String value, Bundle bundle){
-        bundle.putString("BirdWingColour", value);
+    public Bundle setWingColour(ArrayList<String> values, Bundle bundle){
+        bundle.putStringArrayList("BirdWingColour", values);
         return bundle;
 
     }
@@ -116,32 +116,45 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
 
         int i = v.getId();
         if (i == R.id.bird_colour_option_white) {
-            setWingColour("White", bundle);
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("White"));
+            setWingColour(colours, bundle);
+
             Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_yellow) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Yellow"));
+            setWingColour(colours, bundle);
 
-            setWingColour("Yellow", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_grey) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Grey"));
+            setWingColour(colours, bundle);
 
-            setWingColour("Grey", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_red) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Red"));
+            setWingColour(colours, bundle);
 
-            setWingColour("Red", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_blue) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Blue"));
+            setWingColour(colours, bundle);
 
-            setWingColour("Blue", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_black) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Black"));
+            setWingColour(colours, bundle);
 
-            setWingColour("Black", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdWingColourFragment_to_birdBellyColourFragment,bundle);
 
         }

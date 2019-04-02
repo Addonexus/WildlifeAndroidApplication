@@ -99,9 +99,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
 
             }if (bundle.containsKey("BirdWingColour")) {
-                String passedColour = bundle.getString("BirdWingColour");
-                Log.d("BIRD WING COLOUR", passedColour);
-                filter.append("Wing").append(": ").append(passedColour).append(". ");
+                filters.add("BirdWingColour");
+                ArrayList<String>  passedColour = bundle.getStringArrayList("BirdWingColour");
+                Log.d("BIRD WING COLOUR", passedColour.toString());
+                filter.append("Wing").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("BirdBellyColour")) {
                 filters.add("BirdBellyColour");
                 ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
@@ -213,6 +214,19 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         return resultList;
 
     }
+    public ArrayList<Animal> searchByWingColour(ArrayList<Animal> animalList, List<String> wingColours){
+        ArrayList<Animal> resultList = new ArrayList<>();
+        Log.d("STARTING", "THIS SEARCH BY WING COLOUR HAS STARTED "+ wingColours);
+        for (Animal animal :
+                animalList) {
+            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getWingColour().split(";")));
+            if (colours.containsAll(wingColours)) {
+                resultList.add(animal);
+            }
+        }
+        return resultList;
+
+    }
     public ArrayList<Animal> searchUsingFilters(){
         NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
         Fragment parent = (Fragment) navHostFragment.getParentFragment();
@@ -240,7 +254,11 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             }
             if (filter.equalsIgnoreCase("BirdHeadColour")){
                 resultList = searchByHeadColour(resultList, getArguments().getStringArrayList("BirdHeadColour"));
-                Log.d("AFTER BY BELLY COLOUR", resultList.size() + "");
+                Log.d("AFTER BY HEAD COLOUR", resultList.size() + "");
+            }
+            if (filter.equalsIgnoreCase("BirdWingColour")){
+                resultList = searchByWingColour(resultList, getArguments().getStringArrayList("BirdWingColour"));
+                Log.d("AFTER BY WING COLOUR", resultList.size() + "");
             }
 
         }
