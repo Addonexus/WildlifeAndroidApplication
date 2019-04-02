@@ -18,6 +18,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import io.paperdb.Paper;
 
@@ -109,6 +110,14 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    private void Logout(){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.frame, new LoginFragment());
+        Toast.makeText(this, "Successfully Logged Out", Toast.LENGTH_SHORT).show();
+        fragmentTransaction.commit();
+
+
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.language_en)
@@ -121,6 +130,12 @@ public class MainActivity extends AppCompatActivity {
             Paper.book().write("language", "cy");
             updateView((String)Paper.book().read("language"));
         }
+        else if (item.getItemId() == R.id.logoutMenu)
+        {
+            Logout();
+
+        }
+
         return true;
     }
 
@@ -161,5 +176,6 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
     }
+
 
 }

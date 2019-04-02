@@ -12,7 +12,7 @@
         android:title="Welsh"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/loggoit"
+        android:id="@+id/logoutMenu"
         android:title="Log Out"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
 </menu>
