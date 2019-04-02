@@ -3,6 +3,11 @@ package com.example.animalapp.Database;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
+import android.arch.persistence.room.TypeConverters;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Entity
 public class Animal {
@@ -45,6 +50,15 @@ public class Animal {
 
     @ColumnInfo(name = "Food Source")
     private String foodSource;
+
+    @ColumnInfo(name = "Head Colour")
+    private String headColour;
+
+    @ColumnInfo(name = "Wing Colour")
+    private String wingColour;
+
+    @ColumnInfo(name = "Belly Colour")
+    private String bellyColour;
 
     public int getId() {
         return id;
@@ -149,6 +163,52 @@ public class Animal {
     public void setFoodSource(String foodSource) {
         this.foodSource = foodSource;
     }
+    public String getHeadColour() {
+        return headColour;
+    }
+
+    public void setHeadColour(String headColours) {
+//        if (headColours == null){
+//            ArrayList<String> headColourList=new ArrayList<String>();
+//            this.headColour = headColourList;
+//
+//        }else{
+//            this.headColour = new ArrayList<String>(Arrays.asList(headColours.split(";")));
+//        }
+        this.headColour = headColours;
+    }
+
+    public String getWingColour() {
+        return wingColour;
+    }
+
+    public void setWingColour(String wingColours) {
+//        if (wingColours == null){
+//            ArrayList<String> wingColoursList=new ArrayList<String>();
+//            this.wingColour = wingColoursList;
+//
+//        }else{
+//            this.wingColour = new ArrayList<String>(Arrays.asList(wingColours.split(";")));
+//        }
+        this.wingColour = wingColours;
+
+    }
+    public String getBellyColour() {
+        return bellyColour;
+    }
+
+    public void setBellyColour(String bellyColours) {
+//        if (bellyColours == null){
+//            ArrayList<String> bellyColoursList=new ArrayList<String>();
+//            this.bellyColour = bellyColoursList;
+//
+//        }else{
+//            this.bellyColour = new ArrayList<String>(Arrays.asList(bellyColours.split(";")));
+//        }
+        this.bellyColour = bellyColours;
+
+    }
+
 
     @Override
     public String toString() {
@@ -166,6 +226,9 @@ public class Animal {
                 ", bestTime='" + bestTime + '\'' +
                 ", bestWalk='" + bestWalk + '\'' +
                 ", foodSource='" + foodSource + '\'' +
+                ", headColour='" + headColour + '\'' +
+                ", wingColour='" + wingColour + '\'' +
+                ", bellyColour='" + bellyColour + '\'' +
                 '}';
     }
 }

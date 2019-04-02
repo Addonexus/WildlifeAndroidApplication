@@ -24,41 +24,113 @@
         android:paddingBottom="20dp"
         android:text="Filter: " />
 
-    <Button
-        android:id="@+id/bird_colour_option_white"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="White" />
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
 
-    <Button
-        android:id="@+id/bird_colour_option_blue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Blue" />
+        <Button
+            android:id="@+id/bird_colour_option_blue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:textColor="@color/blue"
+            android:shadowColor="@color/black"
 
-    <Button
-        android:id="@+id/bird_colour_option_black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Black" />
+            android:text="Blue" />
 
-    <Button
-        android:id="@+id/bird_colour_option_red"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Red" />
+        <Button
+            android:id="@+id/bird_colour_option_red"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:textColor="@color/red"
+            android:text="Red" />
 
-    <Button
-        android:id="@+id/bird_colour_option_grey"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Grey" />
+        <Button
+            android:id="@+id/bird_colour_option_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:textColor="@color/black"
+            android:text="Black" />
 
-    <Button
-        android:id="@+id/bird_colour_option_yellow"
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Yellow" />
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <Button
+            android:id="@+id/bird_colour_option_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:text="White"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/bird_colour_option_grey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:textColor="@color/grey"
+            android:text="Grey" />
+
+        <Button
+            android:id="@+id/bird_colour_option_yellow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:textColor="@color/yellow"
+            android:text="Yellow" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <Button
+            android:id="@+id/bird_colour_option_brown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:textColor="@color/brown"
+            android:text="Brown" />
+
+        <Button
+            android:id="@+id/bird_colour_option_orange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:textColor="@color/orange"
+            android:text="Orange" />
+
+        <Button
+            android:id="@+id/bird_colour_option_green"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="30dp"
+            android:textColor="@color/green"
+            android:text="Green" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
