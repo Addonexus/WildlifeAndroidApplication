@@ -45,5 +45,7 @@
     <string name="title_map">Map</string>
     <string name="title_walks">Walks</string>
     <string name="title_species_identifier">Species Identifier</string>
-
+    <string name="english">English</string>
+    <string name="welsh">Welsh</string>
+    <string name="profile">Profile</string>
 </resources>

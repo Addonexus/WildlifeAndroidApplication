@@ -45,5 +45,7 @@
     <string name="title_map">Mapiau</string>
     <string name="title_walks">Teithiau cerdded</string>
     <string name="title_species_identifier">Dynodydd Rhywogaethau</string>
-
+    <string name="english">Saesneg</string>
+    <string name="welsh">Cymraeg</string>
+    <string name="profile">Proffil</string>
 </resources>

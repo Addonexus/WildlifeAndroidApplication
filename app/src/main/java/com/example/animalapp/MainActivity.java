@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     //TextView item;
     TextView textView;
     Button button;
+    ClipData.Item item;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -109,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.bird_height_option_1);
         button = (Button) findViewById(R.id.bird_height_option_2);
         button = (Button) findViewById(R.id.bird_height_option_3);
+
+        textView = (TextView) findViewById(R.id.language_cy);
+        textView = (TextView) findViewById(R.id.language_en);
+        textView = (TextView) findViewById(R.id.btn_profile);
 
 
         //Init paper first;
