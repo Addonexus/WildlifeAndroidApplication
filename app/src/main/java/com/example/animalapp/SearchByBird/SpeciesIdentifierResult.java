@@ -99,9 +99,15 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 Log.d("BIRD WING COLOUR", passedColour);
                 filter.append("Wing").append(": ").append(passedColour).append(". ");
             }if (bundle.containsKey("BirdBellyColour")) {
-                String passedColour = bundle.getString("BirdBellyColour");
-                Log.d("BIRD BELLY COLOUR", passedColour);
-                filter.append("Belly").append(": ").append(passedColour).append(". ");
+                filters.add("BirdBellyColour");
+                ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
+                Log.d("BIRD BELLY COLOUR", passedColour.toString());
+                filter.append("Belly").append(": ");
+                for (String colour :
+                        passedColour) {
+                    filter.append(colour).append(", ");
+
+                }
             }
 //            filterItems = bundle.getStringArrayList("filter");
 //
@@ -150,9 +156,22 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //        }
         return resultList;
     }
+    public ArrayList<Animal> searchByBellyColour(ArrayList<Animal> animalList, List<String> bellyColours){
+        ArrayList<Animal> resultList = new ArrayList<>();
+        Log.d("STARTING", "THIS SEARCH BY BELLY COLOUR HAS STARTED "+ bellyColours);
+        for (Animal animal :
+                animalList) {
+            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getBellyColour().split(";")));
+            if (colours.containsAll(bellyColours)) {
+                resultList.add(animal);
+            }
+        }
+
+
+        return resultList;
+    }
     public ArrayList<Animal> searchBySize(ArrayList<Animal> animalList, List<Integer> sizesList){
         Log.d("STARTING", "THIS SEARCH BY SIZE HAS STARTED "+ sizesList);
-
         ArrayList<Animal> resultList = new ArrayList<>();
         for (Animal animal :
                 animalList) {
@@ -203,6 +222,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             if (filter.equalsIgnoreCase("BirdHeight")){
                 resultList = searchBySize(resultList, getArguments().getIntegerArrayList("BirdHeight"));
                 Log.d("AFTER BY SIZE", resultList.size() + "");
+            }
+            if (filter.equalsIgnoreCase("BirdBellyColour")){
+                resultList = searchByBellyColour(resultList, getArguments().getStringArrayList("BirdBellyColour"));
+                Log.d("AFTER BY BELLY COLOUR", resultList.size() + "");
             }
 
         }

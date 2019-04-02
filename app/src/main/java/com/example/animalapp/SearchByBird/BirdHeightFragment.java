@@ -68,8 +68,8 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
                 Log.d("BIRD WING COLOUR", passedColour);
                 filter.append("Wing").append(": ").append(passedColour).append(". ");
             }if (bundle.containsKey("BirdBellyColour")) {
-                String passedColour = bundle.getString("BirdBellyColour");
-                Log.d("BIRD BELLY COLOUR", passedColour);
+                ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
+                Log.d("BIRD BELLY COLOUR", passedColour.toString());
                 filter.append("Belly").append(": ").append(passedColour).append(". ");
             }
             passed_detail.setText("Filter: " + filter);

@@ -67,8 +67,8 @@ public class birdBellyColourFragment extends Fragment implements View.OnClickLis
                 Log.d("BIRD WING COLOUR", passedColour);
                 filter.append("Wing").append(": ").append(passedColour).append(". ");
             }if (bundle.containsKey("BirdBellyColour")) {
-                String passedColour = bundle.getString("BirdBellyColour");
-                Log.d("BIRD BELLY COLOUR", passedColour);
+                ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
+                Log.d("BIRD BELLY COLOUR", passedColour.toString());
                 filter.append("Belly").append(": ").append(passedColour).append(". ");
             }
 
@@ -96,8 +96,8 @@ public class birdBellyColourFragment extends Fragment implements View.OnClickLis
         species_skip_btn.setOnClickListener(this);
         return view;
     }
-    public Bundle setBellyColour(String value, Bundle bundle){
-        bundle.putString("BirdBellyColour", value);
+    public Bundle setBellyColour(ArrayList<String> values, Bundle bundle){
+        bundle.putStringArrayList("BirdBellyColour", values);
         return bundle;
 
     }
@@ -112,33 +112,44 @@ public class birdBellyColourFragment extends Fragment implements View.OnClickLis
 
         int i = v.getId();
         if (i == R.id.bird_colour_option_white) {
-            setBellyColour("White", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("White"));
+            setBellyColour(colours, bundle);
+
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,setBellyColour(colours, bundle));
 
         } if (i == R.id.bird_colour_option_yellow) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Yellow"));
 
-            setBellyColour("Yellow", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
+
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,setBellyColour(colours, bundle));
 
         } if (i == R.id.bird_colour_option_grey) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Grey"));
+            setBellyColour(colours, bundle);
 
-            setBellyColour("Grey", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,setBellyColour(colours, bundle));
 
         } if (i == R.id.bird_colour_option_red) {
-
-            setBellyColour("Red", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Red"));
+            setBellyColour(colours, bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,setBellyColour(colours, bundle));
 
         } if (i == R.id.bird_colour_option_blue) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Blue"));
+            setBellyColour(colours, bundle);
 
-            setBellyColour("Blue", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,setBellyColour(colours, bundle));
 
         } if (i == R.id.bird_colour_option_black) {
-
-            setBellyColour("Black", bundle);
-            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,bundle);
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Black"));
+            setBellyColour(colours, bundle);
+            Navigation.findNavController(v).navigate(R.id.action_birdBellyColourFragment_to_speciesIdentifierResult,setBellyColour(colours, bundle));
 
         }
         if (i == R.id.species_back_button) {
