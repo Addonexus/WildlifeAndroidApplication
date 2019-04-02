@@ -96,14 +96,6 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.choose_height);
         textView = (TextView) findViewById(R.id.filter_views);
 
-        //textView = (TextView) findViewById(R.id.filter_views);
-        //textView = (TextView) findViewById(R.id.filter_views);
-        //textView = (TextView) findViewById(R.id.filter_views);
-        //textView = (TextView) findViewById(R.id.filter_views);
-        //textView = (TextView) findViewById(R.id.filter_views);
-        //textView = (TextView) findViewById(R.id.filter_views);
-
-
         button = (Button) findViewById(R.id.species_bird_button);
         button = (Button) findViewById(R.id.species_mammal_button);
         button = (Button) findViewById(R.id.species_invertebrate_button);
@@ -117,14 +109,6 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.bird_height_option_1);
         button = (Button) findViewById(R.id.bird_height_option_2);
         button = (Button) findViewById(R.id.bird_height_option_3);
-
-        //item = (TextView) findViewById(R.id.navHome);
-        //item = (TextView) findViewById(R.id.navList);
-        //item = (TextView) findViewById(R.id.navMap);
-        //item = (TextView) findViewById(R.id.navList);
-        //item = (TextView) findViewById(R.id.navLinks);
-
-
 
 
         //Init paper first;
