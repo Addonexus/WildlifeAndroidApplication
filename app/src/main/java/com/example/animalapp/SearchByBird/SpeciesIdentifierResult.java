@@ -3,9 +3,11 @@ package com.example.animalapp.SearchByBird;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.AppCompatButton;
@@ -51,6 +53,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -91,9 +94,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 }
             }if (bundle.containsKey("BirdHeadColour")) {
                 filters.add("BirdHeadColour");
-                String passedColour = bundle.getString("BirdHeadColour");
-                Log.d("BIRD HEAD COLOUR", passedColour);
-                filter.append("Head").append(": ").append(passedColour).append(". ");
+                ArrayList<String> passedColour = bundle.getStringArrayList("BirdHeadColour");
+                Log.d("BIRD HEAD COLOUR", passedColour.toString());
+                filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
+
             }if (bundle.containsKey("BirdWingColour")) {
                 String passedColour = bundle.getString("BirdWingColour");
                 Log.d("BIRD WING COLOUR", passedColour);
@@ -102,12 +106,8 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 filters.add("BirdBellyColour");
                 ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
                 Log.d("BIRD BELLY COLOUR", passedColour.toString());
-                filter.append("Belly").append(": ");
-                for (String colour :
-                        passedColour) {
-                    filter.append(colour).append(", ");
+                filter.append("Belly").append(": ").append(String.join(", ", passedColour)).append(". ");
 
-                }
             }
 //            filterItems = bundle.getStringArrayList("filter");
 //
@@ -166,8 +166,6 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 resultList.add(animal);
             }
         }
-
-
         return resultList;
     }
     public ArrayList<Animal> searchBySize(ArrayList<Animal> animalList, List<Integer> sizesList){
@@ -202,6 +200,19 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         return resultList;
 
     }
+    public ArrayList<Animal> searchByHeadColour(ArrayList<Animal> animalList, List<String> headColours){
+        ArrayList<Animal> resultList = new ArrayList<>();
+        Log.d("STARTING", "THIS SEARCH BY HEAD COLOUR HAS STARTED "+ headColours);
+        for (Animal animal :
+                animalList) {
+            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getHeadColour().split(";")));
+            if (colours.containsAll(headColours)) {
+                resultList.add(animal);
+            }
+        }
+        return resultList;
+
+    }
     public ArrayList<Animal> searchUsingFilters(){
         NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
         Fragment parent = (Fragment) navHostFragment.getParentFragment();
@@ -225,6 +236,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             }
             if (filter.equalsIgnoreCase("BirdBellyColour")){
                 resultList = searchByBellyColour(resultList, getArguments().getStringArrayList("BirdBellyColour"));
+                Log.d("AFTER BY BELLY COLOUR", resultList.size() + "");
+            }
+            if (filter.equalsIgnoreCase("BirdHeadColour")){
+                resultList = searchByHeadColour(resultList, getArguments().getStringArrayList("BirdHeadColour"));
                 Log.d("AFTER BY BELLY COLOUR", resultList.size() + "");
             }
 

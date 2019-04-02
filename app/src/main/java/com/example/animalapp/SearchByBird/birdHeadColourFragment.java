@@ -1,7 +1,9 @@
 package com.example.animalapp.SearchByBird;
 
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +33,7 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,9 +63,9 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
                     }
                 }
             }if (bundle.containsKey("BirdHeadColour")) {
-                String passedColour = bundle.getString("BirdHeadColour");
-                Log.d("BIRD HEAD COLOUR", passedColour);
-                filter.append("Head").append(": ").append(passedColour).append(". ");
+                ArrayList<String> passedColour = bundle.getStringArrayList("BirdHeadColour");
+                Log.d("BIRD HEAD COLOUR", passedColour.toString());
+                filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("BirdWingColour")) {
                 String passedColour = bundle.getString("BirdWingColour");
                 Log.d("BIRD WING COLOUR", passedColour);
@@ -70,7 +73,7 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
             }if (bundle.containsKey("BirdBellyColour")) {
                 ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
                 Log.d("BIRD BELLY COLOUR", passedColour.toString());
-                filter.append("Belly").append(": ").append(passedColour).append(". ");
+                filter.append("Belly").append(": ").append(String.join(", ", passedColour)).append(". ");
             }
             passed_detail.setText("Filter: " + filter);
         }
@@ -96,8 +99,8 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
         species_skip_btn.setOnClickListener(this);
         return view;
     }
-    public Bundle setHeadColour(String value, Bundle bundle){
-        bundle.putString("BirdHeadColour", value);
+    public Bundle setHeadColour(ArrayList<String> values, Bundle bundle){
+        bundle.putStringArrayList("BirdHeadColour", values);
         return bundle;
 
     }
@@ -112,32 +115,44 @@ public class birdHeadColourFragment extends Fragment implements View.OnClickList
 
         int i = v.getId();
         if (i == R.id.bird_colour_option_white) {
-            setHeadColour("White", bundle);
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("White"));
+            setHeadColour(colours, bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_yellow) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Yellow"));
+            setHeadColour(colours, bundle);
 
-            setHeadColour("Yellow", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_grey) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Grey"));
+            setHeadColour(colours, bundle);
 
-            setHeadColour("Grey", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_red) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Red"));
+            setHeadColour(colours, bundle);
 
-            setHeadColour("Red", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_blue) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Blue"));
+            setHeadColour(colours, bundle);
 
-            setHeadColour("Blue", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
 
         } if (i == R.id.bird_colour_option_black) {
+            ArrayList<String> colours = new ArrayList<>();
+            colours.add(("Black"));
+            setHeadColour(colours, bundle);
 
-            setHeadColour("Black", bundle);
             Navigation.findNavController(v).navigate(R.id.action_birdHeadColourFragment_to_birdWingColourFragment,bundle);
 
         }

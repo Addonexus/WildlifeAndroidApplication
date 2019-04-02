@@ -1,7 +1,9 @@
 package com.example.animalapp.SearchByBird;
 
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +33,7 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,9 +63,9 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
                     }
                 }
             }if (bundle.containsKey("BirdHeadColour")) {
-                String passedColour = bundle.getString("BirdHeadColour");
-                Log.d("BIRD HEAD COLOUR", passedColour);
-                filter.append("Head").append(": ").append(passedColour).append(". ");
+                ArrayList<String> passedColour = bundle.getStringArrayList("BirdHeadColour");
+                Log.d("BIRD HEAD COLOUR", passedColour.toString());
+                filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("BirdWingColour")) {
                 String passedColour = bundle.getString("BirdWingColour");
                 Log.d("BIRD WING COLOUR", passedColour);
@@ -70,7 +73,7 @@ public class birdWingColourFragment extends Fragment implements View.OnClickList
             }if (bundle.containsKey("BirdBellyColour")) {
                 ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
                 Log.d("BIRD BELLY COLOUR", passedColour.toString());
-                filter.append("Belly").append(": ").append(passedColour).append(". ");
+                filter.append("Belly").append(": ").append(String.join(", ", passedColour)).append(". ");
             }
 
             passed_detail.setText("Filter: " + filter);
