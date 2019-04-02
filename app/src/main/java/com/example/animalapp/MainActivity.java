@@ -22,6 +22,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.animalapp.Database.Animal;
+import com.example.animalapp.Database.AnimalDatabase;
+import com.opencsv.CSVReader;
 import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
