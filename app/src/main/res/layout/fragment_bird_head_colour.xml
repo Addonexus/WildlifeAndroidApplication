@@ -37,11 +37,11 @@
         android:id="@+id/bird_colour_option_blue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/blue" />
+        android:text="@string/blue"
             android:shadowColor="@color/black"
             android:textColor="@color/blue"
             android:padding="30dp"
-            android:layout_weight="1"
+            android:layout_weight="1" />
 
     <Button
         android:id="@+id/bird_colour_option_black"
