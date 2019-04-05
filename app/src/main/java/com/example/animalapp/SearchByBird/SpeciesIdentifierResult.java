@@ -128,13 +128,15 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             List<String> resultAnimalNames = new ArrayList<>();
             List<String> resultAnimalTypes = new ArrayList<>();
             List<String> resultAnimalScientificNouns = new ArrayList<>();
+            List<String> resultAnimalImages = new ArrayList<>();
             for (Animal animal :
                     resultAnimals) {
                 resultAnimalNames.add(animal.getName());
                 resultAnimalTypes.add(animal.getType());
                 resultAnimalScientificNouns.add(animal.getScientificName());
+                resultAnimalImages.add(animal.getAnimalImage());
             }
-            CustomAdapter adapter = new CustomAdapter(getContext(), resultAnimalNames, resultAnimalTypes, resultAnimalScientificNouns);
+            CustomAdapter adapter = new CustomAdapter(getContext(), resultAnimalNames, resultAnimalTypes, resultAnimalScientificNouns, resultAnimalImages);
             list.setAdapter(adapter);
         }else {
             TextView error_result = (TextView) view.findViewById(R.id.result_message);
@@ -297,11 +299,8 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         switch (viewId) {
             case R.id.species_back_button:
                 Navigation.findNavController(v).navigate(R.id.action_speciesIdentifierResult_to_birdBellyColourFragment, this.getArguments());
-
                 break;
-
         }
-
     }
 
     class CustomAdapter extends ArrayAdapter<String> {
@@ -309,14 +308,15 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         List<String> names = new ArrayList<String>();
         List<String> types = new ArrayList<String>();
         List<String> scientificNouns = new ArrayList<String>();
+        List<String> images = new ArrayList<String>();
 //        int[] imgs;
 
 
-        public CustomAdapter(Context context, List<String> names, List<String> types, List<String> scientificNouns) {
+        public CustomAdapter(Context context, List<String> names, List<String> types, List<String> scientificNouns, List<String> animalImages) {
             super(context, R.layout.animal_lists_item, R.id.animal_name, names);
 
             this.context = context;
-//            this.imgs = imgs;
+            this.images = animalImages;
             this.names = names;
             this.types = types;
             this.scientificNouns = scientificNouns;
@@ -327,11 +327,20 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View animal_item = inflater.inflate(R.layout.animal_lists_item, parent, false);
 //            ImageView images = reserve_item.findViewById(R.id.reserve_logo);
+            ImageView image = animal_item.findViewById(R.id.animal_image);
             TextView name = animal_item.findViewById(R.id.animal_name);
             TextView type = animal_item.findViewById(R.id.animal_type);
             TextView scientificNoun = animal_item.findViewById(R.id.animal_scientific_name);
 
+            Context context = image.getContext();
+            Integer id = context.getResources().getIdentifier(images.get(position), "drawable", context.getPackageName());
+            if (!id.toString().equals("null") ){
+                image.setImageResource(id);
+            }
+//
+
 //            images.setImageResource(imgs[position]);
+            ;
             name.setText(names.get(position));
             type.setText(types.get(position));
             scientificNoun.setText(scientificNouns.get(position));

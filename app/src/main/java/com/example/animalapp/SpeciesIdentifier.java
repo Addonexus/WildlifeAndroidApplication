@@ -119,6 +119,7 @@ public class SpeciesIdentifier extends Fragment {
             animal.setBestTime(record[9]);
             animal.setBestWalk(record[10]);
             animal.setFoodSource(record[11]);
+            animal.setAnimalImage(record[12]);
             animal.setHeadColour(record[14]);
             animal.setWingColour(record[15]);
             animal.setBellyColour(record[16]);

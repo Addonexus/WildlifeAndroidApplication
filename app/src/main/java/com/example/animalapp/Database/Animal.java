@@ -4,6 +4,7 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import android.arch.persistence.room.TypeConverters;
+import android.content.Context;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,6 +60,9 @@ public class Animal {
 
     @ColumnInfo(name = "Belly Colour")
     private String bellyColour;
+
+    @ColumnInfo(name = "Animal Image")
+    private String animalImage;
 
     public int getId() {
         return id;
@@ -206,6 +210,15 @@ public class Animal {
 //            this.bellyColour = new ArrayList<String>(Arrays.asList(bellyColours.split(";")));
 //        }
         this.bellyColour = bellyColours;
+
+    }
+
+    public String getAnimalImage( ) {
+        return animalImage;
+    }
+    public void setAnimalImage(String imageName){
+        this.animalImage = imageName;
+
 
     }
 
