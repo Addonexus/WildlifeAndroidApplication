@@ -8,7 +8,9 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.media.Image;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.os.AsyncTask;
@@ -30,26 +32,28 @@ import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
 //import com.opencsv.CSVReader;
 import io.paperdb.Paper;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    //TextView item;
     TextView textView;
     Button button;
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(LocalHelper.onAttach(newBase,"en"));
+        super.attachBaseContext(LocalHelper.onAttach(newBase, "en"));
 
 
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.language_cy);
         textView = (TextView) findViewById(R.id.language_en);
-        textView = (TextView) findViewById(R.id.btn_profile);
+        //textView = (TextView) findViewById(R.id.btn_profile);
 
 
         //Init paper first;
@@ -138,17 +142,30 @@ public class MainActivity extends AppCompatActivity {
 
         updateView((String) Paper.book().read("language"));
 
-        //restart app when button is clicked
-        /*Intent mStartActivity = new Intent(MainActivity.this, MainActivity.class);
-        int mPendingIntentId = 123456;
-        PendingIntent mPendingIntent = PendingIntent.getActivity(MainActivity.this, mPendingIntentId, mStartActivity,
-                PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager mgr = (AlarmManager) MainActivity.this.getSystemService(Context.ALARM_SERVICE);
-        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
-        System.exit(0);*/
+
+        //code below is for the notifications
+       /* findViewById(R.id.btn_notification).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //setting calender instance
+
+                Calendar calendar = Calendar.getInstance();
+                calendar.set(Calendar.DATE, 5);
+                calendar.set(Calendar.MONTH, 4);
+                calendar.set(Calendar.YEAR, 2019);
+                calendar.set(Calendar.HOUR_OF_DAY, 10);
+                calendar.set(Calendar.MINUTE, 50);
+                calendar.set(Calendar.SECOND, 30);
+
+                Intent intent = new Intent(getApplicationContext(), NotificationReciever.class);
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+                alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+            }
+        });*/
 
     }
-
+    //Top menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_top, menu);
@@ -157,17 +174,27 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.language_en)
-        {
+        if (item.getItemId() == R.id.language_en) {
             Paper.book().write("language", "en");
-            updateView((String)Paper.book().read("language"));
-        }
-        else if (item.getItemId() == R.id.language_cy)
-        {
+            updateView((String) Paper.book().read("language"));
+            recreate();
+        } else if (item.getItemId() == R.id.language_cy) {
             Paper.book().write("language", "cy");
-            updateView((String)Paper.book().read("language"));
+            updateView((String) Paper.book().read("language"));
+            recreate();
+        }else if(item.getItemId() == R.id.btn_notification){
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.DATE, 5);
+            calendar.set(Calendar.MONTH, 4);
+            calendar.set(Calendar.HOUR_OF_DAY, 11);
+            calendar.set(Calendar.MINUTE, 07);
+            calendar.set(Calendar.SECOND, 30);
+
+            Intent intent = new Intent(getApplicationContext(), NotificationReciever.class);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
         }
-        recreate();
         return true;
     }
 
@@ -178,28 +205,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void browser1(View view){
-        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.cardiffconservation.org.uk/"));
+    public void browser1(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.cardiffconservation.org.uk/"));
         startActivity(browserIntent);
     }
 
-    public void browser2(View view){
-        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://ww2.rspb.org.uk/groups/cardiff/"));
+    public void browser2(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://ww2.rspb.org.uk/groups/cardiff/"));
         startActivity(browserIntent);
     }
 
-    public void browser3(View view){
-        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.rspb.org.uk/"));
+    public void browser3(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.rspb.org.uk/"));
         startActivity(browserIntent);
     }
 
-    public void browser4(View view){
-        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.welshwildlife.org/my-wild-cardiff//"));
+    public void browser4(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.welshwildlife.org/my-wild-cardiff//"));
         startActivity(browserIntent);
     }
 
-    public void browser5(View view){
-        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.cardiff.ac.uk/software-academy/"));
+    public void browser5(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.cardiff.ac.uk/software-academy/"));
         startActivity(browserIntent);
     }
 
