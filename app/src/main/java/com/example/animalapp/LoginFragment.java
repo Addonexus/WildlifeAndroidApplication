@@ -49,7 +49,7 @@ public class LoginFragment extends Fragment {
 
             }
         });
-        
+
         db = new DatabaseHelper(getActivity());
         mTextUsername = (EditText) view.findViewById(R.id.edittext_username);
         mTextPassword = (EditText) view.findViewById(R.id.edittext_password);
