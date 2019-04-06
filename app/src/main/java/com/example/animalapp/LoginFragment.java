@@ -37,6 +37,19 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login, container, false);
+
+        Button facebook_login = (Button)view.findViewById(R.id.login_button);
+
+        facebook_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.frame, new FBLoginFragment());
+                fr.commit();
+
+            }
+        });
+        
         db = new DatabaseHelper(getActivity());
         mTextUsername = (EditText) view.findViewById(R.id.edittext_username);
         mTextPassword = (EditText) view.findViewById(R.id.edittext_password);
