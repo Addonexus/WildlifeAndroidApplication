@@ -10,6 +10,51 @@
     android:id="@+id/species_identifier_result">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <!--<HorizontalScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+        <!--<com.google.android.material.chip.ChipGroup-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:singleLine="true">-->
+
+            <!--&lt;!&ndash; Chips can be declared here, or added dynamically. &ndash;&gt;-->
+            <!--<com.google.android.material.chip.Chip-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                <!--android:text="Default" />-->
+            <!--<com.google.android.material.chip.Chip-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                <!--android:text="Invert" />-->
+            <!--<com.google.android.material.chip.Chip-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                <!--android:text="Butterfly" />-->
+            <!--<com.google.android.material.chip.Chip-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                <!--android:text="Who" />-->
+            <!--<com.google.android.material.chip.Chip-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                <!--android:text="Things" />-->
+            <!--<com.google.android.material.chip.Chip-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/Widget.MaterialComponents.Chip.Filter"-->
+                <!--android:text="Should" />-->
+
+
+        <!--</com.google.android.material.chip.ChipGroup>-->
+    <!--</HorizontalScrollView>-->
+
     <TextView
         android:id="@+id/species_identifier_result_text"
         android:layout_width="match_parent"
