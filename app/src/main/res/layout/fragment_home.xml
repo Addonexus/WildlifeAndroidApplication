@@ -7,36 +7,76 @@
     android:background="@drawable/pidgeons"
     android:id="@+id/fragment_container">
 
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        android:text="Caerdydd"
-        tools:text="Caerdydd" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="#000000"
+            android:textSize="40sp"
+            android:text="Caerdydd"
+            tools:text="Caerdydd" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:gravity="center_horizontal"
-        android:textColor="#000000"
-        android:textSize="40sp"
-        android:text="Wildlife"
-        tools:text="Wildlife" />
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:text="Wildlife"
+            android:textColor="#000000"
+            android:textSize="40sp"
+            tools:text="Wildlife" />
 
-    <Button
-        android:id="@+id/home_button_login"
-        android:layout_width="190dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="500dp"
-        android:layout_gravity="center_horizontal"
-        android:background="#EA0000"
-        android:textColor="#000000"
-        android:hint="@string/Login" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/profile_name"/>
+
+        <TextView
+            android:id="@+id/profile_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp" />
+        <Button
+            android:id="@+id/home_button_login"
+            android:layout_width="190dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="#EA0000"
+            android:hint="@string/Login"
+            android:textColor="#000000" />
+
+
+
+    </LinearLayout>
+
 
 </FrameLayout>
