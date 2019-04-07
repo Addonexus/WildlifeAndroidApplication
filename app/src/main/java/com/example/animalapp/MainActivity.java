@@ -1,40 +1,29 @@
 package com.example.animalapp;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.media.Image;
 import android.net.Uri;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+
+
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.support.v7.widget.AppCompatButton;
-import android.util.Log;
-import android.view.View;
+
 import android.widget.TextView;
 
-import com.example.animalapp.Database.Animal;
-import com.example.animalapp.Database.AnimalDatabase;
 //import com.opencsv.CSVReader;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import io.paperdb.Paper;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,12 +1,8 @@
 package com.example.animalapp;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -62,6 +61,7 @@ public class LoginFragment extends Fragment {
                 boolean res = db.checkUser(user, pwd);
                 if (res) {
                     Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
+                    Fragment fragment = new HomeFragment();
                     ((MainActivity) getActivity()).setFragment(new HomeFragment());
                     //mButtonLogin.setVisibility(View.INVISIBLE);
 
