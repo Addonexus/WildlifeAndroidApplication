@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
@@ -33,6 +34,8 @@ public class SpeciesIdentifier extends Fragment {
     public SpeciesIdentifier() {
         // Required empty public constructor
     }
+
+
 
 
     @Override

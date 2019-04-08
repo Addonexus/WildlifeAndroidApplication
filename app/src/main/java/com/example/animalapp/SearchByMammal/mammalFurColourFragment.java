@@ -3,8 +3,7 @@ package com.example.animalapp.SearchByMammal;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 import com.example.animalapp.R;
 
 import java.util.ArrayList;
 
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 /**
