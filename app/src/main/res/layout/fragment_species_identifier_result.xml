@@ -12,7 +12,7 @@
     android:orientation="vertical"
     android:layout_marginLeft="16dp"
     android:paddingTop="20dp"
-    android:layout_marginRight="16dp">>
+    android:layout_marginRight="16dp">
 
     <TextView
         android:id="@+id/species_type_text"

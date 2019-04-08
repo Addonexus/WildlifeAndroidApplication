@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
 
+import com.example.animalapp.MainActivity;
 import com.example.animalapp.R;
 import com.example.animalapp.SpeciesIdentifier;
 import com.google.android.material.chip.Chip;
@@ -60,7 +61,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         // Required empty public constructor
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -221,7 +222,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             }
         });
 
-        birdHeadColourChips.clearCheck();
+//        birdHeadColourChips.clearCheck();
         Log.d("I AM HERE", "WHY NOT WOKRING");
         Log.d("COUNT COLOUR", Integer.toString(birdHeadColourChips.getChildCount()));
         for (int i = 0; i < birdHeadColourChips.getChildCount(); i++) {
@@ -577,13 +578,15 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     }
 
     public ArrayList<Animal> searchUsingFilters(Bundle bundle){
-        NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
-        Fragment parent = (Fragment) navHostFragment.getParentFragment();
-        parent.getView().findViewById(R.id.species_identifier_nav_graph);
+//        NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
+//        Fragment parent = (Fragment) navHostFragment.getParentFragment();
+//        parent.getView().findViewById(R.id.species_identifier_nav_graph);
+
+
 //        Log.d("THINFY", parent.toString());
 //        Log.d("WHO", navHostFragment.toString());
 
-        AnimalDatabase db= ((SpeciesIdentifier)(parent)).getDb();
+        AnimalDatabase db= ((MainActivity)getActivity()).getDb();
 
         ArrayList<Animal> allAnimals = new ArrayList<>(db.animalDAO().getAllAnimals());
         ArrayList<Animal> resultList = allAnimals;

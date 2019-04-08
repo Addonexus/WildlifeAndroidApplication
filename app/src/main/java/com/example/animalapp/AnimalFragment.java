@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.animalapp.SearchByBird.SpeciesIdentifierResult;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,7 +41,10 @@ public class AnimalFragment extends Fragment implements View.OnClickListener{
         Fragment fragment = null;
         int i = v.getId();
         if (i == R.id.species_identifier_button) {
-            fragment = new SpeciesIdentifier();
+            fragment = new SpeciesIdentifierResult();
+            Bundle bundle = new Bundle();
+            bundle.putString("Mode", "Search");
+            fragment.setArguments(bundle);
             replaceFragment(fragment);
 
         }

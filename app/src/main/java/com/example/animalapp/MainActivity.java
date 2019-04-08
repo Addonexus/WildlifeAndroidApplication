@@ -6,8 +6,9 @@ import android.content.res.Resources;
 import android.net.Uri;
 
 
-
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -17,7 +18,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 //import com.opencsv.CSVReader;
+import com.example.animalapp.Database.Animal;
+import com.example.animalapp.Database.AnimalDatabase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.opencsv.CSVReader;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     //TextView item;
     TextView textView;
     Button button;
+    AnimalDatabase db;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -43,7 +54,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        db = AnimalDatabase.getDatabase(this);
 
+        addData();
         BottomNavigationView navigationView = findViewById(R.id.bottom_nav);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -83,20 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
         navigationView.setSelectedItemId(R.id.navHome);
 
-        textView = (TextView) findViewById(R.id.text_view);
-        textView = (TextView) findViewById(R.id.textview_login);
-        textView = (TextView) findViewById(R.id.textview_reg);
-        textView = (TextView) findViewById(R.id.textview_no_reg);
-        textView = (TextView) findViewById(R.id.textview_cardiff);
-        textView = (TextView) findViewById(R.id.textView_wild);
-        textView = (TextView) findViewById(R.id.species_choice_comment);
-        textView = (TextView) findViewById(R.id.animal_name);
-        textView = (TextView) findViewById(R.id.animal_scientific_name);
-        textView = (TextView) findViewById(R.id.animal_type);
-        textView = (TextView) findViewById(R.id.choose_color);
-        textView = (TextView) findViewById(R.id.filter_view);
-        textView = (TextView) findViewById(R.id.choose_height);
-        textView = (TextView) findViewById(R.id.filter_views);
+
 
         button = (Button) findViewById(R.id.species_bird_button);
         button = (Button) findViewById(R.id.species_mammal_button);
@@ -197,6 +197,89 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
+    }
+    public AnimalDatabase getDb() {
+        return db;
+    }
+    private void addData() {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                db.animalDAO().clearAnimal();
+
+                List<Animal> list = null;
+                try {
+                    list = readAnimalListFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                db.animalDAO().insertAll(list);
+
+//                final List<Animal> allAnimals = db.animalDAO().getAllAnimals();
+
+//                Log.d("List All Animals: ", "AllAnimals: " + allAnimals);
+            }
+        });
+    }
+    private List<Animal> readAnimalListFile() throws IOException {
+
+        List<Animal> animalList = new ArrayList<>();
+
+        InputStream is = getResources().openRawResource(R.raw.animal_list);
+        InputStreamReader csvStreamReader = new InputStreamReader(is);
+
+        CSVReader reader = new CSVReader(csvStreamReader);
+        reader.skip(1);
+
+        String[] record = null;
+        int num = 0;
+
+
+        while ((record = reader.readNext()) != null) {
+//            Animal animal = new Animal(record[0], record[1], record[2],
+//                    record[3], record[4], record[5], record[6],
+//                    record[7], record[8], record[9], record[10], record[11]);
+            Animal animal = new Animal();
+            animal.setType(record[0]);
+            animal.setName(record[1]);
+            animal.setScientificName(record[2]);
+//            animal.setMinBodyLengthCm(record[3]);
+//            animal.setMaxBodyLengthCm(record[4]);
+//            animal.setMinWingspanCm(record[5]);
+//            animal.setMaxWingspanCm(record[6]);
+            animal.setMinBodyLengthCm(Integer.parseInt(record[3]));
+            animal.setMaxBodyLengthCm(Integer.parseInt(record[4]));
+
+            try{
+                if (record[5] != null && record[6] != null) {
+                    animal.setMinWingspanCm(Integer.parseInt(record[5]));
+                    animal.setMaxWingspanCm(Integer.parseInt(record[6]));
+                } else {
+                    animal.setMinWingspanCm(num);
+                    animal.setMaxWingspanCm(num);
+                }
+            }catch (NumberFormatException e) {
+                Log.getStackTraceString(e);
+            }
+
+//                animal.setMinWingspanCm(Integer.parseInt(record[5]));
+//                animal.setMaxWingspanCm(Integer.parseInt(record[6]));
+            animal.setDescription(record[7]);
+            animal.setHabitat(record[8]);
+            animal.setBestTime(record[9]);
+            animal.setBestWalk(record[10]);
+            animal.setFoodSource(record[11]);
+            animal.setAnimalImage(record[12]);
+            animal.setHeadColour(record[14]);
+            animal.setWingColour(record[15]);
+            animal.setBellyColour(record[16]);
+
+            animalList.add(animal);
+//                Log.d("Read file: ", "Animal List: " + animal);
+
+        }
+        return animalList;
     }
 
 }
