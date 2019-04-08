@@ -56,7 +56,7 @@ public class AnimalListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        getActivity().setTitle(R.string.animlaList);
+        getActivity().setTitle(R.string.animalList);
 
         View view = inflater.inflate(R.layout.animal_main, container, false);
 //        Button animals_seen = (Button) view.findViewById(R.id.animals_seen);

@@ -48,4 +48,12 @@
     <string name="english">Saesneg</string>
     <string name="welsh">Cymraeg</string>
     <string name="profile">Proffil</string>
+    <string name="animalList">Rhestr Anifeiliaid</string>
+    <string name="animal_name">Enw Anifeiliaid</string>
+    <string name="description">Disgrifiad</string>
+    <string name="choose_image">Dewis Delwedd</string>
+    <string name="add">Ychwanegwch</string>
+    <string name="animal_list">Rhestr Anifeiliaid</string>
+    <string name="notifications">Hysbysiadau</string>
+    <string name="animals_seen">Anifeiliaid yn Gweld</string>
 </resources>

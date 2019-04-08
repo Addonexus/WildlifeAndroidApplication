@@ -10,6 +10,12 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AnimalListFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_container"/>
+
     <EditText
         android:id="@+id/edtName"
         android:layout_width="wrap_content"
@@ -17,7 +23,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:layout_alignParentTop="true"
-        android:hint="Animal name"
+        android:hint="@string/animal_name"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
@@ -29,7 +35,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:hint="Description"
+        android:hint="@string/description"
         android:layout_below="@+id/edtName"
         android:layout_marginTop="12dp"
         android:layout_alignParentRight="true"
@@ -49,7 +55,7 @@
 
     <Button
         android:id="@+id/btnChoose"
-        android:text="Choose image"
+        android:text="@string/choose_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="45dp"
@@ -61,7 +67,7 @@
 
     <Button
         android:id="@+id/btnAdd"
-        android:text="Add"
+        android:text="@string/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
@@ -70,7 +76,7 @@
 
     <Button
         android:id="@+id/btnList"
-        android:text="Animal List"
+        android:text="@string/animal_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"

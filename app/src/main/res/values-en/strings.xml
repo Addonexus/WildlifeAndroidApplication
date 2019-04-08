@@ -48,4 +48,12 @@
     <string name="english">English</string>
     <string name="welsh">Welsh</string>
     <string name="profile">Profile</string>
+    <string name="animalList">Animal List</string>
+    <string name="animal_name">Animal name</string>
+    <string name="description">Description</string>
+    <string name="choose_image">Choose image</string>
+    <string name="add">Add</string>
+    <string name="animal_list">Animal List</string>
+    <string name="notifications">Notifications</string>
+    <string name="animals_seen">Animals Seen</string>
 </resources>
