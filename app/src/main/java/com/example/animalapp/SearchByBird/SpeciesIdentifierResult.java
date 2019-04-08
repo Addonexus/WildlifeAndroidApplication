@@ -273,9 +273,69 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 }
             }
         });
+        final ChipGroup birdHeadColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_head);
+        Log.d("I AM HERE", "WHY NOT WOKRING");
+        Log.d("COUNT COLOUR", Integer.toString(birdHeadColourChips.getChildCount()));
+        for (int i = 0; i < birdHeadColourChips.getChildCount(); i++) {
+            Log.d("NO IDEA", Integer.toString(i));
+            final Chip birdHeadColourChip = (Chip) birdHeadColourChips.getChildAt(i);
+            if (birdHeadColourChip != null) {
+                Log.d("COMPARISON ONE CHIP", birdHeadColourChip.getText().toString());
+                birdHeadColourChip.setOnCheckedChangeListener(new Chip.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                        Log.d("WHAT", "THIS WAS CLIECKED");
+                        if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_blue).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdHeadColour");
+                            updateResultList(bundle);
+                        }if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_white).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdHeadColour");
+                            updateResultList(bundle);
+                        }if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_yellow).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdHeadColour");
+                            updateResultList(bundle);
+                        }if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_black).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdHeadColour");
+                            updateResultList(bundle);
+                        }if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_brown).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdHeadColour");
+                            updateResultList(bundle);
+                        }if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_green).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdHeadColour");
+                            updateResultList(bundle);
+                        }if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_orange).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdHeadColour");
+                            updateResultList(bundle);
+                        }if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_grey).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdHeadColour");
+                            updateResultList(bundle);
+                        }if((birdHeadColourChip.getId() == view.findViewById(R.id.bird_head_colour_red).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdHeadColour");
+                            updateResultList(bundle);
+                        }
 
-
+                        // Handle the toggle.
+                    }
+                });
+            }
+        }
         return view;
+    }
+    public void addOrRemoveFromBundleOnClick(CompoundButton v, boolean isChecked, String filterType){
+        ArrayList<String> birdHeights = new ArrayList<>();
+        if(bundle.containsKey(filterType)){
+            birdHeights = bundle.getStringArrayList(filterType);
+        }
+        if (isChecked){
+            Log.d("WHAT", "THIS WAS TICKED");
+            birdHeights.add(v.getText().toString());
+            bundle.putStringArrayList(filterType, birdHeights);
+
+        }else{
+            Log.d("WHAT", "THIS WAS UNTICKED");
+            birdHeights.remove(v.getText().toString());
+            bundle.putStringArrayList(filterType, birdHeights);
+        }
     }
     public Bundle replaceBundleFiltersBySpecies(String speciesType){
 //        Bundle bundle = getArguments();
@@ -342,7 +402,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         ArrayList<Animal> resultAnimals = new ArrayList<>(searchUsingFilters(bundle));
         if (!resultAnimals.isEmpty()) {
             TextView error_result = (TextView) view.findViewById(R.id.result_message);
-            error_result.setText("Possible Animals Found From Filter(s)");
+            error_result.setText("Possible Animals Found From Filter(s) "+ Integer.toString(resultAnimals.size()));
             List<String> resultAnimalNames = new ArrayList<>();
             List<String> resultAnimalTypes = new ArrayList<>();
             List<String> resultAnimalScientificNouns = new ArrayList<>();
@@ -360,7 +420,8 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         }else {
             list.setAdapter(null);
             TextView error_result = (TextView) view.findViewById(R.id.result_message);
-            error_result.setText("No Animals Of the Specified Filter(s) Could be Found");
+
+            error_result.setText("No Animals Of the Specified Filter(s) Could be Found" );
         }
 
 
