@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     tools:context=".MainActivity">
 
+
+
+
    <!--<TextView-->
-       <!--android:id="@+id/text_view"-->
-       <!--android:layout_width="wrap_content"-->
-       <!--android:layout_height="wrap_content"/>-->
-
-   <RelativeLayout
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:id="@+id/fragment_container"/>
-
-   <android.support.design.widget.BottomNavigationView
+   <!--android:id="@+id/text_view"-->
+   <!--android:layout_width="wrap_content"-->
+   <!--android:layout_height="wrap_content"/>-->
+   <com.google.android.material.bottomnavigation.BottomNavigationView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:id="@+id/bottom_nav"
@@ -27,6 +25,15 @@
        app:itemTextColor="@color/bottom_nav_color"/>
 
 
+   <FrameLayout
+       android:id="@+id/fragment_container"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_above="@+id/bottom_nav"/>
+
+
+
+
    <!--<FrameLayout
        android:layout_width="match_parent"
        android:layout_height="match_parent"
@@ -34,8 +41,8 @@
        android:id="@+id/frame"/>-->
 
    <!--<ListView-->
-       <!--android:id="@+id/list"-->
-       <!--android:layout_width="match_parent"-->
-       <!--android:layout_height="wrap_content"/>-->
+   <!--android:id="@+id/list"-->
+   <!--android:layout_width="match_parent"-->
+   <!--android:layout_height="wrap_content"/>-->
 
 </RelativeLayout>
