@@ -64,7 +64,7 @@ public class mammalHeadColourFragment extends Fragment implements View.OnClickLi
                 filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("MammalFurColour")) {
                 ArrayList<String>  passedColour = bundle.getStringArrayList("MammalFurColour");
-                Log.d("Mammal Fur COLOUR", passedColour.toString());
+                Log.d("Mammal FUR COLOUR", passedColour.toString());
                 filter.append("Fur").append(": ").append(String.join(", ", passedColour)).append(". ");
             }
             passed_detail.setText("Filter: " + filter);

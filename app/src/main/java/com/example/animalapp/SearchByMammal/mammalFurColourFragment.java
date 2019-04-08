@@ -58,12 +58,12 @@ public class mammalFurColourFragment extends Fragment implements View.OnClickLis
                     }
                 }
             }if (bundle.containsKey("MammalHeadColour")) {
-                ArrayList<String> passedColour = bundle.getStringArrayList("MamamlHeadColour");
+                ArrayList<String> passedColour = bundle.getStringArrayList("MammalHeadColour");
                 Log.d("Mammal HEAD COLOUR", passedColour.toString());
                 filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("MammalFurColour")) {
                 ArrayList<String>  passedColour = bundle.getStringArrayList("MammalFurColour");
-                Log.d("Mammal Fur COLOUR", passedColour.toString());
+                Log.d("Mammal FUR COLOUR", passedColour.toString());
                 filter.append("Fur").append(": ").append(String.join(", ", passedColour)).append(". ");
             }
 
