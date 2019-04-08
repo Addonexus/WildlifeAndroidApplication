@@ -69,6 +69,7 @@
         android:id="@+id/identifer_choices_list"
         android:layout_width="match_parent"
         android:layout_height="207dp"
+        android:visibility="gone"
 
         >
 
@@ -85,22 +86,26 @@
                 android:text="Height of Bird (Head to Tail): "
                 android:textStyle="bold" />
             <com.google.android.material.chip.ChipGroup
+                android:id="@+id/bird_choices_height"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:singleSelection="true">
                 <!-- ... -->
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:id="@+id/bird_choices_height_less_15"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Less than 15cm" />
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:id="@+id/bird_choices_height_between_15_30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Between 15cm and 30cm" />
                 <com.google.android.material.chip.Chip
                     style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:id="@+id/bird_choices_height_more_30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="More than 30cm" />
@@ -116,32 +121,104 @@
                 android:paddingBottom="10dp"
                 android:text="Colour of Head: "
                 android:textStyle="bold" />
-            <com.google.android.material.chip.ChipGroup
+            <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:singleSelection="true">
-                <!-- ... -->
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
+                >
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Bird" />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mammal" />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Invertebrate" />
-                <com.google.android.material.chip.Chip
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Amphibian/Reptile" />
-            </com.google.android.material.chip.ChipGroup>
+                    android:id="@+id/bird_choices_colour_head"
+                    app:singleSelection="false"
+
+                    >
+                    <!-- ... -->
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/blue"
+
+                        android:id="@+id/bird_head_colour_blue"
+                        android:text="Blue" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/red"
+                        android:id="@+id/bird_head_colour_red"
+                        android:text="Red" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/black"
+                        android:id="@+id/bird_head_colour_black"
+                        android:text="Black" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/green"
+                        android:id="@+id/bird_head_colour_green"
+                        android:text="Green" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/orange"
+                        android:id="@+id/bird_head_colour_orange"
+                        android:text="Orange" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/brown"
+                        android:id="@+id/bird_head_colour_brown"
+                        android:text="Brown" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/yellow"
+                        android:id="@+id/bird_head_colour_yellow"
+                        android:text="Yellow" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/grey"
+                        android:id="@+id/bird_head_colour_grey"
+                        android:text="Grey" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/white"
+                        android:id="@+id/bird_head_colour_white"
+                        android:text="White" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
@@ -155,10 +232,13 @@
                 android:textStyle="bold" />
             <HorizontalScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:id="@+id/bird_choices_colour_belly">
+
                 <com.google.android.material.chip.ChipGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                    >
                     <!-- ... -->
                     <com.google.android.material.chip.Chip
@@ -227,6 +307,7 @@
                 <com.google.android.material.chip.ChipGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/bird_choices_colour_feather"
                     >
                     <!-- ... -->
                     <com.google.android.material.chip.Chip

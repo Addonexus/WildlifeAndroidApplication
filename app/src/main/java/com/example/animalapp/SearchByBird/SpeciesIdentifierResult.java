@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -46,11 +47,14 @@ import androidx.navigation.fragment.NavHostFragment;
  * A simple {@link Fragment} subclass.
  */
 public class SpeciesIdentifierResult extends Fragment implements View.OnClickListener {
-    Bundle bundle = this.getArguments();
+    Bundle bundle;
     int numberOfFilters = 0;
     ArrayList<String> filters = new ArrayList<>();
     ListView list;
     View view;
+
+    List<String> birdFilters = Arrays.asList("BirdHeight", "BirdHeadColour", "BirdBellyColour", "BirdFeatherColour");
+
 
 
 
@@ -68,14 +72,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         view = inflater.inflate(R.layout.fragment_species_identifier_result, container, false);
         list = view.findViewById(R.id.result_list_view);
 //        Bundle bundle = this.getArguments();
-
-
-
+        bundle = this.getArguments();
         Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
         species_back_btn.setOnClickListener(this);
         updateResultList(new Bundle());
-
-
 //        if (bundle != null) {
 //            StringBuilder filter = new StringBuilder();
 //            if (bundle.containsKey("SpeciesType")) {
@@ -131,7 +131,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //            passed_detail.setText("Filter: " + filter);
 //        }
 
-        final ChipGroup chipGroup = (ChipGroup) view.findViewById(R.id.species_type_chips);
+        ChipGroup chipGroup = (ChipGroup) view.findViewById(R.id.species_type_chips);
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int i) {
@@ -155,8 +155,6 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                         chipo.setClickable(chipo.getId() != chipGroup.getCheckedChipId());
                         chipo.setChecked(chipo.getId() == chipGroup.getCheckedChipId());
                         Log.d("VIEW ID", Integer.toString(view.findViewById(R.id.chip_type_bird).getId()));
-
-
                         Log.d("CHIP ID AFTER",  Integer.toString(chip.getId()));
                         Log.d("CHIP GROUP ID AFTER",  Integer.toString(chipGroup.getCheckedChipId()));
 //                        if (chip.getId() != chipGroup.getCheckedChipId()){
@@ -174,63 +172,150 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                     ScrollView scrollView = (ScrollView) view.findViewById(R.id.identifer_choices_list);
                     if ((chip.getId() == view.findViewById(R.id.chip_type_bird).getId()) && chip.isChecked()){
                         Log.d("THE TWO CHIPS ARE EQUAL", "YES ");
-                        Bundle test_bundle = new Bundle();
-                        test_bundle.putString("SpeciesType","Bird");
+//                        Bundle bundle = replaceBundleFiltersBySpecies("Bird");
                         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.bird_choices_list);
                         linearLayout.setVisibility(View.VISIBLE);
                         scrollView.setVisibility(View.VISIBLE);
-                        updateResultList(test_bundle);
+//                        bundle.putString("SpeciesType","Bird");
+                        replaceBundleFiltersBySpecies("Bird");
+                        updateResultList(bundle);
                     }else if ((chip.getId() == view.findViewById(R.id.chip_type_mammal).getId()) && chip.isChecked()){
                         Log.d("THE TWO CHIPS ARE EQUAL", "YES ");
-                        Bundle test_bundle = new Bundle();
-                        test_bundle.putString("SpeciesType","Mammal");
+//                        Bundle bundle = replaceBundleFiltersBySpecies("Mammal");
                         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.bird_choices_list);
                         linearLayout.setVisibility(View.INVISIBLE);
-                        updateResultList(test_bundle);
+                        scrollView.setVisibility(View.VISIBLE);
+//                        bundle.putString("SpeciesType","Mammal");
+                        replaceBundleFiltersBySpecies("Mammal");
+                        updateResultList(bundle);
                     }
                     else if ((chip.getId() == view.findViewById(R.id.chip_type_reptile).getId()) && chip.isChecked()){
                         Log.d("THE TWO CHIPS ARE EQUAL", "YES ");
-                        Bundle test_bundle = new Bundle();
-                        test_bundle.putString("SpeciesType","Reptile");
+//                        Bundle bundle = replaceBundleFiltersBySpecies("Reptile");
+
                         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.bird_choices_list);
                         linearLayout.setVisibility(View.INVISIBLE);
-                        updateResultList(test_bundle);
+                        scrollView.setVisibility(View.VISIBLE);
+//                        bundle.putString("SpeciesType","Reptile");
+                        replaceBundleFiltersBySpecies("Reptile");
+                        updateResultList(bundle);
                     }
                     else if ((chip.getId() == view.findViewById(R.id.chip_type_invertebrate).getId()) && chip.isChecked()){
                         Log.d("THE TWO CHIPS ARE EQUAL", "YES ");
-                        Bundle test_bundle = new Bundle();
-                        test_bundle.putString("SpeciesType","Invertebrate");
+//                        Bundle bundle = replaceBundleFiltersBySpecies("Invertebrate");
+
                         LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.bird_choices_list);
                         linearLayout.setVisibility(View.INVISIBLE);
-                        updateResultList(test_bundle);
+                        scrollView.setVisibility(View.VISIBLE);
+//                        bundle.putString("SpeciesType","Invertebrate");
+                        replaceBundleFiltersBySpecies("Invertebrate");
+                        updateResultList(bundle);
                     }
-
                 }else{
                     Log.d("CHIP VIEW", "THIS DIDN'T WORK");
                 }
-//                Chip chip = (Chip) chipGroup.getChildAt(i);
-//                if (chip != null){
-//                    Log.d("CHIP VIEW",chip.getText().toString());
-//                    Log.d("BEFORE FOR LOOP", "THIS IS BEING RUN");
-//
-//                }
+            }
+        });
+        ChipGroup birdHeightChipGroup = (ChipGroup) view.findViewById(R.id.bird_choices_height);
+        birdHeightChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup chipGroup, int i) {
+                Chip heightChip = ((Chip) chipGroup.findViewById(i));
 
-//                Chip chip = chipGroup.findViewById(i);
-//                if (chip != null) {
-//                    Log.d("CHIP VIEW", chip.toString());
-//                    for (int value = 0; value < chipGroup.getChildCount(); ++value) {
-//                        Log.d("INSIDE FOR LOOP", "THIS IS BEING RUN");
-//                        chipGroup.findViewById(value).setClickable(true);
-//                    }
-//                    chip.setClickable(false);
-//                }
-//                Log.d("CHILDS IN GROUP", Integer.toString(chipGroup.getChildCount()));
+                if (heightChip != null) {
+                    if ((heightChip.getId() == view.findViewById(R.id.bird_choices_height_less_15).getId()) && heightChip.isChecked()){
+                        Log.d("HEIGHT", heightChip.getText().toString());
+//                        Bundle bundle = getArguments();
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Bird")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(15,0));
+                                    bundle.putIntegerArrayList("BirdHeight", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }if ((heightChip.getId() == view.findViewById(R.id.bird_choices_height_between_15_30).getId()) && heightChip.isChecked()){
+                        Log.d("HEIGHT", heightChip.getText().toString());
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Bird")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(15,30,0));
+                                    bundle.putIntegerArrayList("BirdHeight", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }if ((heightChip.getId() == view.findViewById(R.id.bird_choices_height_more_30).getId()) && heightChip.isChecked()){
+                        Log.d("HEIGHT", heightChip.getText().toString());
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Bird")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(30,1));
+                                    bundle.putIntegerArrayList("BirdHeight", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (bundle != null) {
+                        bundle.remove("BirdHeight");
+                        updateResultList(bundle);
+                    }
 
-
+                }
             }
         });
 
+
         return view;
+    }
+    public Bundle replaceBundleFiltersBySpecies(String speciesType){
+//        Bundle bundle = getArguments();
+        if (bundle != null) {
+            if(speciesType.equals("Bird")){
+                bundle.putString("SpeciesType","Bird");
+//                if (bundle.containsKey("BirdHeadColour")) {
+//                    bundle.remove("BirdHeadColour");
+//                }if (bundle.containsKey("BirdHeight")) {
+//                    bundle.remove("BirdHeight");
+//                }if (bundle.containsKey("BirdBellyColour")) {
+//                    bundle.remove("BirdBellyColour");
+//                }if (bundle.containsKey("BirdFeatherColour")) {
+//                    bundle.remove("BirdFeatherColour");
+//                }
+            }
+            if(speciesType.equals("Mammal")){
+                bundle.putString("SpeciesType","Mammal");
+                removeFilterFromBundle( birdFilters);}
+            if(speciesType.equals("Reptile")){
+                bundle.putString("SpeciesType","Reptile");
+                removeFilterFromBundle(birdFilters);}
+            if(speciesType.equals("Invertebrate")){
+                bundle.putString("SpeciesType","Invertebrate");
+                removeFilterFromBundle( birdFilters);}
+        }
+
+
+
+
+        return bundle;
+    }
+    public void removeFilterFromBundle( List<String> filterList){
+        for (String filter :
+                filterList) {
+            if (bundle.containsKey(filter)){
+                bundle.remove(filter);
+            }
+
+        }
     }
     public void updateResultList(Bundle bundle){
         filters.clear();
