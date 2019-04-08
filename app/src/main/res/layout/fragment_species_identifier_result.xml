@@ -212,11 +212,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:background="@color/grey" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
+                android:textSize= "15dp"
                 android:text="Colour of Feathers: "
                 android:textStyle="bold" />
 
@@ -228,50 +230,77 @@
                     >
                     <!-- ... -->
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/ic_link_black_24dp"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/blue"
                         android:text="Blue" />
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/red"
                         android:text="Red" />
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/black"
                         android:text="Black" />
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/green"
                         android:text="Green" />
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/orange"
                         android:text="Orange" />
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/brown"
                         android:text="Brown" />
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/yellow"
                         android:text="Yellow" />
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/grey"
                         android:text="Grey" />
                     <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Choice"
+                        style="@style/Widget.MaterialComponents.Chip.Entry"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/white"
                         android:text="White" />
                 </com.google.android.material.chip.ChipGroup>
 
