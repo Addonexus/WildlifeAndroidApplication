@@ -68,6 +68,9 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
             bundle.putString("SpeciesType", "Bird");
             Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_birdHeightFragment,bundle);
 
+        } if (i == R.id.species_mammal_button) {
+            bundle.putString("SpeciesType", "Mammal");
+            Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_mammalHeightFragment,bundle);
         }
 
 

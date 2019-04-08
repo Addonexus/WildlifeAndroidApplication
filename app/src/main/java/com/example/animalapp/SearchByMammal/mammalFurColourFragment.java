@@ -51,18 +51,18 @@ public class mammalFurColourFragment extends Fragment implements View.OnClickLis
                 } else {
                     if (passedHeight.get(1).equals(0)) {
                         Log.d("Mammal HEIGHT ", Integer.toString(passedHeight.get(0)));
-                        filter.append("Mammal Height").append(": >").append(passedHeight.get(0)).append(". ");
+                        filter.append("Mammal Height").append(": <").append(passedHeight.get(0)).append(". ");
                     } else {
                         Log.d("Mammal HEIGHT ", Integer.toString(passedHeight.get(0)));
-                        filter.append("Mammal Height").append(": <").append(passedHeight.get(0)).append(". ");
+                        filter.append("Mammal Height").append(": >").append(passedHeight.get(0)).append(". ");
                     }
                 }
             }if (bundle.containsKey("MammalHeadColour")) {
-                ArrayList<String> passedColour = bundle.getStringArrayList("BirdHeadColour");
+                ArrayList<String> passedColour = bundle.getStringArrayList("MamamlHeadColour");
                 Log.d("Mammal HEAD COLOUR", passedColour.toString());
                 filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("MammalFurColour")) {
-                ArrayList<String>  passedColour = bundle.getStringArrayList("BirdWingColour");
+                ArrayList<String>  passedColour = bundle.getStringArrayList("MammalFurColour");
                 Log.d("Mammal Fur COLOUR", passedColour.toString());
                 filter.append("Fur").append(": ").append(String.join(", ", passedColour)).append(". ");
             }

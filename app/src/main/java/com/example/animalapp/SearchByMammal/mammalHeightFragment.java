@@ -50,10 +50,10 @@ public class mammalHeightFragment extends Fragment implements View.OnClickListen
                 } else {
                     if (passedHeight.get(1).equals(0)) {
                         Log.d("Mammal HEIGHT ", Integer.toString(passedHeight.get(0)));
-                        filter.append("Mammal Height").append(": >").append(passedHeight.get(0)).append(". ");
+                        filter.append("Mammal Height").append(": <").append(passedHeight.get(0)).append(". ");
                     } else {
                         Log.d("Mammal HEIGHT ", Integer.toString(passedHeight.get(0)));
-                        filter.append("Mammal Height").append(": <").append(passedHeight.get(0)).append(". ");
+                        filter.append("Mammal Height").append(": >").append(passedHeight.get(0)).append(". ");
                     }
                 }
             }if (bundle.containsKey("MammalHeadColour")) {
