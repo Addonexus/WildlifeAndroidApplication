@@ -56,16 +56,9 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     ChipGroup[] birdFilterChipGroups;
 
     List<String> birdFilters = Arrays.asList("BirdHeight", "BirdHeadColour", "BirdBellyColour", "BirdWingColour");
-
-
-
-
-
     public SpeciesIdentifierResult() {
         // Required empty public constructor
     }
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -85,63 +78,6 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
         species_back_btn.setOnClickListener(this);
         updateResultList(new Bundle());
-//        if (bundle != null) {
-//            StringBuilder filter = new StringBuilder();
-//            if (bundle.containsKey("SpeciesType")) {
-//                numberOfFilters =+ 1;
-//                filters.add("SpeciesType");
-//                String type = bundle.getString("SpeciesType");
-//                Log.d("TYPE", type);
-//                filter.append("Type").append(": ").append(type).append(". ");
-//
-//            }
-//            if (bundle.containsKey("BirdHeight")){
-//                filters.add("BirdHeight");
-//                ArrayList<Integer> passedHeight = bundle.getIntegerArrayList("BirdHeight");
-//                if (passedHeight.size() > 2){
-//                    Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)) + ", " + Integer.toString(passedHeight.get(1)));
-//                    filter.append("Height").append(": >").append(passedHeight.get(0)).append(", <").append(passedHeight.get(1)).append(". ");
-//                } else {
-//                    if (passedHeight.get(1).equals(0)) {
-//                        Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)));
-//                        filter.append("Bird Height").append(": >").append(passedHeight.get(0)).append(". ");
-//                    } else {
-//                        Log.d("BIRD HEIGHT ", Integer.toString(passedHeight.get(0)));
-//                        filter.append("Bird Height").append(": <").append(passedHeight.get(0)).append(". ");
-//                    }
-//                }
-//            }if (bundle.containsKey("BirdHeadColour")) {
-//                filters.add("BirdHeadColour");
-//                ArrayList<String> passedColour = bundle.getStringArrayList("BirdHeadColour");
-//                Log.d("BIRD HEAD COLOUR", passedColour.toString());
-//                filter.append("Head").append(": ").append(String.join(", ", passedColour)).append(". ");
-//
-//            }if (bundle.containsKey("BirdWingColour")) {
-//                filters.add("BirdWingColour");
-//                ArrayList<String>  passedColour = bundle.getStringArrayList("BirdWingColour");
-//                Log.d("BIRD WING COLOUR", passedColour.toString());
-//                filter.append("Wing").append(": ").append(String.join(", ", passedColour)).append(". ");
-//            }if (bundle.containsKey("BirdBellyColour")) {
-//                filters.add("BirdBellyColour");
-//                ArrayList<String> passedColour = bundle.getStringArrayList("BirdBellyColour");
-//                Log.d("BIRD BELLY COLOUR", passedColour.toString());
-//                filter.append("Belly").append(": ").append(String.join(", ", passedColour)).append(". ");
-//
-//            }
-//            filterItems = bundle.getStringArrayList("filter");
-//
-//
-//            for (String filterItem :
-//                    filterItems) {
-//                Log.i("PASSED VALUES: ", filterItem);
-//                List<String> splitFilterItem = Arrays.asList(filterItem.split(":"));
-//                filter.append(splitFilterItem.get(0)).append(":").append(splitFilterItem.get(1)).append(" ");
-//            }
-//            passed_detail.setText("Filter: " + filter);
-//        }
-
-
-
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int i) {
