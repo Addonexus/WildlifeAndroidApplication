@@ -52,6 +52,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Initialise">Initialise</string>
+    <string name="Animal">Animal</string>
+
+    <string name="facebook_app_id">417825229031440</string>
+    <string name="fb_login_protocol_scheme">fb417825229031440</string>
+
     <string name="animalList">Animal List</string>
     <string name="animal_name">Animal name</string>
     <string name="description">Description</string>

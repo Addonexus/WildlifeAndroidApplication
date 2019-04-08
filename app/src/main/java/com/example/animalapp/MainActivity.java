@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 //import com.opencsv.CSVReader;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
         setContentView(R.layout.activity_main);
         db = AnimalDatabase.getDatabase(this);
 
@@ -277,6 +281,12 @@ public class MainActivity extends AppCompatActivity {
 
         }
         return animalList;
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        for (Fragment fragment : getSupportFragmentManager().getFragments()) {
+            fragment.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
 }
