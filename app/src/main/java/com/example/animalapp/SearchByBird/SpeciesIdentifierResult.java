@@ -53,7 +53,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     ListView list;
     View view;
 
+    ChipGroup[] birdFilterChipGroups;
+
     List<String> birdFilters = Arrays.asList("BirdHeight", "BirdHeadColour", "BirdBellyColour", "BirdWingColour");
+
 
 
 
@@ -70,7 +73,13 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_species_identifier_result, container, false);
+        final ChipGroup chipGroup = (ChipGroup) view.findViewById(R.id.species_type_chips);
+        final ChipGroup birdHeightChipGroup = (ChipGroup) view.findViewById(R.id.bird_choices_height);
+        final ChipGroup birdHeadColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_head);
+        final ChipGroup birdBellyColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_belly);
+        final ChipGroup birdFeatherColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_feather);
         list = view.findViewById(R.id.result_list_view);
+        birdFilterChipGroups = new ChipGroup[] {birdHeightChipGroup,birdHeadColourChips,birdBellyColourChips,birdFeatherColourChips};
 //        Bundle bundle = this.getArguments();
         bundle = this.getArguments();
         Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
@@ -131,7 +140,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //            passed_detail.setText("Filter: " + filter);
 //        }
 
-        ChipGroup chipGroup = (ChipGroup) view.findViewById(R.id.species_type_chips);
+
 
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
@@ -217,7 +226,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 }
             }
         });
-        ChipGroup birdHeightChipGroup = (ChipGroup) view.findViewById(R.id.bird_choices_height);
+
 
         birdHeightChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
@@ -275,7 +284,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 }
             }
         });
-        final ChipGroup birdHeadColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_head);
+
         birdHeadColourChips.clearCheck();
         Log.d("I AM HERE", "WHY NOT WOKRING");
         Log.d("COUNT COLOUR", Integer.toString(birdHeadColourChips.getChildCount()));
@@ -322,7 +331,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 });
             }
         }
-        final ChipGroup birdBellyColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_belly);
+
         birdBellyColourChips.clearCheck();
         Log.d("I AM HERE", "WHY NOT WOKRING");
         Log.d("COUNT COLOUR", Integer.toString(birdBellyColourChips.getChildCount()));
@@ -369,7 +378,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 });
             }
         }
-        final ChipGroup birdFeatherColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_feather);
+
         birdFeatherColourChips.clearCheck();
         Log.d("I AM HERE", "WHY NOT WOKRING");
         Log.d("COUNT COLOUR", Integer.toString(birdFeatherColourChips.getChildCount()));
@@ -471,6 +480,19 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             if (bundle.containsKey(filter)){
                 bundle.remove(filter);
             }
+
+        }
+        for (ChipGroup chips :
+                birdFilterChipGroups) {
+            uncheckAllChips(chips);
+
+        }
+
+    }
+    public void uncheckAllChips (ChipGroup chips){
+        for (int i = 0; i < chips.getChildCount(); i++) {
+            Chip chip = (Chip) chips.getChildAt(i);
+            chip.setChecked(false);
 
         }
     }
