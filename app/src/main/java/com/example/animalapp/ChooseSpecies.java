@@ -43,11 +43,11 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
         Button species_bird_btn = (Button) view.findViewById(R.id.species_bird_button);
         Button species_mammal_btn = (Button) view.findViewById(R.id.species_mammal_button);
         Button species_reptile_btn = (Button) view.findViewById(R.id.species_reptile_button);
-        Button species_invertebrate_btn = (Button) view.findViewById(R.id.species_invertebrate_button);
+        Button species_amphibian_btn = (Button) view.findViewById(R.id.species_amphibian_button);
         species_bird_btn.setOnClickListener(this);
         species_mammal_btn.setOnClickListener(this);
         species_reptile_btn.setOnClickListener(this);
-        species_invertebrate_btn.setOnClickListener(this);
+        species_amphibian_btn.setOnClickListener(this);
 
 
 
@@ -71,6 +71,12 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
         } if (i == R.id.species_mammal_button) {
             bundle.putString("SpeciesType", "Mammal");
             Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_mammalHeightFragment,bundle);
+        } if (i == R.id.species_reptile_button) {
+            bundle.putString("SpeciesType", "Reptile");
+            Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_reptileLengthFragment,bundle);
+        } if (i == R.id.species_amphibian_button) {
+            bundle.putString("SpeciesType", "Amphibian");
+            Navigation.findNavController(v).navigate(R.id.action_chooseSpecies_to_reptileLengthFragment,bundle);
         }
 
 

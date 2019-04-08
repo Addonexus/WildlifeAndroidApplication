@@ -32,8 +32,8 @@
             android:id="@+id/action_chooseSpecies_to_invertebrateMock"
             app:destination="@id/invertebrateMock" />
         <action
-            android:id="@+id/action_chooseSpecies_to_reptileMock"
-            app:destination="@id/reptileMock" />
+            android:id="@+id/action_chooseSpecies_to_reptileLengthFragment"
+            app:destination="@id/reptileLengthFragment" />
     </fragment>
     <fragment android:id="@+id/invertebrateMock" />
     <fragment android:id="@+id/reptileMock" />

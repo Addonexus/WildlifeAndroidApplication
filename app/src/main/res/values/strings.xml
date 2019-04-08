@@ -56,4 +56,6 @@
     <string name="choose_an_option_for_the_length_of_reptile_you_saw">reptileLength</string>
     <string name="choose_the_skin_colour_of_the_reptile_you_saw">reptileSkinColour</string>
     <string name="choose_the_markings_of_the_reptile_you_saw">reptileMarkings</string>
+    <string name="Reptile">Reptile</string>
+    <string name="Amphibian">Amphibian</string>
 </resources>

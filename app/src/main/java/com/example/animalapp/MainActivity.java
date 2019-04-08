@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
 
         button = (Button) findViewById(R.id.species_bird_button);
         button = (Button) findViewById(R.id.species_mammal_button);
-        button = (Button) findViewById(R.id.species_invertebrate_button);
         button = (Button) findViewById(R.id.species_reptile_button);
+        button = (Button) findViewById(R.id.species_amphibian_button);
         button = (Button) findViewById(R.id.bird_colour_option_white);
         button = (Button) findViewById(R.id.bird_colour_option_blue);
         button = (Button) findViewById(R.id.bird_colour_option_black);
