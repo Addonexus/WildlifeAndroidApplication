@@ -62,6 +62,9 @@ public class Animal {
     @ColumnInfo(name = "Belly Colour")
     private String bellyColour;
 
+    @ColumnInfo(name = "Fur Colour")
+    private String furColour;
+
     @ColumnInfo(name = "Animal Image")
     private String animalImage;
 
@@ -212,6 +215,14 @@ public class Animal {
 //        }
         this.bellyColour = bellyColours;
 
+    }
+
+    public String getFurColour() {
+        return furColour;
+    }
+
+    public void setFurColour(String furColour) {
+        this.furColour = furColour;
     }
 
     public String getAnimalImage( ) {
