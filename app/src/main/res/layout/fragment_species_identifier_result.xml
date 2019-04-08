@@ -233,11 +233,12 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/bird_choices_colour_belly">
+                >
 
                 <com.google.android.material.chip.ChipGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/bird_choices_colour_belly"
 
                    >
                     <!-- ... -->
@@ -245,46 +246,84 @@
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/blue"
+
+                        android:id="@+id/bird_belly_colour_blue"
                         android:text="Blue" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/red"
+                        android:id="@+id/bird_belly_colour_red"
                         android:text="Red" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/black"
+                        android:id="@+id/bird_belly_colour_black"
                         android:text="Black" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/green"
+                        android:id="@+id/bird_belly_colour_green"
                         android:text="Green" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/orange"
+                        android:id="@+id/bird_belly_colour_orange"
                         android:text="Orange" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/brown"
+                        android:id="@+id/bird_belly_colour_brown"
                         android:text="Brown" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/yellow"
+                        android:id="@+id/bird_belly_colour_yellow"
                         android:text="Yellow" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/grey"
+                        android:id="@+id/bird_belly_colour_grey"
                         android:text="Grey" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/white"
+                        android:id="@+id/bird_belly_colour_white"
                         android:text="White" />
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>

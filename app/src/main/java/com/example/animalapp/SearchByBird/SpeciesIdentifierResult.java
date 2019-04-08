@@ -319,6 +319,52 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 });
             }
         }
+        final ChipGroup birdBellyColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_belly);
+        Log.d("I AM HERE", "WHY NOT WOKRING");
+        Log.d("COUNT COLOUR", Integer.toString(birdBellyColourChips.getChildCount()));
+        for (int i = 0; i < birdBellyColourChips.getChildCount(); i++) {
+            Log.d("NO IDEA", Integer.toString(i));
+            final Chip birdBellyColourChip = (Chip) birdBellyColourChips.getChildAt(i);
+            if (birdBellyColourChip != null) {
+                Log.d("COMPARISON ONE CHIP", birdBellyColourChip.getText().toString());
+                birdBellyColourChip.setOnCheckedChangeListener(new Chip.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                        Log.d("WHAT", "THIS WAS CLIECKED");
+                        if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_blue).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdBellyColour");
+                            updateResultList(bundle);
+                        }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_white).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdBellyColour");
+                            updateResultList(bundle);
+                        }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_yellow).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdBellyColour");
+                            updateResultList(bundle);
+                        }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_black).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdBellyColour");
+                            updateResultList(bundle);
+                        }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_brown).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdBellyColour");
+                            updateResultList(bundle);
+                        }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_green).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdBellyColour");
+                            updateResultList(bundle);
+                        }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_orange).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdBellyColour");
+                            updateResultList(bundle);
+                        }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_grey).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdBellyColour");
+                            updateResultList(bundle);
+                        }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_red).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdBellyColour");
+                            updateResultList(bundle);
+                        }
+
+                        // Handle the toggle.
+                    }
+                });
+            }
+        }
         return view;
     }
     public void addOrRemoveFromBundleOnClick(CompoundButton v, boolean isChecked, String filterType){
