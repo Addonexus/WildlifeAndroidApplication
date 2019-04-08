@@ -75,7 +75,7 @@ public class ChooseSpecies extends Fragment implements View.OnClickListener {
 
     public void replaceFragment(Fragment someFragment) {
         FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame, someFragment);
+        fragmentTransaction.replace(R.id.fragment_container, someFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 //        getChildFragmentManager().beginTransaction().remove(getTargetFragment()).commit();
