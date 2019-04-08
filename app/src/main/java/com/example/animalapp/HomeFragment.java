@@ -40,7 +40,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
-                fr.replace(R.id.frame, new LoginFragment());
+                fr.replace(R.id.fragment_container, new LoginFragment());
                 fr.commit();
 
             }

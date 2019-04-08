@@ -37,6 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AnimalList"
+            android:label="Animal List"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".RepeatingActivity"/>
         <receiver android:name=".NotificationReciever"/>
     </application>

@@ -43,22 +43,29 @@ public class RegisterFragment extends Fragment  {
         mTextUsername = (EditText) view.findViewById(R.id.edittext_username);
         mTextPassword = (EditText) view.findViewById(R.id.edittext_password);
         mTextCnfPassword = (EditText) view.findViewById(R.id.edittext_cnf_password);
-        mButtonRegister = (Button) view.findViewById(R.id.button_register);
+
         mTextViewLogin = (TextView) view.findViewById(R.id.textview_login);
         mTextViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                ((MainActivity) getActivity()).setFragment(new LoginFragment());
+                FragmentTransaction fragmentTransaction = ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new LoginFragment());
+                fragmentTransaction.commit();
+
+//                ((MainActivity) getActivity()).setFragment(new LoginFragment());
 
                 //Intent LoginIntent = new Intent(RegisterFragment.this, LoginFragment.class);
                 //startActivity(LoginIntent);
             }
         });
 
+
+        mButtonRegister = (Button) view.findViewById(R.id.button_register);
         mButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String user = mTextUsername.getText().toString().trim();
                 String pwd = mTextPassword.getText().toString().trim();
                 String cnf_pwd = mTextCnfPassword.getText().toString().trim();
@@ -67,10 +74,9 @@ public class RegisterFragment extends Fragment  {
                     long val = db.addUser(user, pwd);
                     if (val > 0) {
                         Toast.makeText(getActivity(), "You have registered", Toast.LENGTH_SHORT).show();
-                        /*Intent moveToLogin = new Intent(getContext(), LoginFragment.class);
-                        startActivity(moveToLogin);*/
-
-                        ((MainActivity) getActivity()).setFragment(new LoginFragment());
+                        FragmentTransaction fragmentTransaction = ((MainActivity) getActivity()).getSupportFragmentManager().beginTransaction();
+                        fragmentTransaction.replace(R.id.fragment_container, new LoginFragment());
+                        fragmentTransaction.commit();
                     } else {
                         if (val > 0) {
                             Toast.makeText(getActivity(), "Registration Error", Toast.LENGTH_SHORT).show();
