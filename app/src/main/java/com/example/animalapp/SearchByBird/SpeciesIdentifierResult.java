@@ -630,21 +630,6 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //        Log.d("THINGS", parentFragment.toString());
 //        Log.d("CHECKING", Boolean.toString(parentFragment instanceof ChooseSpecies));
 //        Log.d("WHAT", getActivity().toString());
-        NavHostFragment navHostFragment = (NavHostFragment) getParentFragment();
-        Fragment parent = (Fragment) navHostFragment.getParentFragment();
-        parent.getView().findViewById(R.id.species_identifier_nav_graph);
-//        Log.d("THINFY", parent.toString());
-//        Log.d("WHO", navHostFragment.toString());
-
-        AnimalDatabase db= ((SpeciesIdentifier)(parent)).getDb();
-        List<Animal> allAnimals = db.animalDAO().getAllAnimals();
-
-        final ArrayList<Animal> resultList = new ArrayList<>(allAnimals);
-        switch (viewId) {
-            case R.id.species_back_button:
-                Navigation.findNavController(v).navigate(R.id.action_speciesIdentifierResult_to_birdBellyColourFragment, this.getArguments());
-                break;
-        }
     }
 
     class CustomAdapter extends ArrayAdapter<String> {
