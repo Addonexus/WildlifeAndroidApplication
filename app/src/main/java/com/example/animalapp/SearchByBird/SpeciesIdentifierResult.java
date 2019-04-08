@@ -53,7 +53,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     ListView list;
     View view;
 
-    List<String> birdFilters = Arrays.asList("BirdHeight", "BirdHeadColour", "BirdBellyColour", "BirdFeatherColour");
+    List<String> birdFilters = Arrays.asList("BirdHeight", "BirdHeadColour", "BirdBellyColour", "BirdWingColour");
 
 
 
@@ -132,6 +132,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //        }
 
         ChipGroup chipGroup = (ChipGroup) view.findViewById(R.id.species_type_chips);
+
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int i) {
@@ -217,6 +218,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             }
         });
         ChipGroup birdHeightChipGroup = (ChipGroup) view.findViewById(R.id.bird_choices_height);
+
         birdHeightChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int i) {
@@ -274,6 +276,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             }
         });
         final ChipGroup birdHeadColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_head);
+        birdHeadColourChips.clearCheck();
         Log.d("I AM HERE", "WHY NOT WOKRING");
         Log.d("COUNT COLOUR", Integer.toString(birdHeadColourChips.getChildCount()));
         for (int i = 0; i < birdHeadColourChips.getChildCount(); i++) {
@@ -320,6 +323,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             }
         }
         final ChipGroup birdBellyColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_belly);
+        birdBellyColourChips.clearCheck();
         Log.d("I AM HERE", "WHY NOT WOKRING");
         Log.d("COUNT COLOUR", Integer.toString(birdBellyColourChips.getChildCount()));
         for (int i = 0; i < birdBellyColourChips.getChildCount(); i++) {
@@ -357,6 +361,53 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                             updateResultList(bundle);
                         }if((birdBellyColourChip.getId() == view.findViewById(R.id.bird_belly_colour_red).getId())){
                             addOrRemoveFromBundleOnClick(v, isChecked,"BirdBellyColour");
+                            updateResultList(bundle);
+                        }
+
+                        // Handle the toggle.
+                    }
+                });
+            }
+        }
+        final ChipGroup birdFeatherColourChips =(ChipGroup) view.findViewById(R.id.bird_choices_colour_feather);
+        birdFeatherColourChips.clearCheck();
+        Log.d("I AM HERE", "WHY NOT WOKRING");
+        Log.d("COUNT COLOUR", Integer.toString(birdFeatherColourChips.getChildCount()));
+        for (int i = 0; i < birdFeatherColourChips.getChildCount(); i++) {
+            Log.d("NO IDEA", Integer.toString(i));
+            final Chip birdFeatherColourChip = (Chip) birdFeatherColourChips.getChildAt(i);
+            if (birdFeatherColourChip != null) {
+                Log.d("COMPARISON ONE CHIP", birdFeatherColourChip.getText().toString());
+                birdFeatherColourChip.setOnCheckedChangeListener(new Chip.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                        Log.d("WHAT", "THIS WAS CLIECKED");
+                        if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_blue).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdWingColour");
+                            updateResultList(bundle);
+                        }if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_white).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdWingColour");
+                            updateResultList(bundle);
+                        }if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_yellow).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdWingColour");
+                            updateResultList(bundle);
+                        }if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_black).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdWingColour");
+                            updateResultList(bundle);
+                        }if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_brown).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdWingColour");
+                            updateResultList(bundle);
+                        }if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_green).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "BirdWingColour");
+                            updateResultList(bundle);
+                        }if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_orange).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdWingColour");
+                            updateResultList(bundle);
+                        }if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_grey).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdWingColour");
+                            updateResultList(bundle);
+                        }if((birdFeatherColourChip.getId() == view.findViewById(R.id.bird_feather_colour_red).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked,"BirdWingColour");
                             updateResultList(bundle);
                         }
 
