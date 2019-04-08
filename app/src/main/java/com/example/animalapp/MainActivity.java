@@ -7,26 +7,23 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.media.Image;
 import android.net.Uri;
+
+
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.support.v7.widget.AppCompatButton;
-import android.util.Log;
-import android.view.View;
+
 import android.widget.TextView;
 import android.Manifest;
 import android.content.Intent;
@@ -54,6 +51,9 @@ import com.example.animalapp.Database.AnimalDatabase;
 //import com.opencsv.CSVReader;
 import io.paperdb.Paper;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.opencsv.CSVReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -62,9 +62,18 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import io.paperdb.Paper;
+
 public class MainActivity extends AppCompatActivity {
+
+    //TextView item;
     TextView textView;
     Button button;
+    AnimalDatabase db;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -78,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        db = AnimalDatabase.getDatabase(this);
 
+        addData();
         //MAIN BOTTOM NAV
         BottomNavigationView navigationView = findViewById(R.id.bottom_nav);
 
@@ -128,7 +139,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         navigationView.setSelectedItemId(R.id.navHome);
 
 // else if (item.getItemId() == R.id.btn_notification) { //NOTIFICATION
@@ -171,4 +181,127 @@ public class MainActivity extends AppCompatActivity {
         recreate();
         return true;
     }
+
+    private void updateView(String lang) {
+        Context context = LocalHelper.setLocale(this, lang);
+        Resources resources = context.getResources();
+
+
+    }
+
+    public void browser1(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.cardiffconservation.org.uk/"));
+        startActivity(browserIntent);
+    }
+
+    public void browser2(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://ww2.rspb.org.uk/groups/cardiff/"));
+        startActivity(browserIntent);
+    }
+
+    public void browser3(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.rspb.org.uk/"));
+        startActivity(browserIntent);
+    }
+
+    public void browser4(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.welshwildlife.org/my-wild-cardiff//"));
+        startActivity(browserIntent);
+    }
+
+    public void browser5(View view){
+        Intent browserIntent= new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.cardiff.ac.uk/software-academy/"));
+        startActivity(browserIntent);
+    }
+
+
+    public void setFragment(Fragment fragment) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.frame, fragment);
+        fragmentTransaction.commit();
+    }
+    public AnimalDatabase getDb() {
+        return db;
+    }
+    private void addData() {
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                db.animalDAO().clearAnimal();
+
+                List<Animal> list = null;
+                try {
+                    list = readAnimalListFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                db.animalDAO().insertAll(list);
+
+//                final List<Animal> allAnimals = db.animalDAO().getAllAnimals();
+
+//                Log.d("List All Animals: ", "AllAnimals: " + allAnimals);
+            }
+        });
+    }
+    private List<Animal> readAnimalListFile() throws IOException {
+
+        List<Animal> animalList = new ArrayList<>();
+
+        InputStream is = getResources().openRawResource(R.raw.animal_list);
+        InputStreamReader csvStreamReader = new InputStreamReader(is);
+
+        CSVReader reader = new CSVReader(csvStreamReader);
+        reader.skip(1);
+
+        String[] record = null;
+        int num = 0;
+
+
+        while ((record = reader.readNext()) != null) {
+//            Animal animal = new Animal(record[0], record[1], record[2],
+//                    record[3], record[4], record[5], record[6],
+//                    record[7], record[8], record[9], record[10], record[11]);
+            Animal animal = new Animal();
+            animal.setType(record[0]);
+            animal.setName(record[1]);
+            animal.setScientificName(record[2]);
+//            animal.setMinBodyLengthCm(record[3]);
+//            animal.setMaxBodyLengthCm(record[4]);
+//            animal.setMinWingspanCm(record[5]);
+//            animal.setMaxWingspanCm(record[6]);
+            animal.setMinBodyLengthCm(Integer.parseInt(record[3]));
+            animal.setMaxBodyLengthCm(Integer.parseInt(record[4]));
+
+            try{
+                if (record[5] != null && record[6] != null) {
+                    animal.setMinWingspanCm(Integer.parseInt(record[5]));
+                    animal.setMaxWingspanCm(Integer.parseInt(record[6]));
+                } else {
+                    animal.setMinWingspanCm(num);
+                    animal.setMaxWingspanCm(num);
+                }
+            }catch (NumberFormatException e) {
+                Log.getStackTraceString(e);
+            }
+
+//                animal.setMinWingspanCm(Integer.parseInt(record[5]));
+//                animal.setMaxWingspanCm(Integer.parseInt(record[6]));
+            animal.setDescription(record[7]);
+            animal.setHabitat(record[8]);
+            animal.setBestTime(record[9]);
+            animal.setBestWalk(record[10]);
+            animal.setFoodSource(record[11]);
+            animal.setAnimalImage(record[12]);
+            animal.setHeadColour(record[14]);
+            animal.setWingColour(record[15]);
+            animal.setBellyColour(record[16]);
+
+            animalList.add(animal);
+//                Log.d("Read file: ", "Animal List: " + animal);
+
+        }
+        return animalList;
+    }
+
 }

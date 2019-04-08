@@ -1,10 +1,11 @@
 package com.example.animalapp.Database;
 
-import android.arch.persistence.room.TypeConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import androidx.room.TypeConverter;
 
 class Converters {
     @TypeConverter

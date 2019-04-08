@@ -3,8 +3,7 @@ package com.example.animalapp.SearchByBird;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
-import android.support.v4.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +15,8 @@ import com.example.animalapp.R;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 
@@ -33,7 +32,7 @@ public class BirdHeightFragment extends Fragment implements View.OnClickListener
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
