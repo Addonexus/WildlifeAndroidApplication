@@ -9,6 +9,7 @@
     android:layout_height="wrap_content"
     tools:context=".SearchByBird.SpeciesIdentifierResult"
     android:gravity="bottom"
+    android:background="@color/grey"
     android:orientation="vertical"
     android:layout_marginLeft="16dp"
     android:paddingTop="20dp"
