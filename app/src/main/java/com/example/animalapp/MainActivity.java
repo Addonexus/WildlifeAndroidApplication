@@ -1,9 +1,6 @@
 package com.example.animalapp;
 
 
-
-
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -18,28 +15,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
-//import com.opencsv.CSVReader;
+import com.opencsv.CSVReader;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import io.paperdb.Paper;
-
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.opencsv.CSVReader;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
