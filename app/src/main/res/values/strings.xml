@@ -53,4 +53,5 @@
     <string name="choose_an_option_for_the_height_of_mammal_you_saw">mammalHeight</string>
     <string name="choose_the_head_colour_of_the_mammal_you_saw">mammalHeadColour</string>
     <string name="choose_the_fur_colour_of_the_mammal_you_saw">Choose the fur colour of the mammal you saw</string>
+    <string name="choose_an_option_for_the_length_of_reptile_you_saw">reptileLength</string>
 </resources>

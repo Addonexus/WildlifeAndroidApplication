@@ -140,4 +140,58 @@
             app:destination="@id/mammalHeadColourFragment" />
     </fragment>
 
+    <!--REPTILE FRAGMENTS-->
+
+    <fragment
+        android:id="@+id/reptileResultFragment"
+        android:name="com.example.animalapp.SearchByReptile.reptileResultFragment"
+        android:label="fragment_species_identifier_result"
+        tools:layout="@layout/fragment_species_identifier_result" >
+        <action
+            android:id="@+id/action_reptileResultFragment_to_chooseSpecies"
+            app:destination="@id/chooseSpecies" />
+        <action
+            android:id="@+id/action_reptileResultFragment_to_reptileMarkingsFragment"
+            app:destination="@+id/reptileMarkingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reptileLengthFragment"
+        android:name="com.example.animalapp.SearchByReptile.reptileLengthFragment"
+        android:label="fragment_reptile_height"
+        tools:layout="@layout/fragment_reptile_length" >
+        <action
+            android:id="@+id/action_reptileLengthFragment_to_chooseSpecies"
+            app:destination="@id/chooseSpecies" />
+        <action
+            android:id="@+id/action_reptileLengthFragment_to_reptileSkinColourFragment"
+            app:destination="@id/reptileSkinColourFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reptileSkinColourFragment"
+        android:name="com.example.animalapp.SearchByReptile.reptileSkinColourFragment"
+        android:label="fragment_reptile_skin_colour"
+        tools:layout="@layout/fragment_reptile_skin_colour" >
+        <action
+            android:id="@+id/action_reptileSkinColourFragment_to_reptileLengthFragment"
+            app:destination="@id/reptileLengthFragment" />
+        <action
+            android:id="@+id/action_reptileSkinColourFragment_to_reptileMarkingsFragment"
+            app:destination="@id/reptileMarkingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reptileMarkingsFragment"
+        android:name="com.example.animalapp.SearchByReptile.reptileMarkingsFragment"
+        android:label="fragment_reptile_markings"
+        tools:layout="@layout/fragment_reptile_markings" >
+        <action
+            android:id="@+id/action_reptileMarkingsFragment_to_reptileResultFragment"
+            app:destination="@id/reptileResultFragment" />
+        <action
+            android:id="@+id/action_reptileMarkingsFragment_to_reptileSkinColourFragment"
+            app:destination="@id/reptileSkinColourFragment" />
+    </fragment>
+
 </navigation>
