@@ -152,19 +152,19 @@ public class reptileResultFragment extends Fragment implements View.OnClickListe
         for (Animal animal :
                 animalList) {
             if (sizesList.size() > 2){
-                if((sizesList.get(0) > animal.getMinBodyLengthCm()) && (sizesList.get(1) < animal.getMaxBodyLengthCm()) && (animal.getType().equalsIgnoreCase("Reptile"))) {
+                if((sizesList.get(0) > animal.getMinBodyLengthCm()) && (sizesList.get(1) < animal.getMaxBodyLengthCm()) && (animal.getType().equalsIgnoreCase("Reptile") || animal.getType().equalsIgnoreCase("Amphibian"))) {
                     resultList.add(animal);
                 }
                 Log.d("MID", "THIS PROCESS HAS WORKED");
 
             } else{
                 if(sizesList.get(1).equals(0)){
-                    if((sizesList.get(0) > animal.getMinBodyLengthCm())&& (animal.getType().equalsIgnoreCase("Reptile"))){
+                    if((sizesList.get(0) > animal.getMinBodyLengthCm())&& (animal.getType().equalsIgnoreCase("Reptile") || animal.getType().equalsIgnoreCase("Amphibian"))){
                         resultList.add(animal);
                     }
                 }
                 if(sizesList.get(1).equals(1)){
-                    if((sizesList.get(0) < animal.getMaxBodyLengthCm()) && (animal.getType().equalsIgnoreCase("Reptile"))){
+                    if((sizesList.get(0) < animal.getMaxBodyLengthCm()) && (animal.getType().equalsIgnoreCase("Reptile") || animal.getType().equalsIgnoreCase("Amphibian"))){
                         resultList.add(animal);
                     }
                 }
