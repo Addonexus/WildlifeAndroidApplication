@@ -62,9 +62,9 @@ public class reptileLengthFragment extends Fragment implements View.OnClickListe
                 Log.d("Reptile SKIN COLOUR", passedColour.toString());
                 filter.append("Skin").append(": ").append(String.join(", ", passedColour)).append(". ");
             }if (bundle.containsKey("ReptileMarkings")) {
-                ArrayList<String>  passedColour = bundle.getStringArrayList("ReptileMarkings");
-                Log.d("Reptile MARKINGS", passedColour.toString());
-                filter.append("Markings").append(": ").append(String.join(", ", passedColour)).append(". ");
+                ArrayList<String>  passedMarkings = bundle.getStringArrayList("ReptileMarkings");
+                Log.d("Reptile MARKINGS", passedMarkings.toString());
+                filter.append("Markings").append(": ").append(String.join(", ", passedMarkings)).append(". ");
             }
             passed_detail.setText("Filter: " + filter);
         }
