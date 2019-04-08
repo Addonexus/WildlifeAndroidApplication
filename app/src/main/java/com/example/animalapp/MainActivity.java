@@ -1,55 +1,34 @@
 package com.example.animalapp;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.ClipData;
+
+
+
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
-
-
-import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.RequiresApi;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import android.view.View;
 import android.widget.Button;
-
 import android.widget.TextView;
-import android.Manifest;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Toast;
-
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
 //import com.opencsv.CSVReader;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import io.paperdb.Paper;
+
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.opencsv.CSVReader;
@@ -62,11 +41,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import io.paperdb.Paper;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -217,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void setFragment(Fragment fragment) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fragment);
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
     }
     public AnimalDatabase getDb() {
