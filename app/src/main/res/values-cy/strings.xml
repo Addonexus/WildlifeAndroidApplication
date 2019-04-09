@@ -56,4 +56,6 @@
     <string name="animal_list">Rhestr Anifeiliaid</string>
     <string name="notifications">Hysbysiadau</string>
     <string name="animals_seen">Anifeiliaid yn Gweld</string>
+    <string name="facebook_app_id">417825229031440</string>
+    <string name="fb_login_protocol_scheme">fb417825229031440</string>
 </resources>

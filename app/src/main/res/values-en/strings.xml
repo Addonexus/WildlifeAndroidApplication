@@ -56,4 +56,6 @@
     <string name="animal_list">Animal List</string>
     <string name="notifications">Notifications</string>
     <string name="animals_seen">Animals Seen</string>
+    <string name="facebook_app_id">417825229031440</string>
+    <string name="fb_login_protocol_scheme">fb417825229031440</string>
 </resources>
