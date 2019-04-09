@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
+    android:background="@color/grey"
     tools:context=".LinksFragment">
 
     <!-- DONE: Update blank fragment layout -->
@@ -12,7 +13,6 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:background="@drawable/logo"
-        android:onClick="browser1"
         android:paddingBottom="20dp"
         android:layout_gravity="center_horizontal"/>
 
@@ -21,7 +21,6 @@
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:background="@drawable/rspb"
-        android:onClick="browser2"
         android:layout_marginTop="150dp"
         android:layout_gravity="center_horizontal"/>
 
@@ -32,7 +31,6 @@
         android:layout_marginTop="300dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/rspca"
-        android:onClick="browser3"
         android:paddingBottom="20dp" />
 
     <ImageView
@@ -43,7 +41,6 @@
         android:layout_marginRight="90dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/natur"
-        android:onClick="browser4"
         android:paddingBottom="20dp" />
 
     <ImageView
@@ -54,7 +51,6 @@
         android:layout_marginLeft="90dp"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/cardiff"
-        android:onClick="browser5"
         android:paddingBottom="20dp" />
 
 

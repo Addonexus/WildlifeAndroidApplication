@@ -3,12 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/grey"
     android:weightSum="100">
 
     <ListView
         android:id="@+id/reserves_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="20dp"
         android:layout_weight="50" />
 
     <!--<LinearLayout-->

@@ -1,12 +1,7 @@
 package com.example.animalapp;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class LoginFragment extends Fragment {
 
 
@@ -46,10 +41,11 @@ public class LoginFragment extends Fragment {
         mTextViewRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).setFragment(new RegisterFragment());
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 
-                //Intent LoginIntent = new Intent(RegisterFragment.this, LoginFragment.class);
-                //startActivity(LoginIntent);
+                //LOGIN FRAGMENT
+                fragmentTransaction.add(R.id.fragment_container, new RegisterFragment());
+                fragmentTransaction.commit();
             }
         });
 
@@ -62,7 +58,9 @@ public class LoginFragment extends Fragment {
                 boolean res = db.checkUser(user, pwd);
                 if (res) {
                     Toast.makeText(getActivity(), "Successfully Logged In", Toast.LENGTH_SHORT).show();
-                    ((MainActivity) getActivity()).setFragment(new HomeFragment());
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.add(R.id.fragment_container, new HomeFragment());
+                    fragmentTransaction.commit();
                     //mButtonLogin.setVisibility(View.INVISIBLE);
 
                 } else {

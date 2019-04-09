@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
     android:orientation="vertical"
+    android:background="@color/grey"
     tools:context=".AnimalFragment">
 
     <!-- DONE: Update blank fragment layout -->
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:text="Species Identifier" />
+        android:text="@string/species_identifier" />
 
     <Button
         android:id="@+id/species_show_all"
@@ -24,7 +24,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:text="Show All Animals" />
+        android:text="@string/show_all_animals" />
+
+    <Button
+        android:id="@+id/animals_seen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/animals_seen" />
 
 
 </LinearLayout>

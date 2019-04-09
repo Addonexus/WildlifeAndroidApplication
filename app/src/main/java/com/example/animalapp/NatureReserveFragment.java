@@ -2,12 +2,7 @@ package com.example.animalapp;
 
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +13,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.animalapp.R;
-
-import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,7 +40,7 @@ public class NatureReserveFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_nature_reserves, container,false);
-        getActivity().setTitle("Walks");
+        getActivity().setTitle(R.string.title_walks);
         list = view.findViewById(R.id.reserves_list);
 //        ListView lvData = (ListView) view.findViewById(R.id.list);
 //
@@ -126,7 +122,7 @@ public class NatureReserveFragment extends Fragment {
     }
     public void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame, fragment);
+        transaction.replace(R.id.fragment_container, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
 
@@ -156,7 +152,7 @@ public class NatureReserveFragment extends Fragment {
             TextView description = reserve_item.findViewById(R.id.reserve_information);
 
             images.setImageResource(imgs[position]);
-            title.setText(titles[position]);
+            title.setText(myTitles[position]);
             description.setText(myDescriptions[position]);
 
             return reserve_item;
