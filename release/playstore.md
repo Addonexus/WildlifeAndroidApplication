@@ -19,7 +19,7 @@ Wildlife is an app aimed to make identifying local wildlife easier. The app is t
 
 You can also:
 
-  - Click on the Nature Reserves within the list to redirect you to the place it is on the map#
+  - Click on the Nature Reserves within the list to redirect you to the place it is on the map
   - Personalize the application by creating an account
   - Log in via email or with facebook
   - Browse through the application in either English or Welsh
