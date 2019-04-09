@@ -90,6 +90,19 @@ public class MammalSearchTools {
         return resultList;
 
     }
+    public static ArrayList<Animal> searchByFurColour(ArrayList<Animal> animalList, List<String> furColours){
+        ArrayList<Animal> resultList = new ArrayList<>();
+        Log.d("STARTING", "THIS SEARCH BY Fur COLOUR HAS STARTED "+ furColours);
+        for (Animal animal :
+                animalList) {
+            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getFurColour().split(";")));
+            if (colours.containsAll(furColours)) {
+                resultList.add(animal);
+            }
+        }
+        return resultList;
+
+    }
 
 
 
