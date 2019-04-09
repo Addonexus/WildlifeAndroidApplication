@@ -32,13 +32,13 @@
         android:id="@+id/species_reptile_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Reptile" />
+         />
 
     <Button
         android:id="@+id/species_amphibian_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Amphibian" />
+         />
 
 
 </LinearLayout>
