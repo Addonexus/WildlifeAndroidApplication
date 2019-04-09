@@ -135,6 +135,88 @@
                 <com.google.android.material.chip.ChipGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/mammal_choices_colour_head"
+
+                    >
+                    <!-- ... -->
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/grey"
+
+                        android:id="@+id/mammal_head_colour_option_grey"
+                        android:text="Grey" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/black"
+                        android:id="@+id/mammal_head_colour_option_black"
+                        android:text="Black" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/brown"
+                        android:id="@+id/mammal_head_colour_option_brown"
+                        android:text="Brown" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/lightbrown"
+                        android:id="@+id/mammal_head_colour_option_light_brown"
+                        android:text="Light Brown" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/red"
+                        android:id="@+id/mammal_head_colour_option_red"
+                        android:text="Red" />
+                    <com.google.android.material.chip.Chip
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/circle"
+                        app:closeIconEnabled="false"
+                        app:chipIconTint="@color/white"
+                        android:id="@+id/mammal_head_colour_option_white"
+                        android:text="White" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/grey" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:text="Colour of Fur: "
+                android:textStyle="bold" />
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <com.google.android.material.chip.ChipGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/mammal_choices_colour_fur"
                     app:singleSelection="false"
 
@@ -168,7 +250,7 @@
                         app:closeIconEnabled="false"
                         app:chipIconTint="@color/brown"
                         android:id="@+id/mammal_fur_colour_option_brown"
-                        android:text="Black" />
+                        android:text="Brown" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"
@@ -197,87 +279,6 @@
                         android:id="@+id/mammal_fur_colour_option_white"
                         android:text="White" />
 
-                </com.google.android.material.chip.ChipGroup>
-            </HorizontalScrollView>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/grey" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="10dp"
-                android:text="Colour of Belly: "
-                android:textStyle="bold" />
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <com.google.android.material.chip.ChipGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/mammal_choices_colour_head"
-
-                    >
-                    <!-- ... -->
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/circle"
-                        app:closeIconEnabled="false"
-                        app:chipIconTint="@color/grey"
-
-                        android:id="@+id/mammal_head_colour_option_grey"
-                        android:text="Grey" />
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/circle"
-                        app:closeIconEnabled="false"
-                        app:chipIconTint="@color/black"
-                        android:id="@+id/mammal_head_colour_option_black"
-                        android:text="Black" />
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        app:chipIcon="@drawable/circle"
-                        app:closeIconEnabled="false"
-                        app:chipIconTint="@color/brown"
-                        android:id="@+id/mammal_head_colour_option_brown"
-                        android:text="Black" />
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/circle"
-                        app:closeIconEnabled="false"
-                        app:chipIconTint="@color/lightbrown"
-                        android:id="@+id/mammal_head_colour_option_light_brown"
-                        android:text="Light Brown" />
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/circle"
-                        app:closeIconEnabled="false"
-                        app:chipIconTint="@color/red"
-                        android:id="@+id/mammal_head_colour_option_red"
-                        android:text="Red" />
-                    <com.google.android.material.chip.Chip
-                        style="@style/Widget.MaterialComponents.Chip.Filter"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/circle"
-                        app:closeIconEnabled="false"
-                        app:chipIconTint="@color/white"
-                        android:id="@+id/mammal_head_colour_option_white"
-                        android:text="White" />
                 </com.google.android.material.chip.ChipGroup>
             </HorizontalScrollView>
             <View

@@ -254,6 +254,7 @@ public class Animal {
                 ", headColour='" + headColour + '\'' +
                 ", wingColour='" + wingColour + '\'' +
                 ", bellyColour='" + bellyColour + '\'' +
+                ", furColour='" + furColour + '\'' +
                 '}';
     }
 }

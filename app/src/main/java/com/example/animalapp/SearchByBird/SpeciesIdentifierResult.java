@@ -249,6 +249,78 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 }
             }
         });
+        Log.d("I AM HERE", "WHY NOT WOKRING");
+        Log.d("COUNT COLOUR", Integer.toString(mammalHeadColourChipGroup.getChildCount()));
+        for (int i = 0; i < mammalHeadColourChipGroup.getChildCount(); i++) {
+            Log.d("NO IDEA", Integer.toString(i));
+            final Chip mammalHeadColourChip = (Chip) mammalHeadColourChipGroup.getChildAt(i);
+            if (mammalHeadColourChip != null) {
+                Log.d("COMPARISON ONE CHIP", mammalHeadColourChip.getText().toString());
+                mammalHeadColourChip.setOnCheckedChangeListener(new Chip.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                        Log.d("WHAT", "THIS WAS CLIECKED");
+                        if((mammalHeadColourChip.getId() == view.findViewById(R.id.mammal_head_colour_option_grey).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalHeadColour");
+                            updateResultList(bundle);
+                        }if((mammalHeadColourChip.getId() == view.findViewById(R.id.mammal_head_colour_option_white).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalHeadColour");
+                            updateResultList(bundle);
+                        }if((mammalHeadColourChip.getId() == view.findViewById(R.id.mammal_head_colour_option_red).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalHeadColour");
+                            updateResultList(bundle);
+                        }if((mammalHeadColourChip.getId() == view.findViewById(R.id.mammal_head_colour_option_light_brown).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalHeadColour");
+                            updateResultList(bundle);
+                        }if((mammalHeadColourChip.getId() == view.findViewById(R.id.mammal_head_colour_option_brown).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalHeadColour");
+                            updateResultList(bundle);
+                        }if((mammalHeadColourChip.getId() == view.findViewById(R.id.mammal_head_colour_option_black).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalHeadColour");
+                            updateResultList(bundle);
+                        }
+
+                        // Handle the toggle.
+                    }
+                });
+            }
+        }
+        Log.d("I AM HERE", "WHY NOT WOKRING");
+        Log.d("COUNT COLOUR", Integer.toString(mammalFurColourChipGroup.getChildCount()));
+        for (int i = 0; i < mammalFurColourChipGroup.getChildCount(); i++) {
+            Log.d("NO IDEA", Integer.toString(i));
+            final Chip mammalFurColourChip = (Chip) mammalFurColourChipGroup.getChildAt(i);
+            if (mammalFurColourChip != null) {
+                Log.d("COMPARISON ONE CHIP", mammalFurColourChip.getText().toString());
+                mammalFurColourChip.setOnCheckedChangeListener(new Chip.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                        Log.d("WHAT", "THIS WAS CLIECKED");
+                        if((mammalFurColourChip.getId() == view.findViewById(R.id.mammal_fur_colour_option_grey).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalFurColour");
+                            updateResultList(bundle);
+                        }if((mammalFurColourChip.getId() == view.findViewById(R.id.mammal_fur_colour_option_white).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalFurColour");
+                            updateResultList(bundle);
+                        }if((mammalFurColourChip.getId() == view.findViewById(R.id.mammal_fur_colour_option_red).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalFurColour");
+                            updateResultList(bundle);
+                        }if((mammalFurColourChip.getId() == view.findViewById(R.id.mammal_fur_colour_option_light_brown).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalFurColour");
+                            updateResultList(bundle);
+                        }if((mammalFurColourChip.getId() == view.findViewById(R.id.mammal_fur_colour_option_brown).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalFurColour");
+                            updateResultList(bundle);
+                        }if((mammalFurColourChip.getId() == view.findViewById(R.id.mammal_fur_colour_option_black).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "MammalFurColour");
+                            updateResultList(bundle);
+                        }
+
+                        // Handle the toggle.
+                    }
+                });
+            }
+        }
         birdHeightChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int i) {
@@ -547,6 +619,13 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                     if (bundle.containsKey("MammalHeight")) {
                         filters.add("MammalHeight");
                     }
+                    if (bundle.containsKey("MammalHeadColour")) {
+                        filters.add("MammalHeadColour");
+
+                    }if (bundle.containsKey("MammalFurColour")) {
+                        filters.add("MammalFurColour");
+
+                    }
                 }
             }
         }
@@ -646,6 +725,12 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             if (filter.equalsIgnoreCase("MammalHeight")){
                 resultList = MammalSearchTools.searchBySize(resultList, bundle.getIntegerArrayList("MammalHeight"));
                 Log.d("AFTER BY SIZE", resultList.size() + "");
+            }if (filter.equalsIgnoreCase("MammalHeadColour")){
+                resultList = MammalSearchTools.searchByHeadColour(resultList, bundle.getStringArrayList("MammalHeadColour"));
+                Log.d("AFTER BY HEAD COLOUR", resultList.size() + "");
+            }if (filter.equalsIgnoreCase("MammalFurColour")){
+                resultList = MammalSearchTools.searchByFurColour(resultList, bundle.getStringArrayList("MammalFurColour"));
+                Log.d("AFTER BY FUR COLOUR", resultList.size() + "");
             }
 
         }
