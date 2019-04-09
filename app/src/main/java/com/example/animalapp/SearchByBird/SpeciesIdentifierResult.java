@@ -180,6 +180,75 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 }
             }
         });
+        mammalHeightChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup chipGroup, int i) {
+                Chip mammalHeightChip = ((Chip) chipGroup.findViewById(i));
+
+                if (mammalHeightChip != null) {
+                    if ((mammalHeightChip.getId() == view.findViewById(R.id.mammal_choices_height_less_15).getId()) && mammalHeightChip.isChecked()){
+                        Log.d("HEIGHT", mammalHeightChip.getText().toString());
+//                        Bundle bundle = getArguments();
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Mammal")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(15,0));
+                                    bundle.putIntegerArrayList("MammalHeight", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }if ((mammalHeightChip.getId() == view.findViewById(R.id.mammal_choices_height_between_15_30).getId()) && mammalHeightChip.isChecked()){
+                        Log.d("HEIGHT", mammalHeightChip.getText().toString());
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Mammal")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(15,30,0));
+                                    bundle.putIntegerArrayList("MammalHeight", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }if ((mammalHeightChip.getId() == view.findViewById(R.id.mammal_choices_height_between_30_45).getId()) && mammalHeightChip.isChecked()){
+                        Log.d("HEIGHT", mammalHeightChip.getText().toString());
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Mammal")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(30,45,0));
+                                    bundle.putIntegerArrayList("MammalHeight", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }if ((mammalHeightChip.getId() == view.findViewById(R.id.mammal_choices_height_more_45).getId()) && mammalHeightChip.isChecked()){
+                        Log.d("HEIGHT", mammalHeightChip.getText().toString());
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Mammal")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(45,1));
+                                    bundle.putIntegerArrayList("MammalHeight", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (bundle != null) {
+                        bundle.remove("MammalHeight");
+                        updateResultList(bundle);
+                    }
+
+                }
+            }
+        });
         birdHeightChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int i) {
@@ -456,19 +525,27 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             if (bundle.containsKey("SpeciesType")) {
                 filters.add("SpeciesType");
                 Log.d("FILTER VALUE", bundle.getString("SpeciesType"));
-                if (bundle.getString("SpeciesType").equals("Bird")){
-                    if (bundle.containsKey("BirdHeight")){
+                if (bundle.getString("SpeciesType").equals("Bird")) {
+                    if (bundle.containsKey("BirdHeight")) {
                         filters.add("BirdHeight");
 
-                    }if (bundle.containsKey("BirdHeadColour")) {
+                    }
+                    if (bundle.containsKey("BirdHeadColour")) {
                         filters.add("BirdHeadColour");
 
-                    }if (bundle.containsKey("BirdWingColour")) {
+                    }
+                    if (bundle.containsKey("BirdWingColour")) {
                         filters.add("BirdWingColour");
 
-                    }if (bundle.containsKey("BirdBellyColour")) {
+                    }
+                    if (bundle.containsKey("BirdBellyColour")) {
                         filters.add("BirdBellyColour");
 
+                    }
+                }
+                if (bundle.getString("SpeciesType").equals("Mammal")) {
+                    if (bundle.containsKey("MammalHeight")) {
+                        filters.add("MammalHeight");
                     }
                 }
             }
@@ -565,6 +642,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             if (filter.equalsIgnoreCase("BirdWingColour")){
                 resultList = BirdSearchTools.searchByWingColour(resultList, getArguments().getStringArrayList("BirdWingColour"));
                 Log.d("AFTER BY WING COLOUR", resultList.size() + "");
+            }
+            if (filter.equalsIgnoreCase("MammalHeight")){
+                resultList = MammalSearchTools.searchBySize(resultList, bundle.getIntegerArrayList("MammalHeight"));
+                Log.d("AFTER BY SIZE", resultList.size() + "");
             }
 
         }
