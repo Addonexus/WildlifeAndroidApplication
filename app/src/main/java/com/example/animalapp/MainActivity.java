@@ -268,6 +268,16 @@ public class MainActivity extends AppCompatActivity {
             animal.setFurColour(record[17]);
             animal.setSkinColour(record[18]);
             animal.setMarkings(record[19]);
+            try{
+                if (record[20] != null ) {
+                    animal.setNumberOfLegs(Integer.parseInt(record[20]));
+
+                } else {
+                    animal.setNumberOfLegs(num);
+                }
+            }catch (NumberFormatException e) {
+                Log.getStackTraceString(e);
+            }
 
             animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);

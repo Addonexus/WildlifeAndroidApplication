@@ -57,10 +57,12 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     ChipGroup[] birdFilterChipGroups;
     ChipGroup[] mammalFilterChipGroups;
     ChipGroup[] reptileAmphibianFilterChipGroups;
+    ChipGroup[] invetebrateFilterChipGroups;
 
     List<String> birdFilters = Arrays.asList("BirdHeight", "BirdHeadColour", "BirdBellyColour", "BirdWingColour");
     List<String> mammalFilters = Arrays.asList("MammalHeight", "MammalHeadColour", "MammalFurColour");
     List<String> reptileAmphibianFilters = Arrays.asList("ReptileAmphibianHeight", "ReptileAmphibianSkinColour");
+    List<String> invertebrateFilters = Arrays.asList("InvertebrateLegs");
     public SpeciesIdentifierResult() {
         // Required empty public constructor
     }
@@ -88,6 +90,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         final ChipGroup reptileAmphibianSkinColourChipGroup = (ChipGroup) view.findViewById(R.id.reptile_amphibian_choices_colour_skin);
         final ChipGroup reptileAmphibianMarkingsChipGroup = (ChipGroup) view.findViewById(R.id.reptile_amphibian_choices_markings);
         reptileAmphibianFilterChipGroups = new ChipGroup[] {reptileAmphibianHeightChipGroup,reptileAmphibianSkinColourChipGroup,reptileAmphibianMarkingsChipGroup};
+
+        final ChipGroup invertebrateLegChipGroup = (ChipGroup) view.findViewById(R.id.invertebrate_choices_number_of_legs);
+        invetebrateFilterChipGroups = new ChipGroup[] {invertebrateLegChipGroup};
+
 
 
         list = view.findViewById(R.id.result_list_view);
@@ -135,12 +141,14 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                     ScrollView scrollBirdView = (ScrollView) view.findViewById(R.id.identifer_bird_scroll_list);
                     ScrollView scrollMammalView = (ScrollView) view.findViewById(R.id.identifer_mammal_scroll_list);
                     ScrollView scrollReptileAmphibianView = (ScrollView) view.findViewById(R.id.identifer_reptile_amphibian_scroll_list);
+                    ScrollView scrollInvertebrateView = (ScrollView) view.findViewById(R.id.identifer_invertebrate_scroll_list);
                     if ((chip.getId() == view.findViewById(R.id.chip_type_bird).getId()) && chip.isChecked()){
                         Log.d("THE TWO CHIPS ARE EQUAL", "YES ");
 //                        Bundle bundle = replaceBundleFiltersBySpecies("Bird");
 //                        LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.bird_choices_list);
 //                        linearLayout.setVisibility(View.VISIBLE);
                         scrollBirdView.setVisibility(View.VISIBLE);
+                        scrollInvertebrateView.setVisibility(View.GONE);
                         scrollMammalView.setVisibility(View.GONE);
                         scrollReptileAmphibianView.setVisibility(View.GONE);
 //                        bundle.putString("SpeciesType","Bird");
@@ -156,6 +164,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                         scrollBirdView.setVisibility(View.GONE);
                         scrollMammalView.setVisibility(View.VISIBLE);
                         scrollReptileAmphibianView.setVisibility(View.GONE);
+                        scrollInvertebrateView.setVisibility(View.GONE);
 //                        bundle.putString("SpeciesType","Mammal");
                         replaceBundleFiltersBySpecies("Mammal");
                         updateResultList(bundle);
@@ -169,6 +178,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                         scrollBirdView.setVisibility(View.GONE);
                         scrollMammalView.setVisibility(View.GONE);
                         scrollReptileAmphibianView.setVisibility(View.VISIBLE);
+                        scrollInvertebrateView.setVisibility(View.GONE);
 //                        bundle.putString("SpeciesType","Reptile");
                         replaceBundleFiltersBySpecies("ReptileAmphibian");
                         updateResultList(bundle);
@@ -183,12 +193,69 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                         scrollBirdView.setVisibility(View.GONE);
                         scrollMammalView.setVisibility(View.GONE);
                         scrollReptileAmphibianView.setVisibility(View.GONE);
+                        scrollInvertebrateView.setVisibility(View.INVISIBLE);
 //                        bundle.putString("SpeciesType","Invertebrate");
                         replaceBundleFiltersBySpecies("Invertebrate");
                         updateResultList(bundle);
                     }
                 }else{
                     Log.d("CHIP VIEW", "THIS DIDN'T WORK");
+                }
+            }
+        });
+        invertebrateLegChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup chipGroup, int i) {
+                Chip invertebrateLegChip = ((Chip) chipGroup.findViewById(i));
+
+                if (invertebrateLegChip != null) {
+                    if ((invertebrateLegChip.getId() == view.findViewById(R.id.invertebrate_choices_legs_less_6).getId()) && invertebrateLegChip.isChecked()){
+                        Log.d("LEGS", invertebrateLegChip.getText().toString());
+//                        Bundle bundle = getArguments();
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Invertebrate")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(6,0));
+                                    bundle.putIntegerArrayList("InvertebrateLegs", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }if ((invertebrateLegChip.getId() == view.findViewById(R.id.invertebrate_choices_legs_6).getId()) && invertebrateLegChip.isChecked()){
+                        Log.d("LEGS", invertebrateLegChip.getText().toString());
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Invertebrate")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(6,2));
+                                    bundle.putIntegerArrayList("InvertebrateLegs", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }if ((invertebrateLegChip.getId() == view.findViewById(R.id.invertebrate_choices_legs_more_6).getId()) && invertebrateLegChip.isChecked()){
+                        Log.d("LEGS", invertebrateLegChip.getText().toString());
+                        if (bundle != null) {
+                            if(bundle.containsKey("SpeciesType")){
+                                if (bundle.getString("SpeciesType").equals("Invertebrate")){
+                                    Log.d("WORKING", "YES");
+                                    ArrayList<Integer> values = new ArrayList<>();
+                                    values.addAll(Arrays.asList(6,1));
+                                    bundle.putIntegerArrayList("InvertebrateLegs", values);
+                                    updateResultList(bundle);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (bundle != null) {
+                        bundle.remove("InvertebrateLegs");
+                        updateResultList(bundle);
+                    }
+
                 }
             }
         });
@@ -686,6 +753,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 bundle.putString("SpeciesType","Bird");
                 removeFilterFromBundle( mammalFilters);
                 removeFilterFromBundle( reptileAmphibianFilters);
+                removeFilterFromBundle( invertebrateFilters);
 //                if (bundle.containsKey("BirdHeadColour")) {
 //                    bundle.remove("BirdHeadColour");
 //                }if (bundle.containsKey("BirdHeight")) {
@@ -699,11 +767,13 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             if(speciesType.equals("Mammal")){
                 bundle.putString("SpeciesType","Mammal");
                 removeFilterFromBundle( birdFilters);
-                removeFilterFromBundle( reptileAmphibianFilters);}
+                removeFilterFromBundle( reptileAmphibianFilters);
+                removeFilterFromBundle( invertebrateFilters);}
             if(speciesType.equals("ReptileAmphibian")){
                 bundle.putString("SpeciesType","ReptileAmphibian");
                 removeFilterFromBundle(birdFilters);
-                removeFilterFromBundle( mammalFilters);}
+                removeFilterFromBundle( mammalFilters);
+                removeFilterFromBundle( invertebrateFilters);}
             if(speciesType.equals("Invertebrate")){
                 bundle.putString("SpeciesType","Invertebrate");
                 removeFilterFromBundle( birdFilters);
@@ -784,6 +854,11 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                         filters.add("ReptileAmphibianSkinColour");
                     }if (bundle.containsKey("ReptileAmphibianMarking")) {
                         filters.add("ReptileAmphibianMarking");
+                    }
+                }
+                if (bundle.getString("SpeciesType").equals("Invertebrate")) {
+                    if (bundle.containsKey("InvertebrateLegs")) {
+                        filters.add("InvertebrateLegs");
                     }
                 }
             }
@@ -900,6 +975,11 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 Log.d("AFTER BY REPTILE SIZE", resultList.size() + "");
             }if (filter.equalsIgnoreCase("ReptileAmphibianMarking")){
                 resultList = ReptileAmphibianSearchTools.searchByMarking(resultList, bundle.getStringArrayList("ReptileAmphibianMarking"));
+                Log.d("AFTER BY REPTILE MARKING", resultList.size() + "");
+            }
+
+            if (filter.equalsIgnoreCase("InvertebrateLegs")){
+                resultList = InvertebrateSearchTools.searchByNumberOfLegs(resultList, bundle.getIntegerArrayList("InvertebrateLegs"));
                 Log.d("AFTER BY REPTILE MARKING", resultList.size() + "");
             }
 

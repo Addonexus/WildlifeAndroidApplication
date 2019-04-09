@@ -74,6 +74,10 @@ public class Animal {
     @ColumnInfo(name = "Animal Image")
     private String animalImage;
 
+    @ColumnInfo(name = "Number of Legs")
+    private Integer numberOfLegs;
+
+
     public int getId() {
         return id;
     }
@@ -255,6 +259,13 @@ public class Animal {
 
 
     }
+    public Integer getNumberOfLegs() {
+        return numberOfLegs;
+    }
+
+    public void setNumberOfLegs(Integer numberOfLegs) {
+        this.numberOfLegs = numberOfLegs;
+    }
 
 
     @Override
@@ -280,6 +291,7 @@ public class Animal {
                 ", skinColour='" + skinColour + '\'' +
                 ", markings='" + markings + '\'' +
                 ", animalImage='" + animalImage + '\'' +
+                ", numberOfLegs='" + numberOfLegs + '\'' +
                 '}';
     }
 }
