@@ -127,6 +127,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                     Log.d("EXPRESSION EVALUATION", Boolean.toString((chip.getId() == view.findViewById(R.id.chip_type_bird).getId()) && chip.isChecked()));
                     ScrollView scrollBirdView = (ScrollView) view.findViewById(R.id.identifer_bird_scroll_list);
                     ScrollView scrollMammalView = (ScrollView) view.findViewById(R.id.identifer_mammal_scroll_list);
+                    ScrollView scrollReptileAmphibianView = (ScrollView) view.findViewById(R.id.identifer_reptile_amphibian_scroll_list);
                     if ((chip.getId() == view.findViewById(R.id.chip_type_bird).getId()) && chip.isChecked()){
                         Log.d("THE TWO CHIPS ARE EQUAL", "YES ");
 //                        Bundle bundle = replaceBundleFiltersBySpecies("Bird");
@@ -134,6 +135,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //                        linearLayout.setVisibility(View.VISIBLE);
                         scrollBirdView.setVisibility(View.VISIBLE);
                         scrollMammalView.setVisibility(View.GONE);
+                        scrollReptileAmphibianView.setVisibility(View.GONE);
 //                        bundle.putString("SpeciesType","Bird");
                         replaceBundleFiltersBySpecies("Bird");
                         updateResultList(bundle);
@@ -146,6 +148,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //                        mammalLinearLayout.setVisibility(View.VISIBLE);
                         scrollBirdView.setVisibility(View.GONE);
                         scrollMammalView.setVisibility(View.VISIBLE);
+                        scrollReptileAmphibianView.setVisibility(View.GONE);
 //                        bundle.putString("SpeciesType","Mammal");
                         replaceBundleFiltersBySpecies("Mammal");
                         updateResultList(bundle);
@@ -158,6 +161,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 //                        linearLayout.setVisibility(View.INVISIBLE);
                         scrollBirdView.setVisibility(View.GONE);
                         scrollMammalView.setVisibility(View.GONE);
+                        scrollReptileAmphibianView.setVisibility(View.VISIBLE);
 //                        bundle.putString("SpeciesType","Reptile");
                         replaceBundleFiltersBySpecies("Amphibians/Reptile");
                         updateResultList(bundle);
@@ -171,6 +175,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 
                         scrollBirdView.setVisibility(View.GONE);
                         scrollMammalView.setVisibility(View.GONE);
+                        scrollReptileAmphibianView.setVisibility(View.GONE);
 //                        bundle.putString("SpeciesType","Invertebrate");
                         replaceBundleFiltersBySpecies("Invertebrate");
                         updateResultList(bundle);
