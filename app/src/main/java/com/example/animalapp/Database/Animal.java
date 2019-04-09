@@ -77,6 +77,9 @@ public class Animal {
     @ColumnInfo(name = "Number of Legs")
     private Integer numberOfLegs;
 
+    @ColumnInfo(name = "Wing Type")
+    private String wingType;
+
 
     public int getId() {
         return id;
@@ -266,6 +269,12 @@ public class Animal {
     public void setNumberOfLegs(Integer numberOfLegs) {
         this.numberOfLegs = numberOfLegs;
     }
+    public void setWingType(String wingType) {
+        this.wingType = wingType;
+    }
+    public String getWingType() {
+        return wingType;
+    }
 
 
     @Override
@@ -292,6 +301,9 @@ public class Animal {
                 ", markings='" + markings + '\'' +
                 ", animalImage='" + animalImage + '\'' +
                 ", numberOfLegs='" + numberOfLegs + '\'' +
+                ", numberOfLegs='" + wingType + '\'' +
                 '}';
     }
+
+
 }

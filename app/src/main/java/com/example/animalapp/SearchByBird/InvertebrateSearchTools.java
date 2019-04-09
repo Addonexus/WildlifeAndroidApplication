@@ -34,6 +34,23 @@ class InvertebrateSearchTools {
        return resultList;
 
    }
+    static ArrayList<Animal> searchByWing(ArrayList<Animal> animalList, String wingType){
+        Log.d("STARTING", "THIS PROCESS SEARCH BY TYPE HAS STARTED "+ wingType);
+        ArrayList<Animal> resultList = new ArrayList<>();
+        for (Animal animal :
+                animalList) {
+
+            if (animal.getWingType().equalsIgnoreCase(wingType)){
+                resultList.add(animal);
+                Log.d("MID", "THIS PROCESS HAS WORKED");
+            }
+        }
+//        for (Animal animal: resultList){
+//            Log.d("RSEULT ANIMAL", animal.toString());
+//        }
+        return resultList;
+    }
+
 
 
 

@@ -278,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
             }catch (NumberFormatException e) {
                 Log.getStackTraceString(e);
             }
+            animal.setWingType(record[21]);
 
             animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);
