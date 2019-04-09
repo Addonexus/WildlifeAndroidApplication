@@ -12,13 +12,13 @@
         android:title="@string/welsh"
         app:showAsAction="never"/>
 
-    <item
-        android:id="@+id/btn_notification"
-        android:layout_width="190dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="20dp"
-        android:background="#04ea00"
-        android:textColor="#000000"
-        android:title="@string/notifications"
-        android:hint="@string/notifications"/>
+    <!--<item-->
+        <!--android:id="@+id/btn_notification"-->
+        <!--android:layout_width="190dp"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:background="#04ea00"-->
+        <!--android:textColor="#000000"-->
+        <!--android:title="@string/notifications"-->
+        <!--android:hint="@string/notifications"/>-->
 </menu>
