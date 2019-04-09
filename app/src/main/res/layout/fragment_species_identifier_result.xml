@@ -7,7 +7,7 @@
     android:id="@+id/species_identifier_result"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".SearchByBird.SpeciesIdentifierResult"
+    tools:context=".SpeciesIdentifierResult"
     android:gravity="bottom"
     android:background="@color/grey"
     android:orientation="vertical"

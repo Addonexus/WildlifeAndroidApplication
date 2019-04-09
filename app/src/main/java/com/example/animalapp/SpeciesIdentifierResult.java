@@ -1,8 +1,7 @@
-package com.example.animalapp.SearchByBird;
+package com.example.animalapp;
 
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -10,38 +9,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
 
-import com.example.animalapp.MainActivity;
-import com.example.animalapp.R;
-import com.example.animalapp.SpeciesIdentifier;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 
 /**
@@ -1069,10 +1056,6 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
     public void onClick(View v) {
 
         int viewId = v.getId();
-//        Fragment parentFragment = getParentFragment();
-//        Log.d("THINGS", parentFragment.toString());
-//        Log.d("CHECKING", Boolean.toString(parentFragment instanceof ChooseSpecies));
-//        Log.d("WHAT", getActivity().toString());
     }
 
     class CustomAdapter extends ArrayAdapter<String> {

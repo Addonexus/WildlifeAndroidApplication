@@ -1,4 +1,4 @@
-package com.example.animalapp.SearchByBird;
+package com.example.animalapp;
 
 import android.util.Log;
 

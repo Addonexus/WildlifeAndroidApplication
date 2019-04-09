@@ -1,4 +1,4 @@
-package com.example.animalapp.SearchByBird;
+package com.example.animalapp;
 
 import android.icu.util.LocaleData;
 import android.util.Log;
