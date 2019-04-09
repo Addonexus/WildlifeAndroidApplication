@@ -94,10 +94,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         double latitude = 51.481583;
         double longitude = -3.179090;
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            if(ContextCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                mMap.setMyLocationEnabled(true);
-            }
+
+        if(ContextCompat.checkSelfPermission(Objects.requireNonNull(getActivity()), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            mMap.setMyLocationEnabled(true);
+
         }
 
 
@@ -105,7 +105,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         LatLng cardiff = new LatLng(latitude, longitude);
         mMap.getUiSettings().setZoomControlsEnabled(true);
 //        mMap.setPadding(0, 0, 0, 120);
-        mMap.addMarker(new MarkerOptions().position(cardiff).title("Marker in Cardiff").draggable(true));
+//        mMap.addMarker(new MarkerOptions().position(cardiff).title("Marker in Cardiff").draggable(true));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(cardiff));
         LatLng coordinate = new LatLng(moveCurrentLat, moveCurrentLong);
         CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(coordinate, 14);

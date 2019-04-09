@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.example.animalapp.SearchByBird.SpeciesIdentifierResult;
-
 
 /**
  * A simple {@link Fragment} subclass.
