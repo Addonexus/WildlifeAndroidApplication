@@ -99,8 +99,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 
         list = view.findViewById(R.id.result_list_view);
         bundle = this.getArguments();
-        Button species_back_btn = (Button) view.findViewById(R.id.species_back_button);
-        species_back_btn.setOnClickListener(this);
+
         updateResultList(new Bundle());
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
