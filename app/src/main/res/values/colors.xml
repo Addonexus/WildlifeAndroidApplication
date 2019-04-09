@@ -15,5 +15,7 @@
     <color name="grey">#F0F0F0</color>
     <color name="darkbrown">#B95A15</color>
     <color name="lightbrown">#EE924F</color>
+    <color name="gold">#FFDF00</color>
+    <color name="silver">#BDBDBD</color>
 
 </resources>

@@ -65,6 +65,12 @@ public class Animal {
     @ColumnInfo(name = "Fur Colour")
     private String furColour;
 
+    @ColumnInfo(name = "Skin Colour")
+    private String skinColour;
+
+    @ColumnInfo(name = "Markings")
+    private String markings;
+
     @ColumnInfo(name = "Animal Image")
     private String animalImage;
 
@@ -225,6 +231,22 @@ public class Animal {
         this.furColour = furColour;
     }
 
+    public String getSkinColour() {
+        return skinColour;
+    }
+
+    public void setSkinColour(String skinColour) {
+        this.skinColour = skinColour;
+    }
+
+    public String getMarkings() {
+        return markings;
+    }
+
+    public void setMarkings(String markings) {
+        this.markings = markings;
+    }
+
     public String getAnimalImage( ) {
         return animalImage;
     }
@@ -255,6 +277,9 @@ public class Animal {
                 ", wingColour='" + wingColour + '\'' +
                 ", bellyColour='" + bellyColour + '\'' +
                 ", furColour='" + furColour + '\'' +
+                ", skinColour='" + skinColour + '\'' +
+                ", markings='" + markings + '\'' +
+                ", animalImage='" + animalImage + '\'' +
                 '}';
     }
 }

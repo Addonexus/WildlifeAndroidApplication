@@ -129,6 +129,8 @@ public class SpeciesIdentifier extends Fragment {
             animal.setWingColour(record[15]);
             animal.setBellyColour(record[16]);
             animal.setFurColour(record[17]);
+            animal.setSkinColour(record[18]);
+            animal.setMarkings(record[19]);
 
             animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);
