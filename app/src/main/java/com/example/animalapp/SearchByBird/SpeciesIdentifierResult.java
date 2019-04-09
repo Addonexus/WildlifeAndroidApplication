@@ -60,7 +60,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 
     List<String> birdFilters = Arrays.asList("BirdHeight", "BirdHeadColour", "BirdBellyColour", "BirdWingColour");
     List<String> mammalFilters = Arrays.asList("MammalHeight", "MammalHeadColour", "MammalFurColour");
-    List<String> reptileAmphibianFilters = Arrays.asList("ReptileAmphibianHeight");
+    List<String> reptileAmphibianFilters = Arrays.asList("ReptileAmphibianHeight", "ReptileAmphibianSkinColour");
     public SpeciesIdentifierResult() {
         // Required empty public constructor
     }
@@ -85,7 +85,8 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         mammalFilterChipGroups = new ChipGroup[] {mammalHeightChipGroup,mammalFurColourChipGroup,mammalHeadColourChipGroup};
 
         final ChipGroup reptileAmphibianHeightChipGroup = (ChipGroup) view.findViewById(R.id.reptile_amphibian_choices_height);
-        reptileAmphibianFilterChipGroups = new ChipGroup[] {reptileAmphibianHeightChipGroup};
+        final ChipGroup reptileAmphibianSkinColourChipGroup = (ChipGroup) view.findViewById(R.id.reptile_amphibian_choices_colour_skin);
+        reptileAmphibianFilterChipGroups = new ChipGroup[] {reptileAmphibianHeightChipGroup,reptileAmphibianSkinColourChipGroup};
 
 
         list = view.findViewById(R.id.result_list_view);
@@ -246,6 +247,51 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 }
             }
         });
+        Log.d("I AM HERE", "WHY NOT WOKRING");
+        Log.d("COUNT COLOUR", Integer.toString(reptileAmphibianSkinColourChipGroup.getChildCount()));
+        for (int i = 0; i < reptileAmphibianSkinColourChipGroup.getChildCount(); i++) {
+            Log.d("NO IDEA", Integer.toString(i));
+            final Chip reptileAmphibianSkinColourChip = (Chip) reptileAmphibianSkinColourChipGroup.getChildAt(i);
+            if (reptileAmphibianSkinColourChip != null) {
+                Log.d("COMPARISON ONE CHIP", reptileAmphibianSkinColourChip.getText().toString());
+                reptileAmphibianSkinColourChip.setOnCheckedChangeListener(new Chip.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                        Log.d("WHAT", "THIS WAS CLIECKED");
+                        if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_black).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_blue).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_brown).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_green).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_grey).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_orange).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_red).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_white).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_yellow).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }
+
+                        // Handle the toggle.
+                    }
+                });
+            }
+        }
         mammalHeightChipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup chipGroup, int i) {
@@ -703,6 +749,8 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                 if (bundle.getString("SpeciesType").equals("ReptileAmphibian")) {
                     if (bundle.containsKey("ReptileAmphibianHeight")) {
                         filters.add("ReptileAmphibianHeight");
+                    }if (bundle.containsKey("ReptileAmphibianSkinColour")) {
+                        filters.add("ReptileAmphibianSkinColour");
                     }
                 }
             }
@@ -812,6 +860,10 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             }
             if (filter.equalsIgnoreCase("ReptileAmphibianHeight")){
                 resultList = ReptileAmphibianSearchTools.searchBySize(resultList, bundle.getIntegerArrayList("ReptileAmphibianHeight"));
+                Log.d("AFTER BY REPTILE SIZE", resultList.size() + "");
+            }
+            if (filter.equalsIgnoreCase("ReptileAmphibianSkinColour")){
+                resultList = ReptileAmphibianSearchTools.searchBySkinColour(resultList, bundle.getStringArrayList("ReptileAmphibianSkinColour"));
                 Log.d("AFTER BY REPTILE SIZE", resultList.size() + "");
             }
 

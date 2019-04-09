@@ -50,13 +50,13 @@ public class ReptileAmphibianSearchTools {
         return resultList;
 
     }
-    public static ArrayList<Animal> searchByHeadColour(ArrayList<Animal> animalList, List<String> headColours){
+    public static ArrayList<Animal> searchBySkinColour(ArrayList<Animal> animalList, List<String> skinColours){
         ArrayList<Animal> resultList = new ArrayList<>();
-        Log.d("STARTING", "THIS SEARCH BY HEAD COLOUR HAS STARTED "+ headColours);
+        Log.d("STARTING", "THIS SEARCH BY SKIN COLOUR HAS STARTED "+ skinColours);
         for (Animal animal :
                 animalList) {
-            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getHeadColour().split(";")));
-            if (colours.containsAll(headColours)) {
+            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getSkinColour().split(";")));
+            if (colours.containsAll(skinColours)) {
                 resultList.add(animal);
             }
         }
