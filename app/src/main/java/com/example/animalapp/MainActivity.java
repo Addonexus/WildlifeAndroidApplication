@@ -265,6 +265,7 @@ public class MainActivity extends AppCompatActivity {
             animal.setHeadColour(record[14]);
             animal.setWingColour(record[15]);
             animal.setBellyColour(record[16]);
+            animal.setFurColour(record[17]);
 
             animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);

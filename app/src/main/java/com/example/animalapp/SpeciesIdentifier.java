@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 
 import com.example.animalapp.Database.Animal;
 import com.example.animalapp.Database.AnimalDatabase;
@@ -33,6 +34,8 @@ public class SpeciesIdentifier extends Fragment {
     public SpeciesIdentifier() {
         // Required empty public constructor
     }
+
+
 
 
     @Override
@@ -125,6 +128,7 @@ public class SpeciesIdentifier extends Fragment {
             animal.setHeadColour(record[14]);
             animal.setWingColour(record[15]);
             animal.setBellyColour(record[16]);
+            animal.setFurColour(record[17]);
 
             animalList.add(animal);
 //                Log.d("Read file: ", "Animal List: " + animal);
