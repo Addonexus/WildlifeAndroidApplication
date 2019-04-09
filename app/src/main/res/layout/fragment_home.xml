@@ -57,7 +57,7 @@
         android:layout_height="35dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="#EA0000"
+        android:background="#04ea00"
         android:hint="@string/Login"
         android:textColor="#000000" />
 

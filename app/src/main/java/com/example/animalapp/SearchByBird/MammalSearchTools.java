@@ -9,20 +9,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MammalSearchTools {
-    public static ArrayList<Animal> searchByBellyColour(ArrayList<Animal> animalList, List<String> bellyColours){
-        ArrayList<Animal> resultList = new ArrayList<>();
-        Log.d("STARTING", "THIS SEARCH BY BELLY COLOUR HAS STARTED "+ bellyColours);
-        for (Animal animal :
-                animalList) {
-            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getBellyColour().split(";")));
-            if (colours.containsAll(bellyColours)) {
-                resultList.add(animal);
-            }
-        }
-        return resultList;
-    }
-    public static ArrayList<Animal> searchBySize(ArrayList<Animal> animalList, List<Integer> sizesList){
+class MammalSearchTools {
+
+     static ArrayList<Animal> searchBySize(ArrayList<Animal> animalList, List<Integer> sizesList){
         Log.d("STARTING", "THIS SEARCH BY SIZE HAS STARTED "+ sizesList);
         ArrayList<Animal> resultList = new ArrayList<>();
         for (Animal animal :
@@ -32,8 +21,8 @@ public class MammalSearchTools {
                 Log.d("SECOND VALUE EVAL", Integer.toString(sizesList.get(1)) + " " + Integer.toString(animal.getMaxBodyLengthCm()));
                 Log.d("FIRST EXPRESSION EVAL", Boolean.toString((sizesList.get(0) > animal.getMinBodyLengthCm())));
                 Log.d("SECOND EXPRESSION EVAL", Boolean.toString((sizesList.get(1) < animal.getMaxBodyLengthCm())));
-                if(((sizesList.get(0) > animal.getMinBodyLengthCm() && sizesList.get(0) < animal.getMaxBodyLengthCm())
-                        ||(sizesList.get(1) > animal.getMinBodyLengthCm() && sizesList.get(1) < animal.getMaxBodyLengthCm()))
+                if(((sizesList.get(0) >= animal.getMinBodyLengthCm() && sizesList.get(0) <= animal.getMaxBodyLengthCm())
+                        ||(sizesList.get(1) >= animal.getMinBodyLengthCm() && sizesList.get(1) <= animal.getMaxBodyLengthCm()))
                         && (animal.getType().equalsIgnoreCase("Mammal")) ){
                     Log.d("WOKROG","JKLM");
                     resultList.add(animal);
@@ -64,12 +53,12 @@ public class MammalSearchTools {
         return resultList;
 
     }
-    public static ArrayList<Animal> searchByHeadColour(ArrayList<Animal> animalList, List<String> headColours){
+     static ArrayList<Animal> searchByHeadColour(ArrayList<Animal> animalList, List<String> headColours){
         ArrayList<Animal> resultList = new ArrayList<>();
         Log.d("STARTING", "THIS SEARCH BY HEAD COLOUR HAS STARTED "+ headColours);
         for (Animal animal :
                 animalList) {
-            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getHeadColour().split(";")));
+            ArrayList<String> colours = new ArrayList<>(Arrays.asList(animal.getHeadColour().split(";")));
             if (colours.containsAll(headColours)) {
                 resultList.add(animal);
             }
@@ -77,25 +66,13 @@ public class MammalSearchTools {
         return resultList;
 
     }
-    public static ArrayList<Animal> searchByWingColour(ArrayList<Animal> animalList, List<String> wingColours){
-        ArrayList<Animal> resultList = new ArrayList<>();
-        Log.d("STARTING", "THIS SEARCH BY WING COLOUR HAS STARTED "+ wingColours);
-        for (Animal animal :
-                animalList) {
-            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getWingColour().split(";")));
-            if (colours.containsAll(wingColours)) {
-                resultList.add(animal);
-            }
-        }
-        return resultList;
 
-    }
-    public static ArrayList<Animal> searchByFurColour(ArrayList<Animal> animalList, List<String> furColours){
+    static ArrayList<Animal> searchByFurColour(ArrayList<Animal> animalList, List<String> furColours){
         ArrayList<Animal> resultList = new ArrayList<>();
         Log.d("STARTING", "THIS SEARCH BY Fur COLOUR HAS STARTED "+ furColours);
         for (Animal animal :
                 animalList) {
-            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getFurColour().split(";")));
+            ArrayList<String> colours = new ArrayList<>(Arrays.asList(animal.getFurColour().split(";")));
             if (colours.containsAll(furColours)) {
                 resultList.add(animal);
             }
