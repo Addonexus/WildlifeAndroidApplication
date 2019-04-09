@@ -57,6 +57,7 @@ In order to fully complete the aim of the product the app will have to include:
 * Connectivity with other users
 * A search feature for known species without having to use the identification feature every time
 * Ability to use sound to help in the identification
+* Inclusion of geofencing to get relevant information about the local area
 
 
 
