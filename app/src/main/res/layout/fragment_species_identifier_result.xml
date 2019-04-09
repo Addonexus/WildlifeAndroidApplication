@@ -859,7 +859,7 @@
                         android:layout_height="wrap_content"
                         app:closeIconEnabled="false"
                         android:id="@+id/reptile_amphibian_marking_spots"
-                        android:text="Sports" />
+                        android:text="Spots" />
                     <com.google.android.material.chip.Chip
                         style="@style/Widget.MaterialComponents.Chip.Filter"
                         android:layout_width="wrap_content"

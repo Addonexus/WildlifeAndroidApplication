@@ -9,18 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ReptileAmphibianSearchTools {
-    public static ArrayList<Animal> searchByBellyColour(ArrayList<Animal> animalList, List<String> bellyColours){
-        ArrayList<Animal> resultList = new ArrayList<>();
-        Log.d("STARTING", "THIS SEARCH BY BELLY COLOUR HAS STARTED "+ bellyColours);
-        for (Animal animal :
-                animalList) {
-            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getBellyColour().split(";")));
-            if (colours.containsAll(bellyColours)) {
-                resultList.add(animal);
-            }
-        }
-        return resultList;
-    }
+
     public static ArrayList<Animal> searchBySize(ArrayList<Animal> animalList, List<Integer> sizesList){
         Log.d("STARTING", "THIS SEARCH BY SIZE HAS STARTED "+ sizesList);
         ArrayList<Animal> resultList = new ArrayList<>();
@@ -63,13 +52,13 @@ public class ReptileAmphibianSearchTools {
         return resultList;
 
     }
-    public static ArrayList<Animal> searchByWingColour(ArrayList<Animal> animalList, List<String> wingColours){
+    public static ArrayList<Animal> searchByMarking(ArrayList<Animal> animalList, List<String> markings){
         ArrayList<Animal> resultList = new ArrayList<>();
-        Log.d("STARTING", "THIS SEARCH BY WING COLOUR HAS STARTED "+ wingColours);
+        Log.d("STARTING", "THIS SEARCH BY MARKING HAS STARTED "+ markings);
         for (Animal animal :
                 animalList) {
-            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getWingColour().split(";")));
-            if (colours.containsAll(wingColours)) {
+            ArrayList<String> colours = new ArrayList<String>(Arrays.asList(animal.getMarkings().split(";")));
+            if (colours.containsAll(markings)) {
                 resultList.add(animal);
             }
         }

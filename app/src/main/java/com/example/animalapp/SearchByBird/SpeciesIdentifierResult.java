@@ -86,7 +86,8 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
 
         final ChipGroup reptileAmphibianHeightChipGroup = (ChipGroup) view.findViewById(R.id.reptile_amphibian_choices_height);
         final ChipGroup reptileAmphibianSkinColourChipGroup = (ChipGroup) view.findViewById(R.id.reptile_amphibian_choices_colour_skin);
-        reptileAmphibianFilterChipGroups = new ChipGroup[] {reptileAmphibianHeightChipGroup,reptileAmphibianSkinColourChipGroup};
+        final ChipGroup reptileAmphibianMarkingsChipGroup = (ChipGroup) view.findViewById(R.id.reptile_amphibian_choices_markings);
+        reptileAmphibianFilterChipGroups = new ChipGroup[] {reptileAmphibianHeightChipGroup,reptileAmphibianSkinColourChipGroup,reptileAmphibianMarkingsChipGroup};
 
 
         list = view.findViewById(R.id.result_list_view);
@@ -284,6 +285,36 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                             updateResultList(bundle);
                         }if((reptileAmphibianSkinColourChip.getId() == view.findViewById(R.id.reptile_amphibian_skin_colour_yellow).getId())){
                             addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianSkinColour");
+                            updateResultList(bundle);
+                        }
+
+                        // Handle the toggle.
+                    }
+                });
+            }
+        }
+        Log.d("I AM HERE", "WHY NOT WOKRING");
+        Log.d("COUNT COLOUR", Integer.toString(reptileAmphibianMarkingsChipGroup.getChildCount()));
+        for (int i = 0; i < reptileAmphibianMarkingsChipGroup.getChildCount(); i++) {
+            Log.d("NO IDEA", Integer.toString(i));
+            final Chip reptileAmphibianMarkingsChip = (Chip) reptileAmphibianMarkingsChipGroup.getChildAt(i);
+            if (reptileAmphibianMarkingsChip != null) {
+                Log.d("COMPARISON ONE CHIP", reptileAmphibianMarkingsChip.getText().toString());
+                reptileAmphibianMarkingsChip.setOnCheckedChangeListener(new Chip.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton v, boolean isChecked) {
+                        Log.d("WHAT", "THIS WAS CLIECKED");
+                        if((reptileAmphibianMarkingsChip.getId() == view.findViewById(R.id.reptile_amphibian_marking_warts).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianMarking");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianMarkingsChip.getId() == view.findViewById(R.id.reptile_amphibian_marking_spots).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianMarking");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianMarkingsChip.getId() == view.findViewById(R.id.reptile_amphibian_marking_stripes).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianMarking");
+                            updateResultList(bundle);
+                        }if((reptileAmphibianMarkingsChip.getId() == view.findViewById(R.id.reptile_amphibian_marking_streaks).getId())){
+                            addOrRemoveFromBundleOnClick(v, isChecked, "ReptileAmphibianMarking");
                             updateResultList(bundle);
                         }
 
@@ -751,6 +782,8 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
                         filters.add("ReptileAmphibianHeight");
                     }if (bundle.containsKey("ReptileAmphibianSkinColour")) {
                         filters.add("ReptileAmphibianSkinColour");
+                    }if (bundle.containsKey("ReptileAmphibianMarking")) {
+                        filters.add("ReptileAmphibianMarking");
                     }
                 }
             }
@@ -795,7 +828,7 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
         for (Animal animal :
                 animalList) {
             if (type.equals("ReptileAmphibian")){
-                if (animal.getType().equalsIgnoreCase("Reptile") || animal.getType().equalsIgnoreCase("Amphibians")){
+                if (animal.getType().equalsIgnoreCase("Reptile") || animal.getType().equalsIgnoreCase("Amphibian")){
                     resultList.add(animal);
                     Log.d("MID", "THIS PROCESS HAS WORKED");
                 }
@@ -865,6 +898,9 @@ public class SpeciesIdentifierResult extends Fragment implements View.OnClickLis
             if (filter.equalsIgnoreCase("ReptileAmphibianSkinColour")){
                 resultList = ReptileAmphibianSearchTools.searchBySkinColour(resultList, bundle.getStringArrayList("ReptileAmphibianSkinColour"));
                 Log.d("AFTER BY REPTILE SIZE", resultList.size() + "");
+            }if (filter.equalsIgnoreCase("ReptileAmphibianMarking")){
+                resultList = ReptileAmphibianSearchTools.searchByMarking(resultList, bundle.getStringArrayList("ReptileAmphibianMarking"));
+                Log.d("AFTER BY REPTILE MARKING", resultList.size() + "");
             }
 
         }
